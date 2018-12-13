@@ -6,9 +6,6 @@ void leds_show() {
   digitalLeds_updatePixels(strands[1]);
   digitalLeds_updatePixels(strands[2]);
   digitalLeds_updatePixels(strands[3]);
-  ledcWrite(ledChannela, led_a);
-  ledcWrite(ledChannelb, led_b);
-  ledcWrite(ledChannelc, led_c);
 }//leds_show
 
 void ledBlack() {
@@ -20,9 +17,6 @@ void ledBlack() {
     strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[2]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[3]->pixels[i] = pixelFromRGB(0, 0, 0);
-    led_a = 0;
-    led_b = 0;
-    led_c = 0;
   }//for i
   leds_show();
 }//ledBlack

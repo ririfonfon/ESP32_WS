@@ -104,26 +104,8 @@ int S_seuil;
 int old_S_seuil = 0;
 int S_count;
 int a;
-int led_a;
-int led_b;
-int led_c;
-int led_master;
-int led_mode;
-int led_str;
 float str_blind_ws = 1;
 float str_blind_l = 1;
-
-///////////////////////////////////////PWM setting/////////////////////////////////////////
-int freq = 12000;
-int resolution = 16;
-int ledChannela = 4;
-int ledChannelb = 5;
-int ledChannelc = 6;
-int ledPina = 0;
-int ledPinb = 2;
-int ledPinc = 15;
-uint8_t ledArray[3] = {1, 2, 3}; // three led channels
-const boolean invert = true; // set true if common anode, false if common cathode
 
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
@@ -140,7 +122,7 @@ void setup() {
 #ifdef DEBUG
   Serial.begin(115200);
 #endif
-  // NODE ID
+///////////////////////////////////////////////// NODE ID //////////////////////////////////////
 #ifdef NODE_NUMBER
   eeprom_setID((byte)NODE_NUMBER);
 #endif
@@ -154,7 +136,6 @@ void setup() {
   Serial.println(nodeName);
 #endif
 
-  pwm_init();
   leds_init();
   ConnectWifi();
   // OTA
@@ -169,7 +150,6 @@ void loop() {
   if (wifi_isok()) artnet.read();
   eff_modulo();
   effet();
-  effet_led_mode();
   if ((millis() - lastRefresh) > REFRESH) {
     if (!wifi_isok())  ledBlack();//passe led noir
     lastRefresh = millis();

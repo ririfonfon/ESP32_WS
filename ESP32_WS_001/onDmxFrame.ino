@@ -51,14 +51,10 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
   M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
-  led_master = ((data[adr + 9] * data[adr + 9]) * 1.007852);
-  led_mode = data[adr + 10];
-  led_str = (data[adr + 11] * data[adr + 11]) / 33;
-
-  smaster = data[adr + 12];
-  srr = (data[adr + 13]*data[adr + 13])/255;
-  sgg = (data[adr + 14]*data[adr + 14])/255;
-  sbb = (data[adr + 15]*data[adr + 15])/255;
+  smaster = data[adr + 9];
+  srr = (data[adr + 10]*data[adr + 10])/255;
+  sgg = (data[adr + 11]*data[adr + 11])/255;
+  sbb = (data[adr + 12]*data[adr + 12])/255;
 
   // Ancienne position de led_mode ...
 
