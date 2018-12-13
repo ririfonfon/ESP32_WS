@@ -1,24 +1,13 @@
 /////////////////////////////////////////ID/////////////////////////////////////
-// ID grande = 1  moyene = 2 petite = 3
 #define NODE_NUMBER 1
-#define VERSION 4
+#define VERSION 1
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-// adresse grande = 1  moyene = 18 petite = 35
-// strip   grande = 90 moyene = 78 petite = 66
-#if defined(NODE_NUMBER) && NODE_NUMBER == 1
-#define adr 1
-#define NUM_LEDS_PER_STRIP 90
-#elif defined (NODE_NUMBER) && NODE_NUMBER == 2
-#define adr 18
-#define NUM_LEDS_PER_STRIP 78
-#elif defined (NODE_NUMBER) && NODE_NUMBER == 3
-#define adr 35
-#define NUM_LEDS_PER_STRIP 66
-#endif
+#define adr (1+(NODE_NUMBER-1)*14)
+#define NUM_LEDS_PER_STRIP 29
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 

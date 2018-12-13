@@ -6,7 +6,7 @@ void ota_setup() {
   // ArduinoOTA.setPort(8266);
 
   // Hostname defaults to esp8266-[ChipID]
-  String nameDevice = "pyra-";
+  String nameDevice = "ESP32-";
   //nameDevice += (uint32_t)ESP.getEfuseMac();
   nameDevice += eeprom_getID();
   nameDevice += " v ";
