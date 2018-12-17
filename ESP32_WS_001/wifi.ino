@@ -4,19 +4,26 @@
 #include <ArtnetWifi.h>
 
 /////////////////////////////////////////Wifi settings/////////////////////////////////////
-const char* ssid = "RIRI-DMX-WiFi";
-const char* password = "riridmxwifi";
+const char* ssid = "riri";
+const char* password = "288F42E7E8";
 
 bool wifi_available = false;
 
 void ConnectWifi() {
+  IPAddress ip(2, 0, 0, eeprom_getID() + 100); // Static IP
+  IPAddress gateway(2, 0, 0, 1);
+  IPAddress subnet(255, 255, 255, 0);
+  // Enable wifi
+  WiFi.mode(WIFI_STA);
+  WiFi.config(ip, gateway, subnet);
+
   WiFi.onEvent(wifi_event);
   WiFi.begin(ssid, password);
 #ifdef DEBUG
   Serial.println("");
   Serial.println("Connecting to WiFi");
   // Wait for connection
-  Serial.print("Connecting");
+  Serial.println("Connecting");
 #endif
 }//ConnectWifi
 
@@ -26,20 +33,20 @@ void wifi_event(WiFiEvent_t event) {
 
   switch (event) {
     case SYSTEM_EVENT_STA_DISCONNECTED:
-  master = 0;
-  rr = 0;
-  gg = 0;
-  bb = 0;
-  mod = 0;
-  pix_mod = 0;
-  pix_start = 0;
-  modulo = 0;
-  str_ws = 0;
-  pix_center = 0;
-  smaster = 0;
-  srr = 0;
-  sgg = 0;
-  sbb = 0;
+      master = 0;
+      rr = 0;
+      gg = 0;
+      bb = 0;
+      mod = 0;
+      pix_mod = 0;
+      pix_start = 0;
+      modulo = 0;
+      str_ws = 0;
+      pix_center = 0;
+      smaster = 0;
+      srr = 0;
+      sgg = 0;
+      sbb = 0;
       break;
   }
 
