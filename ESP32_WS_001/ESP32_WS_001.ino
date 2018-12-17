@@ -1,32 +1,34 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define NODE_NUMBER 1
+#define NODE 1
 #define VERSION 1
-
-
-#ifdef NODE_NUMBER && (NODE_NUMBER < 37)
-#define NODE (NODE_NUMBER)
 #define NOEUX 0
-#endif
-#ifdef NODE_NUMBER && ( 37 <= NODE_NUMBER < 73)
-#define NODE (NODE_NUMBER - 36)
-#define NOEUX 1
-#endif
-#ifdef NODE_NUMBER && ( 73 <= NODE_NUMBER < 109)
-#define NODE (NODE_NUMBER - 72)
-#define NOEUX 2
-#endif
-#ifdef NODE_NUMBER && (109 <= NODE_NUMBER < 145)
-#define NODE (NODE_NUMBER - 108)
-#define NOEUX 3
-#endif
+
+//#ifdef NODE_NUMBER && (NODE_NUMBER < 37)
+//#define NODE (NODE_NUMBER)
+//#define NOEUX 0
+//#endif
+//#ifdef NODE_NUMBER && ( 37 <= NODE_NUMBER < 73)
+//#define NODE (NODE_NUMBER - 36)
+//#define NOEUX 1
+//#endif
+//#ifdef NODE_NUMBER && ( 73 <= NODE_NUMBER < 109)
+//#define NODE (NODE_NUMBER - 72)
+//#define NOEUX 2
+//#endif
+//#ifdef NODE_NUMBER && (109 <= NODE_NUMBER < 145)
+//#define NODE (NODE_NUMBER - 108)
+//#define NOEUX 3
+//#endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-#define adr ((1+(NODE-1)*14)-13)
-#define NUM_LEDS_PER_STRIP 29
+//#define adr ((1+(NODE-1)*14)-13)
+#define adr 1
+#define NUM_LEDS_PER_STRIP 150
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-//#define DEBUG 1
-//#define DEBUG_dmx 1
+#define DEBUG 1
+#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 
 /////////////////////////////////////////lib/////////////////////////////////////////
@@ -109,6 +111,8 @@ int pix_start_v;
 int ref_pix_pos;
 float pix_coef;
 float pix_coefi;
+float pix_coef_fond;
+float pix_coefi_fond;
 int M_g;
 int M_g_ref;
 int M_g1;
@@ -127,7 +131,7 @@ float str_blind_l = 1;
 
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
-const int startUniverse = NOEUX; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
+const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
 
 // Check if we got all universes
 const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
@@ -142,7 +146,7 @@ void setup() {
 #endif
   ///////////////////////////////////////////////// NODE ID //////////////////////////////////////
 #ifdef NODE_NUMBER
-  eeprom_setID((byte)NODE_NUMBER);
+  eeprom_setID((byte)NODE);
 #endif
 
   // NAME
