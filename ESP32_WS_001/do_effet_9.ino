@@ -249,8 +249,8 @@ void do_effet_9() {
       }
     }//for i
   }//pix_mod 8
-  
-    if (pix_mod >= 91 && pix_mod <= 100) {
+
+  if (pix_mod >= 91 && pix_mod <= 100) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
         if (pix_start <= 1) {

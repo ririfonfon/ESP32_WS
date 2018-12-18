@@ -27,8 +27,8 @@
 #define NUM_LEDS_PER_STRIP 150
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
-#define DEBUG_dmx 1
+//#define DEBUG 1
+//#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 
 /////////////////////////////////////////lib/////////////////////////////////////////
@@ -77,6 +77,7 @@ int pix_start;
 int pix_center;
 int pix_end;
 int master;
+#define CYCLE (NUM_LEDS_PER_STRIP/6)
 float rrr;
 float ggg;
 float bbb;

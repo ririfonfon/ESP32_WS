@@ -34,9 +34,9 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 #endif
 
   master = data[adr - 1];
-  rr = (data[adr]*data[adr])/255;
-  gg = (data[adr + 1]*data[adr + 1])/255;
-  bb = (data[adr + 2]*data[adr + 2])/255;
+  rr = (data[adr] * data[adr]) / 255;
+  gg = (data[adr + 1] * data[adr + 1]) / 255;
+  bb = (data[adr + 2] * data[adr + 2]) / 255;
   mod = data[adr + 3];
   pix_mod = data[adr + 4];
   pix_start = data[adr + 5] - 1;
@@ -52,9 +52,9 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   pix_center = ((pix_start) / 2) + pix_pos;
   M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   smaster = data[adr + 9];
-  srr = (data[adr + 10]*data[adr + 10])/255;
-  sgg = (data[adr + 11]*data[adr + 11])/255;
-  sbb = (data[adr + 12]*data[adr + 12])/255;
+  srr = (data[adr + 10] * data[adr + 10]) / 255;
+  sgg = (data[adr + 11] * data[adr + 11]) / 255;
+  sbb = (data[adr + 12] * data[adr + 12]) / 255;
 
   // Ancienne position de led_mode ...
 
@@ -135,6 +135,10 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = 0;
     M_g4 = M_g;
   }//rudan 4/4
+  else if ((mod >= 151) && (mod <= 160)) {
+    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    type_effet  = 12;
+  }//arc en ciel
 
   if ((modulo >= 0) && modulo <= 10) {
     type_modulo = 0;

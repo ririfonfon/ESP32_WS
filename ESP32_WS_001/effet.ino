@@ -23,6 +23,8 @@ void effet() {
     do_effet_10();
   else if (type_effet == 11)
     do_effet_11();
+  else if (type_effet == 12)
+    do_effet_12();
   else if (type_effet == 255)
     do_effet_255();
 
