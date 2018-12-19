@@ -28,7 +28,7 @@
 #define N_L_P_S (NUM_LEDS_PER_STRIP/2)
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 

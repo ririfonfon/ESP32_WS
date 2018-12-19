@@ -133,12 +133,16 @@ void do_effet_3() {
           ref_pix_pos = ref_pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
-        strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
-      } else  {
-        strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
+        if (i <= N_L_P_S) {
+          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
+          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
+        } else  {
+          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
+        }
       }
     }//for i
   }//pix_mod 50

@@ -3,15 +3,11 @@ void do_effet_1() {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
         strands[0]->pixels[i] = pixelFromRGB(r, g, b);
+        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-      }
-      if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-      }
-      if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+        strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
       }
     }//for i
   }//pix_mod 0
@@ -30,20 +26,6 @@ void do_effet_1() {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        }
-      }
-      if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        }
-      }
-      if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        if (i >= (pix_pos) && i <= pix_start + (pix_pos)) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        } else {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
@@ -94,22 +76,10 @@ void do_effet_1() {
         pix_coef = pix_coefi * pix_coefi;
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
@@ -128,22 +98,10 @@ void do_effet_1() {
         pix_coef = pix_coefi * pix_coefi;
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
@@ -170,22 +128,10 @@ void do_effet_1() {
         if (pix_coef > 1) pix_coef = 1;
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
@@ -319,22 +265,10 @@ void do_effet_1() {
 
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
@@ -356,26 +290,13 @@ void do_effet_1() {
 
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
         ref_pix_pos--;
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
       }
-
     }//for i
   }//pix_mod 100
 
@@ -404,22 +325,10 @@ void do_effet_1() {
 
         if (i <= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(r * pix_coef, g * pix_coef, b * pix_coef);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
-        }
-      } else {
-        if (i <= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          strands[0]->pixels[i] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          strands[1]->pixels[i - N_L_P_S * 2] = pixelFromRGB(sr, sg, sb);
-        } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          strands[1]->pixels[i - N_L_P_S * 3] = pixelFromRGB(sr, sg, sb);
+          strands[1]->pixels[i] = pixelFromRGB(sr, sg, sb);
         }
       }
     }//for i
