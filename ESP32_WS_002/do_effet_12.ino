@@ -36,10 +36,13 @@ void do_effet_12() {
       if (ci > NUM_LEDS_PER_STRIP) {
         ci = ci - NUM_LEDS_PER_STRIP;
       }
-      strands[0]->pixels[ci] = pixelFromRGB(r, g, b);
-      strands[1]->pixels[ci] = pixelFromRGB(r, g, b);
-      strands[2]->pixels[ci] = pixelFromRGB(r, g, b);
-      strands[3]->pixels[ci] = pixelFromRGB(r, g, b);
+      if (i <= N_L_P_S) {
+        strands[0]->pixels[ci] = pixelFromRGB(r, g, b);
+        strands[1]->pixels[ci] = pixelFromRGB(r, g, b);
+      } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
+        strands[0]->pixels[ci] = pixelFromRGB(r, g, b);
+        strands[1]->pixels[ci] = pixelFromRGB(r, g, b);
+      }
     }//for i
   }//pix_mod 0
 }//do_effet_12()

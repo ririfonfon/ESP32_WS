@@ -43,7 +43,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
   pix_end = pix_start + pix_start;
   if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {
-    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
   } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
     pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
   }
@@ -136,7 +136,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g;
   }//rudan 4/4
   else if ((mod >= 151) && (mod <= 160)) {
-    pix_pos = (((pix_start + NUM_LEDS_PER_STRIP + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
     type_effet  = 12;
   }//arc en ciel
 

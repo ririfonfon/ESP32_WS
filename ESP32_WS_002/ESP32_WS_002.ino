@@ -25,6 +25,7 @@
 //#define adr ((1+(NODE-1)*14)-13)
 #define adr 1
 #define NUM_LEDS_PER_STRIP 150
+#define N_L_P_S (NUM_LEDS_PER_STRIP/2)
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
@@ -53,12 +54,12 @@ byte myID;
 ///////////////////////////////Lib esp32_digital_led_lib//////////////////////////////
 #include "esp32_digital_led_lib.h"
 #define min(m,n) ((m)<(n)?(m):(n))
-#define NUM_STRIPS 4
-int PINS[NUM_STRIPS] = {23, 22, 18, 5};
+#define NUM_STRIPS 2
+int PINS[NUM_STRIPS] = {23, 22};
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 3;
 const int numberOfLed = NUM_STRIPS * NUM_LEDS_PER_STRIP ;
 strand_t STRANDS[NUM_STRIPS];
-strand_t * strands [] = { &STRANDS[0], &STRANDS[1], &STRANDS[2], &STRANDS[3]};
+strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 bool randArray[numberOfLed];
 
 ///////////////////////////////////dmx variables////////////////////////////////////
@@ -77,7 +78,7 @@ int pix_start;
 int pix_center;
 int pix_end;
 int master;
-#define CYCLE (NUM_LEDS_PER_STRIP/6)
+#define CYCLE (N_L_P_S/6)
 float rrr;
 float ggg;
 float bbb;
