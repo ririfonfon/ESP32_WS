@@ -61,9 +61,9 @@ void eff_modulo() {
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , numberOfLed );
-        n_strip = a / N_L_P_S;
-      } while (strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].r != 0 || strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].g != 0 || strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].b != 0 );
-      strands[n_strip]->pixels[a - (N_L_P_S * n_strip)] = pixelFromRGB(r, g, b);
+        n_strip = a / NUM_LEDS_PER_STRIP;
+      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 );
+      strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
     }//for i
   }//modulo 3
 
@@ -119,9 +119,9 @@ void eff_modulo() {
     for (int i = 0; i < n_led_to_show ; i ++) {
       do {
         a = random( 0 , numberOfLed );
-        n_strip = a / N_L_P_S;
-      } while (strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].r != 0 || strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].g != 0 || strands[n_strip]->pixels[a - (N_L_P_S * n_strip)].b != 0 );
-      strands[n_strip]->pixels[a - (N_L_P_S * n_strip)] = pixelFromRGB(r, g, b);
+        n_strip = a / NUM_LEDS_PER_STRIP;
+      } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 );
+      strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
     }//for i
   }//modulo 5
 
@@ -138,7 +138,7 @@ void eff_modulo() {
       for (int i = 0; i < n_led_to_show ; i ++) {
         do {
           a = random( 0 , numberOfLed );
-          n_strip = a / N_L_P_S;
+          n_strip = a / NUM_LEDS_PER_STRIP;
         } while (randArray[a]);
         randArray[a] = true;
       }//for i
@@ -150,8 +150,8 @@ void eff_modulo() {
     Black();
     for (int i = 0; i < numberOfLed; i++) {
       if (randArray[i]) {
-        int n_strip = i / N_L_P_S;
-        strands[n_strip]->pixels[i - (N_L_P_S * n_strip)] = pixelFromRGB(r, g, b);
+        int n_strip = i / NUM_LEDS_PER_STRIP;
+        strands[n_strip]->pixels[i - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
       }
     }
     return;
