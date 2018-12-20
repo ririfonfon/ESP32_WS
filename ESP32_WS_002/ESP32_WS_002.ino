@@ -25,7 +25,7 @@
 //#define adr ((1+(NODE-1)*14)-13)
 #define adr 1
 #define NUM_LEDS_PER_STRIP 150
-#define N_L_P_S (NUM_LEDS_PER_STRIP/2)
+int N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
