@@ -55,130 +55,229 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   srr = (data[adr + 10] * data[adr + 10]) / 255;
   sgg = (data[adr + 11] * data[adr + 11]) / 255;
   sbb = (data[adr + 12] * data[adr + 12]) / 255;
+  color_mode = data[adr + 13];
+  mirror = data[adr + 14];
 
-  // Ancienne position de led_mode ...
-  if ((mod >= 0) && (mod <= 160)) {
-  N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+  // mirror mode
+  if (mirror >= 0 && mirror <= 10) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+  } else if (mirror >= 11 && mirror <= 20) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
+  } else if (mirror >= 21 && mirror <= 30) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
+  } else if (mirror >= 31 && mirror <= 40) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 5);
   }
-  if ((mod >= 0) && (mod <= 10)) {
-  type_effet = 0;
-}//mod fix
-else if ((mod >= 11) && (mod <= 20)) {
-  type_effet  = 1;
-}//rudan 1
-else if ((mod >= 21) && (mod <= 30)) {
-  type_effet  = 2;
-}//rudan 2
-else if ((mod >= 31) && (mod <= 40)) {
-  type_effet  = 3;
-}//rudan 3
-else if ((mod >= 41) && (mod <= 50)) {
-  type_effet  = 4;
-}//rudan 4
-else if ((mod >= 51) && (mod <= 60)) {
-  type_effet  = 5;
-}//rudan 12
-else if ((mod >= 61) && (mod <= 70)) {
-  type_effet  = 6;
-}//rudan 13
-else if ((mod >= 71) && (mod <= 80)) {
-  type_effet  = 7;
-}//rudan 14
-else if ((mod >= 81) && (mod <= 90)) {
-  type_effet  = 8;
-}//rudan 23
-else if ((mod >= 91) && (mod <= 100)) {
-  type_effet  = 9;
-}//rudan 24
-else if ((mod >= 101) && (mod <= 110)) {
-  type_effet  = 10;
-}//rudan 34
-else if ((mod >= 111) && (mod <= 120)) {
-  type_effet  = 11;
-  M_g_ref = 0;
-  M_g1 = M_g;
-  M_g1_ref = M_g;
-  M_g2 = M_g * 2;
-  M_g2_ref = M_g * 2;
-  M_g3 = M_g * 3;
-  M_g3_ref = M_g * 3;
-  M_g4 = M_g * 4;
-}//rudan 1/4
-else if ((mod >= 121) && (mod <= 130)) {
-  type_effet  = 11;
-  M_g_ref = M_g * 3;
-  M_g1 = M_g * 4;
-  M_g1_ref = 0;
-  M_g2 = M_g;
-  M_g2_ref = M_g;
-  M_g3 = M_g * 2;
-  M_g3_ref = M_g * 2;
-  M_g4 = M_g * 3;
-}//rudan 2/4
-else if ((mod >= 131) && (mod <= 140)) {
-  type_effet  = 11;
-  M_g_ref = M_g * 2;
-  M_g1 = M_g * 3;
-  M_g1_ref = M_g * 3;
-  M_g2 = M_g * 4;
-  M_g2_ref = 0;
-  M_g3 = M_g;
-  M_g3_ref = M_g;
-  M_g4 = M_g * 2;
-}//rudan 3/4
-else if ((mod >= 141) && (mod <= 150)) {
-  type_effet  = 11;
-  M_g_ref = M_g;
-  M_g1 = M_g * 2;
-  M_g1_ref = M_g * 2;
-  M_g2 = M_g * 3;
-  M_g2_ref = M_g * 3;
-  M_g3 = M_g * 4;
-  M_g3_ref = 0;
-  M_g4 = M_g;
-}//rudan 4/4
-else if ((mod >= 151) && (mod <= 160)) {
-  pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
-    type_effet  = 12;
-  }//arc en ciel
-  else if ((mod >= 161) && (mod <= 170)) {
-  N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
-  }// mirror *2
-  else if ((mod >= 171) && (mod <= 180)) {
-  N_L_P_S = (NUM_LEDS_PER_STRIP / 5);
-  }// mirror *3
-  else if ((mod >= 181) && (mod <= 190)) {
-  N_L_P_S = (NUM_LEDS_PER_STRIP / 6);
-  }// mirror *4
 
   if ((modulo >= 0) && modulo <= 10) {
-  type_modulo = 0;
-} else if ((modulo >= 11) && modulo <= 20) {
-  type_modulo = 1;
-} else if ((modulo >= 21) && modulo <= 30) {
-  type_modulo = 2;
-} else if ((modulo >= 31) && modulo <= 110) {
-  Black();
+    type_modulo = 0;
+  } else if ((modulo >= 11) && modulo <= 20) {
+    type_modulo = 1;
+  } else if ((modulo >= 21) && modulo <= 30) {
+    type_modulo = 2;
+  } else if ((modulo >= 31) && modulo <= 110) {
+    Black();
     type_modulo = 3;
     S_seuil = (modulo - 30) * 4;
     type_effet = 255;
   } else if ((modulo >= 111) && modulo <= 120) {
-  type_modulo = 4;
-} else if ((modulo >= 121) && modulo <= 200) {
-  Black();
+    type_modulo = 4;
+  } else if ((modulo >= 121) && modulo <= 200) {
+    Black();
     type_modulo = 5;
     S_seuil = (modulo - 120) * 4;
     type_effet = 255;
   } else if ((modulo >= 201) && modulo <= 255) {
-  type_modulo = 6;
-  S_seuil = (modulo - 200) * 4;
+    type_modulo = 6;
+    S_seuil = (modulo - 200) * 4;
     type_effet = 255;
   }
+
+  // color mode
+  if (color_mode >= 0 && color_mode <= 10) {
+    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+      pi_0_r[i] = r;
+      pi_0_g[i] = g;
+      pi_0_b[i] = b;
+      pi_1_r[i] = r;
+      pi_1_g[i] = g;
+      pi_1_b[i] = b;
+      pi_0_sr[i] = sr;
+      pi_0_sg[i] = sg;
+      pi_0_sb[i] = sb;
+      pi_1_sr[i] = sr;
+      pi_1_sg[i] = sg;
+      pi_1_sb[i] = sb;
+    }
+  } else if (color_mode >= 11 && color_mode <= 30) {
+    pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    float P_S = srr;
+    float P_E = sgg;
+    float P_S_E;
+    float P_S_N;
+    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+      if (P_S < P_E) {
+        P_S_E = P_E - P_S;
+        P_S_N = P_S + (P_S_E * i);
+      } else if (P_S > P_E) {
+        P_S_E = P_S - P_E;
+        P_S_N = P_S + (P_S_E * i);
+      } else if (P_S == P_E) {
+        P_S_E = P_S;
+        P_S_N = P_S + (P_S_E * i);
+      }
+      if (P_S_N >= 0 && P_S_N < 42.5) {
+        rrr = map(P_S_N, 0, 42.5, 255, 255);
+        ggg = map(P_S_N, 0, 42.5, 0, 255);
+        bbb = map(P_S_N, 0, 42.5, 0, 0);
+      } else if (P_S_N >= 42.5 && P_S_N < 85) {
+        rrr = map(P_S_N, 42.5, 85, 255, 0);
+        ggg = map(P_S_N, 42.5, 85, 255, 255);
+        bbb = map(P_S_N, 42.5, 85, 0, 0);
+      } else if (P_S_N >= 85 && P_S_N < 127.5) {
+        rrr = map(P_S_N, 85, 127.5, 0, 0);
+        ggg = map(P_S_N, 85, 127.5, 255, 255);
+        bbb = map(P_S_N, 85, 127.5, 0, 255);
+      } else if (P_S_N >= 127.5 && P_S_N < 170) {
+        rrr = map(P_S_N, 127.5, 170, 0, 0);
+        ggg = map(P_S_N, 127.5, 170, 255, 0);
+        bbb = map(P_S_N, 127.5, 170, 255, 255);
+      } else if (P_S_N >= 170 && P_S_N < 212.5) {
+        rrr = map(P_S_N, 170, 212.5, 0, 255);
+        ggg = map(P_S_N, 170, 212.5, 0, 0);
+        bbb = map(P_S_N, 170, 212.5, 255, 255);
+      } else if (P_S_N >= 212.5 && P_S_N <= 255) {
+        rrr = map(P_S_N, 212.5, 255, 255, 255);
+        ggg = map(P_S_N, 212.5, 255, 0, 0);
+        bbb = map(P_S_N, 212.5, 255, 255, 0);
+      }
+
+      int ci = pix_pos + i;
+      if (ci > NUM_LEDS_PER_STRIP) {
+        ci = ci - NUM_LEDS_PER_STRIP;
+      }
+      if (color_mode >= 11 && color_mode <= 20) {
+        if (ci >= 0 && ci <= N_L_P_S) {
+          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_0_sr[ci] = sr;
+          pi_0_sg[ci] = sg;
+          pi_0_sb[ci] = sb;
+        }
+        else if (ci >= N_L_P_S && ci <= N_L_P_S * 2) {
+          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_1_sr[ci] = sr;
+          pi_1_sg[ci] = sg;
+          pi_1_sb[ci] = sb;
+        }
+      }
+      else if (color_mode >= 21 && color_mode <= 30) {
+        if (ci >= 0 && ci <= N_L_P_S) {
+          pi_0_r[ci] = r;
+          pi_0_g[ci] = g;
+          pi_0_b[ci] = b;
+          pi_0_sr[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_0_sg[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_0_sb[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+        }
+        else if (ci >= N_L_P_S && ci <= N_L_P_S * 2) {
+          pi_1_r[ci] = r;
+          pi_1_g[ci] = g;
+          pi_1_b[ci] = b;
+          pi_1_sr[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_1_sg[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_1_sb[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+        }
+      }
+    }
+  }
+
+
+  if ((mod >= 0) && (mod <= 10)) {
+    type_effet = 0;
+  }//mod fix
+  else if ((mod >= 11) && (mod <= 20)) {
+    type_effet  = 1;
+  }//rudan 1
+  else if ((mod >= 21) && (mod <= 30)) {
+    type_effet  = 2;
+  }//rudan 2
+  else if ((mod >= 31) && (mod <= 40)) {
+    type_effet  = 3;
+  }//rudan 3
+  else if ((mod >= 41) && (mod <= 50)) {
+    type_effet  = 4;
+  }//rudan 4
+  else if ((mod >= 51) && (mod <= 60)) {
+    type_effet  = 5;
+  }//rudan 12
+  else if ((mod >= 61) && (mod <= 70)) {
+    type_effet  = 6;
+  }//rudan 13
+  else if ((mod >= 71) && (mod <= 80)) {
+    type_effet  = 7;
+  }//rudan 14
+  else if ((mod >= 81) && (mod <= 90)) {
+    type_effet  = 8;
+  }//rudan 23
+  else if ((mod >= 91) && (mod <= 100)) {
+    type_effet  = 9;
+  }//rudan 24
+  else if ((mod >= 101) && (mod <= 110)) {
+    type_effet  = 10;
+  }//rudan 34
+  else if ((mod >= 111) && (mod <= 120)) {
+    type_effet  = 11;
+    M_g_ref = 0;
+    M_g1 = M_g;
+    M_g1_ref = M_g;
+    M_g2 = M_g * 2;
+    M_g2_ref = M_g * 2;
+    M_g3 = M_g * 3;
+    M_g3_ref = M_g * 3;
+    M_g4 = M_g * 4;
+  }//rudan 1/4
+  else if ((mod >= 121) && (mod <= 130)) {
+    type_effet  = 11;
+    M_g_ref = M_g * 3;
+    M_g1 = M_g * 4;
+    M_g1_ref = 0;
+    M_g2 = M_g;
+    M_g2_ref = M_g;
+    M_g3 = M_g * 2;
+    M_g3_ref = M_g * 2;
+    M_g4 = M_g * 3;
+  }//rudan 2/4
+  else if ((mod >= 131) && (mod <= 140)) {
+    type_effet  = 11;
+    M_g_ref = M_g * 2;
+    M_g1 = M_g * 3;
+    M_g1_ref = M_g * 3;
+    M_g2 = M_g * 4;
+    M_g2_ref = 0;
+    M_g3 = M_g;
+    M_g3_ref = M_g;
+    M_g4 = M_g * 2;
+  }//rudan 3/4
+  else if ((mod >= 141) && (mod <= 150)) {
+    type_effet  = 11;
+    M_g_ref = M_g;
+    M_g1 = M_g * 2;
+    M_g1_ref = M_g * 2;
+    M_g2 = M_g * 3;
+    M_g2_ref = M_g * 3;
+    M_g3 = M_g * 4;
+    M_g3_ref = 0;
+    M_g4 = M_g;
+  }//rudan 4/4
 
   previousDataLength = length;
 
   if (sendFrame) {
-  // Reset universeReceived to 0
-  memset(universesReceived, 0, maxUniverses);
+    // Reset universeReceived to 0
+    memset(universesReceived, 0, maxUniverses);
   }
 }//onframedmx

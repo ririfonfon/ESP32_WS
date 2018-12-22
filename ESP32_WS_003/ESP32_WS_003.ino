@@ -63,6 +63,21 @@ strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
 bool randArray[numberOfLed];
 
 ///////////////////////////////////dmx variables////////////////////////////////////
+float pi_0_r[NUM_LEDS_PER_STRIP];
+float pi_0_g[NUM_LEDS_PER_STRIP];
+float pi_0_b[NUM_LEDS_PER_STRIP];
+float pi_1_r[NUM_LEDS_PER_STRIP];
+float pi_1_g[NUM_LEDS_PER_STRIP];
+float pi_1_b[NUM_LEDS_PER_STRIP];
+float pi_0_sr[NUM_LEDS_PER_STRIP];
+float pi_0_sg[NUM_LEDS_PER_STRIP];
+float pi_0_sb[NUM_LEDS_PER_STRIP];
+float pi_1_sr[NUM_LEDS_PER_STRIP];
+float pi_1_sg[NUM_LEDS_PER_STRIP];
+float pi_1_sb[NUM_LEDS_PER_STRIP];
+int color_mode;
+int mirror;
+
 unsigned long now;
 int effet_etat = 0;
 int last_time_effet = 0;
