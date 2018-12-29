@@ -117,12 +117,18 @@ uint8_t strob_count = 0;
 uint8_t strob_count_l = 0;
 unsigned long str_ws_last = 0;
 unsigned long t_last_l = 0;
-#define STROB_FRACTION 10
+//#define STROB_FRACTION 10
+//#define STROB_ON 1
+//#define STROB_ON_MS 30
+//#define STROB_FRACTION_L 10
+//#define STROB_ON_L 1
+//#define STROB_ON_MS_L 30
+#define STROB_FRACTION 5
 #define STROB_ON 1
-#define STROB_ON_MS 30
-#define STROB_FRACTION_L 10
+#define STROB_ON_MS 15
+#define STROB_FRACTION_L 5
 #define STROB_ON_L 1
-#define STROB_ON_MS_L 30
+#define STROB_ON_MS_L 15
 int l_s_count = 1;
 int pix_start_v;
 int ref_pix_pos;
