@@ -47,6 +47,8 @@ void wifi_event(WiFiEvent_t event) {
       srr = 0;
       sgg = 0;
       sbb = 0;
+      color_mode = 0;
+      mirror = 0;
       break;
   }
 
