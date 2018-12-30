@@ -38,6 +38,8 @@ void do_effet_12() {
   //      }
   //      strands[0]->pixels[ci] = pixelFromRGB(r, g, b);
   //      strands[1]->pixels[ci] = pixelFromRGB(r, g, b);
+  //      strands[2]->pixels[ci] = pixelFromRGB(r, g, b);
+  //      strands[3]->pixels[ci] = pixelFromRGB(r, g, b);
   //    }//for i
   //  }//pix_mod 0
 
@@ -93,6 +95,8 @@ void do_effet_12() {
       }
       strands[0]->pixels[ci] = pixelFromRGB(r, g, b);
       strands[1]->pixels[ci] = pixelFromRGB(r, g, b);
+      strands[2]->pixels[ci] = pixelFromRGB(r, g, b);
+      strands[3]->pixels[ci] = pixelFromRGB(r, g, b);
     }//for i
   }//pix_mod 0
 }//do_effet_12()
