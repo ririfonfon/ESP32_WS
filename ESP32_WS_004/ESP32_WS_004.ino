@@ -25,7 +25,7 @@
 //#define adr ((1+(NODE-1)*14)-13)
 #define adr 1
 #define NUM_LEDS_PER_STRIP 150
-int N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+int N_L_P_S = NUM_LEDS_PER_STRIP;
 
 /////////////////////////////////////////Debug///////////////////////////////////////
 //#define DEBUG 1
@@ -54,12 +54,12 @@ byte myID;
 ///////////////////////////////Lib esp32_digital_led_lib//////////////////////////////
 #include "esp32_digital_led_lib.h"
 #define min(m,n) ((m)<(n)?(m):(n))
-#define NUM_STRIPS 2
-int PINS[NUM_STRIPS] = {23, 22};
+#define NUM_STRIPS 4
+int PINS[NUM_STRIPS] = {23, 22, 18, 5};
 const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 3;
 const int numberOfLed = NUM_STRIPS * NUM_LEDS_PER_STRIP ;
 strand_t STRANDS[NUM_STRIPS];
-strand_t * strands [] = { &STRANDS[0], &STRANDS[1]};
+strand_t * strands [] = { &STRANDS[0], &STRANDS[1], &STRANDS[2], &STRANDS[3]};
 bool randArray[numberOfLed];
 
 ///////////////////////////////////dmx variables////////////////////////////////////
@@ -75,6 +75,18 @@ float pi_0_sb[NUM_LEDS_PER_STRIP];
 float pi_1_sr[NUM_LEDS_PER_STRIP];
 float pi_1_sg[NUM_LEDS_PER_STRIP];
 float pi_1_sb[NUM_LEDS_PER_STRIP];
+float pi_2_r[NUM_LEDS_PER_STRIP];
+float pi_2_g[NUM_LEDS_PER_STRIP];
+float pi_2_b[NUM_LEDS_PER_STRIP];
+float pi_3_r[NUM_LEDS_PER_STRIP];
+float pi_3_g[NUM_LEDS_PER_STRIP];
+float pi_3_b[NUM_LEDS_PER_STRIP];
+float pi_2_sr[NUM_LEDS_PER_STRIP];
+float pi_2_sg[NUM_LEDS_PER_STRIP];
+float pi_2_sb[NUM_LEDS_PER_STRIP];
+float pi_3_sr[NUM_LEDS_PER_STRIP];
+float pi_3_sg[NUM_LEDS_PER_STRIP];
+float pi_3_sb[NUM_LEDS_PER_STRIP];
 int color_mode;
 int mirror;
 
@@ -117,18 +129,18 @@ uint8_t strob_count = 0;
 uint8_t strob_count_l = 0;
 unsigned long str_ws_last = 0;
 unsigned long t_last_l = 0;
-//#define STROB_FRACTION 10
-//#define STROB_ON 1
-//#define STROB_ON_MS 30
-//#define STROB_FRACTION_L 10
-//#define STROB_ON_L 1
-//#define STROB_ON_MS_L 30
-#define STROB_FRACTION 5
+#define STROB_FRACTION 10
 #define STROB_ON 1
-#define STROB_ON_MS 15
-#define STROB_FRACTION_L 5
+#define STROB_ON_MS 30
+#define STROB_FRACTION_L 10
 #define STROB_ON_L 1
-#define STROB_ON_MS_L 15
+#define STROB_ON_MS_L 30
+//#define STROB_FRACTION 5
+//#define STROB_ON 1
+//#define STROB_ON_MS 15
+//#define STROB_FRACTION_L 5
+//#define STROB_ON_L 1
+//#define STROB_ON_MS_L 15
 int l_s_count = 1;
 int pix_start_v;
 int ref_pix_pos;

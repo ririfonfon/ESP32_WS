@@ -4,6 +4,8 @@ int test_led_niv = 50;
 void leds_show() {
   digitalLeds_updatePixels(strands[0]);
   digitalLeds_updatePixels(strands[1]);
+  digitalLeds_updatePixels(strands[2]);
+  digitalLeds_updatePixels(strands[3]);
 }//leds_show
 
 void ledBlack() {
@@ -13,6 +15,8 @@ void ledBlack() {
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, 0);
+    strands[3]->pixels[i] = pixelFromRGB(0, 0, 0);
   }//for i
   leds_show();
 }//ledBlack
@@ -27,18 +31,24 @@ void initTest() {
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(test_led_niv, 0, 0);
     strands[1]->pixels[i] = pixelFromRGB(test_led_niv, 0, 0);
+    strands[2]->pixels[i] = pixelFromRGB(test_led_niv, 0, 0);
+    strands[3]->pixels[i] = pixelFromRGB(test_led_niv, 0, 0);
   }//for i
   leds_show();
   delay(500);
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(0, test_led_niv, 0);
     strands[1]->pixels[i] = pixelFromRGB(0, test_led_niv, 0);
+    strands[2]->pixels[i] = pixelFromRGB(0, test_led_niv, 0);
+    strands[3]->pixels[i] = pixelFromRGB(0, test_led_niv, 0);
   }//for i
   leds_show();
   delay(500);
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(0, 0, test_led_niv);
     strands[1]->pixels[i] = pixelFromRGB(0, 0, test_led_niv);
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, test_led_niv);
+    strands[3]->pixels[i] = pixelFromRGB(0, 0, test_led_niv);
   }//for i
   leds_show();
   delay(500);

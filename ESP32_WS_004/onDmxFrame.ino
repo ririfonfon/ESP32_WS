@@ -60,13 +60,13 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
   // mirror mode
   if (mirror >= 0 && mirror <= 10) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+    N_L_P_S = (NUM_LEDS_PER_STRIP);
   } else if (mirror >= 11 && mirror <= 20) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
   } else if (mirror >= 21 && mirror <= 30) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
   } else if (mirror >= 31 && mirror <= 40) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 5);
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
   }
 
   // color mode
@@ -78,12 +78,24 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       pi_1_r[i] = r;
       pi_1_g[i] = g;
       pi_1_b[i] = b;
+      pi_2_r[i] = r;
+      pi_2_g[i] = g;
+      pi_2_b[i] = b;
+      pi_3_r[i] = r;
+      pi_3_g[i] = g;
+      pi_3_b[i] = b;
       pi_0_sr[i] = sr;
       pi_0_sg[i] = sg;
       pi_0_sb[i] = sb;
       pi_1_sr[i] = sr;
       pi_1_sg[i] = sg;
       pi_1_sb[i] = sb;
+      pi_2_sr[i] = sr;
+      pi_2_sg[i] = sg;
+      pi_2_sb[i] = sb;
+      pi_3_sr[i] = sr;
+      pi_3_sg[i] = sg;
+      pi_3_sb[i] = sb;
     }
   } else if (color_mode >= 11 && color_mode <= 30) {
     pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
@@ -94,14 +106,13 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (P_S < P_E) {
         P_S_E = P_E - P_S;
-        P_S_N = P_S + (P_S_E * i);
       } else if (P_S > P_E) {
         P_S_E = P_S - P_E;
-        P_S_N = P_S + (P_S_E * i);
       } else if (P_S == P_E) {
         P_S_E = P_S;
-        P_S_N = P_S + (P_S_E * i);
       }
+      P_S_N = P_S + (P_S_E * i);
+
       if (P_S_N >= 0 && P_S_N < 42.5) {
         rrr = map(P_S_N, 0, 42.5, 255, 255);
         ggg = map(P_S_N, 0, 42.5, 0, 255);
@@ -140,6 +151,24 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
           pi_0_sr[ci] = sr;
           pi_0_sg[ci] = sg;
           pi_0_sb[ci] = sb;
+          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_1_sr[ci] = sr;
+          pi_1_sg[ci] = sg;
+          pi_1_sb[ci] = sb;
+          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_2_sr[ci] = sr;
+          pi_2_sg[ci] = sg;
+          pi_2_sb[ci] = sb;
+          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
+          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
+          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_3_sr[ci] = sr;
+          pi_3_sg[ci] = sg;
+          pi_3_sb[ci] = sb;
         }
         else if (ci >= N_L_P_S && ci <= N_L_P_S * 2) {
           pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
@@ -250,7 +279,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g;
   }//rudan 4/4
 
-   // modulo mode
+  // modulo mode
   if ((modulo >= 0) && modulo <= 10) {
     type_modulo = 0;
   } else if ((modulo >= 11) && modulo <= 20) {
