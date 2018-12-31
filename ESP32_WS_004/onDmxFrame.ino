@@ -111,7 +111,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       } else if (P_S == P_E) {
         P_S_E = P_S;
       }
-      P_S_N = P_S + (P_S_E * i);
+      P_S_N = P_S + ((P_S_E/255) * i);
 
       if (P_S_N >= 0 && P_S_N < 42.5) {
         rrr = map(P_S_N, 0, 42.5, 255, 255);
