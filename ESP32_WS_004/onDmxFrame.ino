@@ -98,7 +98,13 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       pi_3_sb[i] = sb;
     }
   } else if (color_mode >= 11 && color_mode <= 30) {
-    pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {
+      pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    } else if (pix_mod >= 21 && pix_mod <= 30 || pix_mod >= 61 && pix_mod <= 90 || pix_mod >= 121 && pix_mod <= 150) {
+      pix_pos = (((pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    } else {
+      pix_pos = (((pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    }
     float P_S = srr;
     float P_E = sgg;
     float P_S_E;
@@ -148,27 +154,27 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
           pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
           pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
           pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
-          pi_0_sr[ci] = sr;
-          pi_0_sg[ci] = sg;
-          pi_0_sb[ci] = sb;
+          pi_0_sr[ci] = 0;
+          pi_0_sg[ci] = 0;
+          pi_0_sb[ci] = 0;
           pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
           pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
           pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
-          pi_1_sr[ci] = sr;
-          pi_1_sg[ci] = sg;
-          pi_1_sb[ci] = sb;
+          pi_1_sr[ci] = 0;
+          pi_1_sg[ci] = 0;
+          pi_1_sb[ci] = 0;
           pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
           pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
           pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
-          pi_2_sr[ci] = sr;
-          pi_2_sg[ci] = sg;
-          pi_2_sb[ci] = sb;
+          pi_2_sr[ci] = 0;
+          pi_2_sg[ci] = 0;
+          pi_2_sb[ci] = 0;
           pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
           pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
           pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
-          pi_3_sr[ci] = sr;
-          pi_3_sg[ci] = sg;
-          pi_3_sb[ci] = sb;
+          pi_3_sr[ci] = 0;
+          pi_3_sg[ci] = 0;
+          pi_3_sb[ci] = 0;
         }
         else if (ci >= N_L_P_S && ci <= N_L_P_S * 2) {
           //          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
