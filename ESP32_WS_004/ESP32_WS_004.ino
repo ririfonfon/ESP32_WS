@@ -21,6 +21,11 @@
 //#define NOEUX 3
 //#endif
 
+//////////////////////////////////////TaskHandle_t //////////////////////////////////
+TaskHandle_t Map1;
+
+
+
 /////////////////////////////////////////Adresse/////////////////////////////////////
 //#define adr ((1+(NODE-1)*14)-13)
 #define adr 1
@@ -101,6 +106,7 @@ int type_modulo = 0;
 int str = 0;
 int str_l = 0;
 int pix_pos;
+int pix_pos_v;
 int pix_start;
 int pix_center;
 int pix_end;
@@ -193,6 +199,17 @@ void setup() {
   Serial.println(nodeName);
 #endif
 
+//create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
+  xTaskCreatePinnedToCore(
+                    Map1code,   /* Task function. */
+                    "Map1",     /* name of task. */
+                    10000,       /* Stack size of task */
+                    NULL,        /* parameter of the task */
+                    1,           /* priority of the task */
+                    NULL,      /* Task handle to keep track of created task */
+                    0);          /* pin task to core 0 */                  
+  delay(500); 
+  
   leds_init();
   ConnectWifi();
   // OTA
