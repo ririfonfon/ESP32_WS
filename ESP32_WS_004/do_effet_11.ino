@@ -175,6 +175,7 @@ void do_effet_11() {
         } else {
           strands[3]->pixels[i] = pixelFromRGB(pi_3_sr[i], pi_3_sg[i], pi_3_sb[i]);
         }
+        ref_pix_pos--;
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(pi_0_sr[i], pi_0_sg[i], pi_0_sb[i]);
         strands[1]->pixels[i] = pixelFromRGB(pi_1_sr[i], pi_1_sg[i], pi_1_sb[i]);
@@ -490,6 +491,7 @@ void do_effet_11() {
         } else {
           strands[3]->pixels[i] = pixelFromRGB(pi_3_sr[i], pi_3_sg[i], pi_3_sb[i]);
         }
+        ref_pix_pos--;
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(pi_0_sr[i], pi_0_sg[i], pi_0_sb[i]);
         strands[1]->pixels[i] = pixelFromRGB(pi_1_sr[i], pi_1_sg[i], pi_1_sb[i]);

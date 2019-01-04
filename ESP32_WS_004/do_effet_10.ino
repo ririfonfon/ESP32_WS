@@ -97,6 +97,7 @@ void do_effet_10() {
         strands[1]->pixels[i] = pixelFromRGB(pi_1_sr[i], pi_1_sg[i], pi_1_sb[i]);
         strands[2]->pixels[i] = pixelFromRGB(pi_2_r[i] * pix_coef, pi_2_g[i] * pix_coef, pi_2_b[i] * pix_coef);
         strands[3]->pixels[i] = pixelFromRGB(pi_3_r[i] * pix_coef, pi_3_g[i] * pix_coef, pi_3_b[i] * pix_coef);
+        ref_pix_pos--;
       } else  {
         strands[0]->pixels[i] = pixelFromRGB(pi_0_sr[i], pi_0_sg[i], pi_0_sb[i]);
         strands[1]->pixels[i] = pixelFromRGB(pi_1_sr[i], pi_1_sg[i], pi_1_sb[i]);
