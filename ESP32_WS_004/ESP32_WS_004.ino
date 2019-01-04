@@ -25,7 +25,6 @@
 TaskHandle_t Map1;
 
 
-
 /////////////////////////////////////////Adresse/////////////////////////////////////
 //#define adr ((1+(NODE-1)*14)-13)
 #define adr 1
@@ -199,16 +198,17 @@ void setup() {
   Serial.println(nodeName);
 #endif
 
-//create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
+  //create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
   xTaskCreatePinnedToCore(
-                    Map1code,   /* Task function. */
-                    "Map1",     /* name of task. */
-                    10000,       /* Stack size of task */
-                    NULL,        /* parameter of the task */
-                    1,           /* priority of the task */
-                    NULL,      /* Task handle to keep track of created task */
-                    0);          /* pin task to core 0 */                  
-  delay(500); 
+    Map1code,   /* Task function. */
+    "Map1",     /* name of task. */
+    10000,       /* Stack size of task */
+    NULL,        /* parameter of the task */
+    1,           /* priority of the task */
+    &Map1,      /* Task handle to keep track of created task */
+    0);          /* pin task to core 0 */
+  delay(500);
+
   
   leds_init();
   ConnectWifi();
