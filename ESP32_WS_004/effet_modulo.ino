@@ -63,7 +63,15 @@ void eff_modulo() {
         a = random( 0 , numberOfLed );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 );
-      strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
+      if (n_strip == 0) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_0_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 1) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 2) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_2_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 3) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_3_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      }
     }//for i
   }//modulo 3
 
@@ -121,7 +129,15 @@ void eff_modulo() {
         a = random( 0 , numberOfLed );
         n_strip = a / NUM_LEDS_PER_STRIP;
       } while (strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].r != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].g != 0 || strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)].b != 0 );
-      strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
+      if (n_strip == 0) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_0_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 1) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 2) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_2_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      } else if (n_strip == 3) {
+        strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_3_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+      }
     }//for i
   }//modulo 5
 
@@ -151,9 +167,17 @@ void eff_modulo() {
     for (int i = 0; i < numberOfLed; i++) {
       if (randArray[i]) {
         int n_strip = i / NUM_LEDS_PER_STRIP;
-        strands[n_strip]->pixels[i - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(r, g, b);
+        if (n_strip == 0) {
+          strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_0_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_0_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+        } else if (n_strip == 1) {
+          strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_1_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_1_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+        } else if (n_strip == 2) {
+          strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_2_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_2_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+        } else if (n_strip == 3) {
+          strands[n_strip]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB(pi_3_r[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_g[a - (NUM_LEDS_PER_STRIP * n_strip)], pi_3_b[a - (NUM_LEDS_PER_STRIP * n_strip)]);
+        }
       }
-    }
+    }//for i
     return;
   }//modulo 6
 
