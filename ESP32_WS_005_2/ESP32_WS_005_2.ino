@@ -21,14 +21,13 @@
 //#define NOEUX 3
 //#endif
 
-
 //////////////////////////////////////TaskHandle_t //////////////////////////////////
-//#if CONFIG_FREERTOS_UNICORE
-//#define ARDUINO_RUNNING_CORE 0
-//#else
-//#define ARDUINO_RUNNING_CORE 1
-//#endif
-
+//TaskHandle_t Map1;
+#if CONFIG_FREERTOS_UNICORE
+#define ARDUINO_RUNNING_CORE 0
+#else
+#define ARDUINO_RUNNING_CORE 1
+#endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 //#define adr ((1+(NODE-1)*14)-13)
@@ -219,18 +218,17 @@ void setup() {
 #endif
 
   //create a task that will be executed in the Map1code() function, with priority 1 and executed on core 0
-//  xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, ARDUINO_RUNNING_CORE);
+  xTaskCreatePinnedToCore(Map1code, "Map1code", 4096, NULL, 1, NULL, ARDUINO_RUNNING_CORE);
 //  xTaskCreatePinnedToCore(eff_modulo, "eff_modulo", 4096, NULL, 1, NULL, ARDUINO_RUNNING_CORE);
-//  xTaskCreatePinnedToCore(effet, "effet", 4096, NULL, 1, NULL, ARDUINO_RUNNING_CORE);
-//  xTaskCreatePinnedToCore(
-//    Map1code,   /* Task function. */
-//    "Map1",     /* name of task. */
-//    10000,       /* Stack size of task */
-//    NULL,        /* parameter of the task */
-//    1,           /* priority of the task */
-//    &Map1,      /* Task handle to keep track of created task */
-//    0);          /* pin task to core 0 */
-//  delay(500);
+  //  xTaskCreatePinnedToCore(
+  //    Map1code,   /* Task function. */
+  //    "Map1",     /* name of task. */
+  //    10000,       /* Stack size of task */
+  //    NULL,        /* parameter of the task */
+  //    1,           /* priority of the task */
+  //    &Map1,      /* Task handle to keep track of created task */
+  //    0);          /* pin task to core 0 */
+  //  delay(500);
 
 
   leds_init();
@@ -245,8 +243,8 @@ void setup() {
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
   if (wifi_isok()) artnet.read();
-//  eff_modulo();
-//  effet();
+  eff_modulo();
+  effet();
   if ((millis() - lastRefresh) > REFRESH) {
     if (!wifi_isok())  ledBlack();//passe led noir
     lastRefresh = millis();
