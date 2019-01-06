@@ -149,6 +149,7 @@ void do_effet_0() {
         }
         pix_coefi = (((pix_pos - ref_pix_pos) * 100) / pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
+        ref_pix_pos--;
 
         pi_n_0_r[i] = pi_0_r[i] * pix_coef;
         pi_n_0_g[i] = pi_0_g[i] * pix_coef;
@@ -162,7 +163,6 @@ void do_effet_0() {
         pi_n_3_r[i] = pi_3_r[i] * pix_coef;
         pi_n_3_g[i] = pi_3_g[i] * pix_coef;
         pi_n_3_b[i] = pi_3_b[i] * pix_coef;
-        ref_pix_pos--;
       } else  {
         pi_n_0_r[i] = pi_0_sr[i];
         pi_n_0_g[i] = pi_0_sg[i];
