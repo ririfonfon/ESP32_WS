@@ -168,11 +168,11 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     Black();
     type_modulo = 5;
     S_seuil = (modulo - 120) * 4;
-    type_effet = 255;
+//    type_effet = 255;
   } else if ((modulo >= 201) && modulo <= 255) {
     type_modulo = 6;
     S_seuil = (modulo - 200) * 4;
-    type_effet = 255;
+//    type_effet = 255;
   }
 
 //  Map1code(0);
