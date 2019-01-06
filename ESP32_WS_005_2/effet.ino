@@ -28,11 +28,11 @@ void effet() {
     else if (type_effet == 255)
       do_effet_255();
 
-    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      strands[0]->pixels[i] = pixelFromRGB(pi_n_0_r[i], pi_n_0_g[i], pi_n_0_b[i]);
-      strands[1]->pixels[i] = pixelFromRGB(pi_n_1_r[i], pi_n_1_g[i], pi_n_1_b[i]);
-      strands[2]->pixels[i] = pixelFromRGB(pi_n_2_r[i], pi_n_2_g[i], pi_n_2_b[i]);
-      strands[3]->pixels[i] = pixelFromRGB(pi_n_3_r[i], pi_n_3_g[i], pi_n_3_b[i]);
-    }
+//    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+//      strands[0]->pixels[i] = pixelFromRGB(pi_n_0_r[i], pi_n_0_g[i], pi_n_0_b[i]);
+//      strands[1]->pixels[i] = pixelFromRGB(pi_n_1_r[i], pi_n_1_g[i], pi_n_1_b[i]);
+//      strands[2]->pixels[i] = pixelFromRGB(pi_n_2_r[i], pi_n_2_g[i], pi_n_2_b[i]);
+//      strands[3]->pixels[i] = pixelFromRGB(pi_n_3_r[i], pi_n_3_g[i], pi_n_3_b[i]);
+//    }
     leds_show();
 }//effet

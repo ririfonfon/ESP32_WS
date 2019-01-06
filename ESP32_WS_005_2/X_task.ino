@@ -4,30 +4,30 @@ void Map1code( void * pvParameters ) {
     // color mode
     if (color_mode >= 0 && color_mode <= 10) {
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-        pi_0_r[i] = r;
-        pi_0_g[i] = g;
-        pi_0_b[i] = b;
-        pi_1_r[i] = r;
-        pi_1_g[i] = g;
-        pi_1_b[i] = b;
-        pi_2_r[i] = r;
-        pi_2_g[i] = g;
-        pi_2_b[i] = b;
-        pi_3_r[i] = r;
-        pi_3_g[i] = g;
-        pi_3_b[i] = b;
-        pi_0_sr[i] = sr;
-        pi_0_sg[i] = sg;
-        pi_0_sb[i] = sb;
-        pi_1_sr[i] = sr;
-        pi_1_sg[i] = sg;
-        pi_1_sb[i] = sb;
-        pi_2_sr[i] = sr;
-        pi_2_sg[i] = sg;
-        pi_2_sb[i] = sb;
-        pi_3_sr[i] = sr;
-        pi_3_sg[i] = sg;
-        pi_3_sb[i] = sb;
+        pi_0_r[i] = rr;
+        pi_0_g[i] = gg;
+        pi_0_b[i] = bb;
+        pi_1_r[i] = rr;
+        pi_1_g[i] = gg;
+        pi_1_b[i] = bb;
+        pi_2_r[i] = rr;
+        pi_2_g[i] = gg;
+        pi_2_b[i] = bb;
+        pi_3_r[i] = rr;
+        pi_3_g[i] = gg;
+        pi_3_b[i] = bb;
+        pi_0_sr[i] = srr;
+        pi_0_sg[i] = sgg;
+        pi_0_sb[i] = sbb;
+        pi_1_sr[i] = srr;
+        pi_1_sg[i] = sgg;
+        pi_1_sb[i] = sbb;
+        pi_2_sr[i] = srr;
+        pi_2_sg[i] = sgg;
+        pi_2_sb[i] = sbb;
+        pi_3_sr[i] = srr;
+        pi_3_sg[i] = sgg;
+        pi_3_sb[i] = sbb;
       }
     } else if (color_mode >= 11 && color_mode <= 20) {
       if (pix_mod >= 11 && pix_mod <= 20 || pix_mod >= 31 && pix_mod <= 60 || pix_mod >= 91 && pix_mod <= 120) {
@@ -84,27 +84,27 @@ void Map1code( void * pvParameters ) {
         }
 
         if (ci >= 0 && ci <= N_L_P_S) {
-          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_0_sr[ci] = 0;
           pi_0_sg[ci] = 0;
           pi_0_sb[ci] = 0;
-          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_1_sr[ci] = 0;
           pi_1_sg[ci] = 0;
           pi_1_sb[ci] = 0;
-          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_2_sr[ci] = 0;
           pi_2_sg[ci] = 0;
           pi_2_sb[ci] = 0;
-          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_3_sr[ci] = 0;
           pi_3_sg[ci] = 0;
           pi_3_sb[ci] = 0;
@@ -175,30 +175,30 @@ void Map1code( void * pvParameters ) {
           ci = ci - (NUM_LEDS_PER_STRIP * 4) - 1;
         }
         if (ci >= 0 && ci <= N_L_P_S) {
-          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_0_sr[ci] = 0;
           pi_0_sg[ci] = 0;
           pi_0_sb[ci] = 0;
         } else if (ci > N_L_P_S && ci <= N_L_P_S * 2) {
-          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_1_sr[ci] = 0;
           pi_1_sg[ci] = 0;
           pi_1_sb[ci] = 0;
         } else if (ci > N_L_P_S * 2 && ci <= N_L_P_S * 3) {
-          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_2_sr[ci] = 0;
           pi_2_sg[ci] = 0;
           pi_2_sb[ci] = 0;
         } else if (ci > N_L_P_S * 3 && ci <= N_L_P_S * 4) {
-          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255 * master / 255;
-          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255 * master / 255;
-          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255 * master / 255;
+          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
           pi_3_sr[ci] = 0;
           pi_3_sg[ci] = 0;
           pi_3_sb[ci] = 0;
