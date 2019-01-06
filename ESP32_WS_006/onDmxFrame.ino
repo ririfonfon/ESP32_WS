@@ -51,7 +51,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
-  M_g = ((NUM_LEDS_PER_STRIP / 2) + 1) / NUM_STRIPS;
+  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   smaster = data[adr + 9];
   srr = (data[adr + 10] * data[adr + 10]) / 255;
   sgg = (data[adr + 11] * data[adr + 11]) / 255;
@@ -161,21 +161,21 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     Black();
     type_modulo = 3;
     S_seuil = (modulo - 30) * 4;
-//    type_effet = 255;
+    //    type_effet = 255;
   } else if ((modulo >= 111) && modulo <= 120) {
     type_modulo = 4;
   } else if ((modulo >= 121) && modulo <= 200) {
     Black();
     type_modulo = 5;
     S_seuil = (modulo - 120) * 4;
-//    type_effet = 255;
+    //    type_effet = 255;
   } else if ((modulo >= 201) && modulo <= 255) {
     type_modulo = 6;
     S_seuil = (modulo - 200) * 4;
-//    type_effet = 255;
+    //    type_effet = 255;
   }
 
-//  Map1code(0);
+  //  Map1code(0);
 
   previousDataLength = length;
 
