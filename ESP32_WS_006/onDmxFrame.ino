@@ -52,23 +52,23 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
   pix_center = ((pix_start) / 2) + pix_pos;
   M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
-  smaster = data[adr + 9];
-  srr = (data[adr + 10] * data[adr + 10]) / 255;
-  sgg = (data[adr + 11] * data[adr + 11]) / 255;
-  sbb = (data[adr + 12] * data[adr + 12]) / 255;
-  color_mode = data[adr + 13];
-  mirror = data[adr + 14];
+//  smaster = data[adr + 9];
+  srr = (data[adr + 9] * data[adr + 9]) / 255;
+  sgg = (data[adr + 10] * data[adr + 10]) / 255;
+  sbb = (data[adr + 11] * data[adr + 11]) / 255;
+  color_mode = data[adr + 12];
+  mirror = data[adr + 13];
 
-  // mirror mode
-  if (mirror >= 0 && mirror <= 10) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP);
-  } else if (mirror >= 11 && mirror <= 20) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
-  } else if (mirror >= 21 && mirror <= 30) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
-  } else if (mirror >= 31 && mirror <= 40) {
-    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
-  }
+//  // mirror mode
+//  if (mirror >= 0 && mirror <= 10) {
+//    N_L_P_S = (NUM_LEDS_PER_STRIP);
+//  } else if (mirror >= 11 && mirror <= 20) {
+//    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+//  } else if (mirror >= 21 && mirror <= 30) {
+//    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
+//  } else if (mirror >= 31 && mirror <= 40) {
+//    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
+//  }
 
 
 
@@ -150,7 +150,9 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g;
   }//rudan 4/4
 
-  // modulo mode
+  // modulo mode && mirror
+  if (mirror >= 0 && mirror <= 10) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP);
   if ((modulo >= 0) && modulo <= 10) {
     type_modulo = 0;
   } else if ((modulo >= 11) && modulo <= 20) {
@@ -174,6 +176,83 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     S_seuil = (modulo - 200) * 4;
     //    type_effet = 255;
   }
+  } else if (mirror >= 11 && mirror <= 20) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
+  if ((modulo >= 0) && modulo <= 10) {
+    type_modulo = 10;
+  } else if ((modulo >= 11) && modulo <= 20) {
+    type_modulo = 11;
+  } else if ((modulo >= 21) && modulo <= 30) {
+    type_modulo = 12;
+  } else if ((modulo >= 31) && modulo <= 110) {
+    Black();
+    type_modulo = 13;
+    S_seuil = (modulo - 30) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 111) && modulo <= 120) {
+    type_modulo = 14;
+  } else if ((modulo >= 121) && modulo <= 200) {
+    Black();
+    type_modulo = 15;
+    S_seuil = (modulo - 120) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 201) && modulo <= 255) {
+    type_modulo = 16;
+    S_seuil = (modulo - 200) * 4;
+    //    type_effet = 255;
+  }  
+  } else if (mirror >= 21 && mirror <= 30) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
+   if ((modulo >= 0) && modulo <= 10) {
+    type_modulo = 20;
+  } else if ((modulo >= 11) && modulo <= 20) {
+    type_modulo = 21;
+  } else if ((modulo >= 21) && modulo <= 30) {
+    type_modulo = 22;
+  } else if ((modulo >= 31) && modulo <= 110) {
+    Black();
+    type_modulo = 23;
+    S_seuil = (modulo - 30) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 111) && modulo <= 120) {
+    type_modulo = 24;
+  } else if ((modulo >= 121) && modulo <= 200) {
+    Black();
+    type_modulo = 25;
+    S_seuil = (modulo - 120) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 201) && modulo <= 255) {
+    type_modulo = 26;
+    S_seuil = (modulo - 200) * 4;
+    //    type_effet = 255;
+  } 
+  } else if (mirror >= 31 && mirror <= 40) {
+    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
+   if ((modulo >= 0) && modulo <= 10) {
+    type_modulo = 30;
+  } else if ((modulo >= 11) && modulo <= 20) {
+    type_modulo = 31;
+  } else if ((modulo >= 21) && modulo <= 30) {
+    type_modulo = 32;
+  } else if ((modulo >= 31) && modulo <= 110) {
+    Black();
+    type_modulo = 3;
+    S_seuil = (modulo - 30) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 111) && modulo <= 120) {
+    type_modulo = 34;
+  } else if ((modulo >= 121) && modulo <= 200) {
+    Black();
+    type_modulo = 35;
+    S_seuil = (modulo - 120) * 4;
+    //    type_effet = 255;
+  } else if ((modulo >= 201) && modulo <= 255) {
+    type_modulo = 36;
+    S_seuil = (modulo - 200) * 4;
+    //    type_effet = 255;
+  } 
+  }
+
 
   //  Map1code(0);
 
