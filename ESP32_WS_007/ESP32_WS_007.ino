@@ -129,7 +129,6 @@ int pix_start;
 int pix_center;
 int pix_end;
 int master;
-#define CYCLE (N_L_P_S/6)
 float rrr;
 float ggg;
 float bbb;
