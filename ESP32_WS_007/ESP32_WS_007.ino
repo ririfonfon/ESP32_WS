@@ -237,14 +237,14 @@ void setup() {
   //    &Map1,      /* Task handle to keep track of created task */
   //    0);          /* pin task to core 0 */
   //  delay(500);
-  
+
 }//setup
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
   if (wifi_isok()) artnet.read();
-//  eff_modulo();
-//  effet();
+  eff_modulo();
+ // effet();
   if ((millis() - lastRefresh) > REFRESH) {
     if (!wifi_isok())  ledBlack();//passe led noir
     lastRefresh = millis();
