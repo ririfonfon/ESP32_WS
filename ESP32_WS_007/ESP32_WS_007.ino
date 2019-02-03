@@ -139,7 +139,6 @@ float bb;
 float r;
 float g;
 float b;
-int smaster;
 float srr;
 float sgg;
 float sbb;
