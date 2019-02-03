@@ -1,7 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
 #define NODE_NUMBER 1
 #define NODE 1
-#define VERSION 1
+#define VERSION 1.01
 #define NOEUX 0
 
 //#ifdef NODE_NUMBER && (NODE_NUMBER < 37)
@@ -30,8 +30,7 @@
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
-//#define adr ((1+(NODE-1)*14)-13)
-#define adr 1
+#define adr (((1+(NODE-1))*15)-14)
 #define NUM_LEDS_PER_STRIP 150
 int N_L_P_S = NUM_LEDS_PER_STRIP;
 
@@ -179,7 +178,8 @@ float str_blind_l = 1;
 
 ///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
-const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
+//const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
+const int startUniverse = NOEUX; // CHANGE FOR NOEUX.
 
 // Check if we got all universes
 const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
