@@ -1,25 +1,7 @@
 /////////////////////////////////////////ID/////////////////////////////////////////
-#define NODE_NUMBER 1
 #define NODE 1
 #define VERSION 1.01
 #define NOEUX 0
-
-//#ifdef NODE_NUMBER && (NODE_NUMBER < 37)
-//#define NODE (NODE_NUMBER)
-//#define NOEUX 0
-//#endif
-//#ifdef NODE_NUMBER && ( 37 <= NODE_NUMBER < 73)
-//#define NODE (NODE_NUMBER - 36)
-//#define NOEUX 1
-//#endif
-//#ifdef NODE_NUMBER && ( 73 <= NODE_NUMBER < 109)
-//#define NODE (NODE_NUMBER - 72)
-//#define NOEUX 2
-//#endif
-//#ifdef NODE_NUMBER && (109 <= NODE_NUMBER < 145)
-//#define NODE (NODE_NUMBER - 108)
-//#define NOEUX 3
-//#endif
 
 //////////////////////////////////////TaskHandle_t //////////////////////////////////
 //TaskHandle_t Map1;
