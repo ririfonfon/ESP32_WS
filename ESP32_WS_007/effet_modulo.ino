@@ -500,16 +500,16 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[i] * str * master / 255), (pi_n_3_g[i] * str * master / 255), (pi_n_3_b[i] * str * master / 255));
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * master), ((pi_n_0_g[di] / 255) * master), ((pi_n_0_b[di] / 255) * master));
-        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master));
-        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * master), ((pi_n_2_g[di] / 255) * master), ((pi_n_2_b[di] / 255) * master));
-        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * master), ((pi_n_3_g[di] / 255) * master), ((pi_n_3_b[di] / 255) * master));
+        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * str * master), ((pi_n_0_g[di] / 255) * str * master), ((pi_n_0_b[di] / 255) * str * master));
+        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master));
+        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * str * master), ((pi_n_2_g[di] / 255) * str * master), ((pi_n_2_b[di] / 255) * str * master));
+        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * str * master), ((pi_n_3_g[di] / 255) * str * master), ((pi_n_3_b[di] / 255) * str * master));
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * master), ((pi_n_0_g[di] / 255) * master), ((pi_n_0_b[di] / 255) * master));
-        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master));
-        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * master), ((pi_n_2_g[di] / 255) * master), ((pi_n_2_b[di] / 255) * master));
-        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * master), ((pi_n_3_g[di] / 255) * master), ((pi_n_3_b[di] / 255) * master));
+        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * str * master), ((pi_n_0_g[di] / 255) * str * master), ((pi_n_0_b[di] / 255) * str * master));
+        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * str * master), ((pi_n_1_g[di] / 255) * str * master), ((pi_n_1_b[di] / 255) * str * master));
+        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * str * master), ((pi_n_2_g[di] / 255) * str * master), ((pi_n_2_b[di] / 255) * str * master));
+        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * str * master), ((pi_n_3_g[di] / 255) * str * master), ((pi_n_3_b[di] / 255) * str * master));
       }
     }
   }//modulo 21
@@ -527,16 +527,16 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[i] * module * master / 255), (pi_n_3_g[i] * module * master / 255), (pi_n_3_b[i] * module * master / 255));
       } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         int di = map(i, N_L_P_S + 1, N_L_P_S * 2, N_L_P_S, 0);
-        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * master), ((pi_n_0_g[di] / 255) * master), ((pi_n_0_b[di] / 255) * master));
-        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master));
-        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * master), ((pi_n_2_g[di] / 255) * master), ((pi_n_2_b[di] / 255) * master));
-        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * master), ((pi_n_3_g[di] / 255) * master), ((pi_n_3_b[di] / 255) * master));
+        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * module * master), ((pi_n_0_g[di] / 255) * module * master), ((pi_n_0_b[di] / 255) * module * master));
+        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master));
+        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * module * master), ((pi_n_2_g[di] / 255) * module * master), ((pi_n_2_b[di] / 255) * module * master));
+        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * module * master), ((pi_n_3_g[di] / 255) * module * master), ((pi_n_3_b[di] / 255) * module * master));
       } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         int di = map(i, (N_L_P_S * 2) + 1, N_L_P_S * 3, 0, N_L_P_S);
-        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * master), ((pi_n_0_g[di] / 255) * master), ((pi_n_0_b[di] / 255) * master));
-        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * master), ((pi_n_1_g[di] / 255) * master), ((pi_n_1_b[di] / 255) * master));
-        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * master), ((pi_n_2_g[di] / 255) * master), ((pi_n_2_b[di] / 255) * master));
-        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * master), ((pi_n_3_g[di] / 255) * master), ((pi_n_3_b[di] / 255) * master));
+        strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[di] / 255) * module * master), ((pi_n_0_g[di] / 255) * module * master), ((pi_n_0_b[di] / 255) * module * master));
+        strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[di] / 255) * module * master), ((pi_n_1_g[di] / 255) * module * master), ((pi_n_1_b[di] / 255) * module * master));
+        strands[2]->pixels[i] = pixelFromRGB(((pi_n_2_r[di] / 255) * module * master), ((pi_n_2_g[di] / 255) * module * master), ((pi_n_2_b[di] / 255) * module * master));
+        strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * module * master), ((pi_n_3_g[di] / 255) * module * master), ((pi_n_3_b[di] / 255) * module * master));
       }
     }
   }// modulo 22
