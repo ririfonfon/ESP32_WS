@@ -2,31 +2,37 @@
 int test_led_niv = 50;
 
 void leds_show() {
-  digitalLeds_updatePixels(strands[0]);
-  digitalLeds_updatePixels(strands[1]);
-  digitalLeds_updatePixels(strands[2]);
-  digitalLeds_updatePixels(strands[3]);
+  for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+    digitalLeds_updatePixels(strands[strip]);
 }//leds_show
+
+void black() {
+  for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+    for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
+      strands[strip]->pixels[i] = pixelFromRGB(0, 0, 0);
+}
 
 void ledBlack() {
 #ifdef DEBUG
-  Serial.println("ledBlack()");
+  Serial.println("ledblack()");
 #endif
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      pi_n[strip][i][R] = 0;
-      pi_n[strip][i][G] = 0;
-      pi_n[strip][i][B] = 0;
+      pix_buffer[strip][i] = pixelFromRGB(0, 0, 0);
       strands[strip]->pixels[i] = pixelFromRGB(0, 0, 0);
     }//for i
   leds_show();
 }//ledBlack
 
+int linear(int val) {
+  return (val*val)/255;
+}
+
 void initTest() {
 #ifdef DEBUG
   Serial.println("initTest()");
 #endif
-  Black();
+  black();
   leds_show();
   delay(500);
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
@@ -44,7 +50,7 @@ void initTest() {
       strands[strip]->pixels[i] = pixelFromRGB(0, 0, test_led_niv);
   leds_show();
   delay(500);
-  Black();
+  black();
   leds_show();
 }//initest
 
@@ -84,3 +90,4 @@ void leds_init() {
   Serial.println("Init complete");
 #endif
 }//leds_init
+
