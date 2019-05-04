@@ -3,9 +3,6 @@
 
 
 void fx_task( void * pvParameters ) {
-#ifdef DEBUG
-  Serial.println("fx_task()");
-#endif
 
 
   while (true) {
@@ -67,9 +64,10 @@ float pix_coefi_fond;
 ////////////////////  FX FUNTION
 
 void do_effet() {
+   Serial.println("////////////////////////////////////////////////do_effet() { ");
 
   if (_Pix_mod == 0) {
-
+ Serial.println("////////////////////////////////////////////////_Pix_mod == 0 ");
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))
@@ -81,7 +79,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 1) {
-
+Serial.println("/////////////////////////////////////////////_Pix_mod == 1 ");
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))

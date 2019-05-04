@@ -2,9 +2,6 @@
 ////////////////// COLOR THREAD
 
 void color_task( void * pvParameters ) {
-#ifdef DEBUG
-  Serial.println("color_task()");
-#endif
 
   while (true) {
 

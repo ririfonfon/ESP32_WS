@@ -2,17 +2,13 @@
 int test_led_niv = 50;
 
 void leds_show() {
-#ifdef DEBUG
-  Serial.println("leds_show()");
-#endif
+
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
     digitalLeds_updatePixels(strands[strip]);
 }//leds_show
 
 void black() {
-#ifdef DEBUG
-  Serial.println("black()");
-#endif
+  
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
       strands[strip]->pixels[i] = pixelFromRGB(0, 0, 0);
@@ -20,9 +16,6 @@ void black() {
 
 void ledBlack() {
 
-#ifdef DEBUG
-  Serial.println("ledblack()");
-#endif
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       pix_buffer[strip][i] = pixelFromRGB(0, 0, 0);
@@ -36,9 +29,7 @@ int linear(int val) {
 }
 
 void initTest() {
-#ifdef DEBUG
-  Serial.println("initTest()");
-#endif
+
   black();
   leds_show();
   delay(500);
