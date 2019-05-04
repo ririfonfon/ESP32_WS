@@ -127,7 +127,8 @@ void loop() {
 #ifdef DEBUG
     Serial.println("//////////////////////////////artnet.read();");
 #endif
-    modulo_task();  // SYNC WITH ARTNET
+    //    modulo_task();  // SYNC WITH ARTNET
+    eff_modulo();
 #ifdef DEBUG
     Serial.println("//////////////////////////////modulo_task();");
 #endif

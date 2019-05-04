@@ -2,17 +2,17 @@
 ///////////////////////////////////  MODULO THREAD
 
 //void modulo_task( void * pvParameters ) {
-void modulo_task() {
-#ifdef DEBUG
-  Serial.println("modulo_task()");
-#endif
-  while (true) {
-    eff_modulo();
-    yield(); // rend la main
-  }
-
-  vTaskDelete(NULL);
-}
+//void modulo_task() {
+//#ifdef DEBUG
+//  Serial.println("modulo_task()");
+//#endif
+//  while (true) {
+//    eff_modulo();
+//    yield(); // rend la main
+//  }
+//
+//  vTaskDelete(NULL);
+//}
 
 
 ///////////////////////////////////  UTILS
