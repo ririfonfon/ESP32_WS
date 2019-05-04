@@ -67,9 +67,6 @@ float pix_coefi_fond;
 ////////////////////  FX FUNTION
 
 void do_effet() {
-#ifdef DEBUG
-  Serial.println("do_effet()");
-#endif
 
   if (_Pix_mod == 0) {
 

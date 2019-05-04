@@ -49,6 +49,11 @@ int ran;
 //
 void eff_modulo()
 {
+ #ifdef DEBUG
+    Serial.println("void eff_modulo()");
+    Serial.print(" _Modulo_type ==");
+    Serial.println(_Modulo_type);
+#endif
   unsigned long t_now = millis();
 
   // NO MODULO

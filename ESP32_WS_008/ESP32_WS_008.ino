@@ -114,18 +114,27 @@ void setup() {
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
-  #ifdef DEBUG
-    Serial.println("void loop() {");
+#ifdef DEBUG
+  Serial.println("//////////////////////////////void loop() {");
 #endif
 
   // Wifi check
   if (wifi_isok()) {
 #ifdef DEBUG
-    Serial.println("wifi_isok()");
+    Serial.println("//////////////////////////////wifi_isok()");
 #endif
     artnet.read();
+#ifdef DEBUG
+    Serial.println("//////////////////////////////artnet.read();");
+#endif
     modulo_task();  // SYNC WITH ARTNET
+#ifdef DEBUG
+    Serial.println("//////////////////////////////modulo_task();");
+#endif
     ota_loop();
+#ifdef DEBUG
+    Serial.println("//////////////////////////////ota_loop();");
+#endif
   }
 
   // Blackout if no wifi
