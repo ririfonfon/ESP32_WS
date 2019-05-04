@@ -17,15 +17,17 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 #ifdef DEBUG_dmx
   Serial.print("master = ");
-  Serial.println(master);
+  Serial.println(_Master);
+
   Serial.print("r = ");
-  Serial.println(r);
+  Serial.println(data[adr + 0]);
   Serial.print("g = ");
-  Serial.println(g);
+  Serial.println(data[adr + 1]);
   Serial.print("b = ");
-  Serial.println(b);
+  Serial.println(data[adr + 2]);
+
   Serial.print("mod = ");
-  Serial.println(mod);
+  Serial.println(_Fx_mod);
   Serial.print("_Pix_mod = ");
   Serial.println(_Pix_mod);
   Serial.print("_Pix_start = ");
@@ -40,8 +42,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(_Modulo);
   Serial.print("_Strobe_ws = ");
   Serial.println(_Strobe_ws);
-  Serial.print("M_g = ");
-  Serial.println(M_g);
+
 #endif
 
   // DMX variables
@@ -49,18 +50,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   _Master = data[adr - 1];
   _Color = pixelFromRGB( linear(data[adr + 0]), linear(data[adr + 1]), linear(data[adr + 2]));
 
-  _Fx_mod = abs(data[adr + 3] - 1)/10;                // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
-  _Pix_mod = abs(data[adr + 4] - 1)/10;           // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
+  _Fx_mod = abs(data[adr + 3] - 1) / 10;              // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
+  _Pix_mod = abs(data[adr + 4] - 1) / 10;         // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
   _Pix_start = data[adr + 5] - 1;
   _Pix_pos_v = data[adr + 6];
 
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
-  
-  _Color2 = pixelFromRGB( linear(data[adr + 9]), linear(data[adr + 10]), linear(data[adr + 11])); 
-  _Color_mode = abs(data[adr + 12] - 1)/10;       // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
-  
-  _Mirror = abs(data[adr + 13] - 1)/10 + 1;       // (0 -> 10) = 1  //  (11 -> 20) = 2  // ...
+
+  _Color2 = pixelFromRGB( linear(data[adr + 9]), linear(data[adr + 10]), linear(data[adr + 11]));
+  _Color_mode = abs(data[adr + 12] - 1) / 10;     // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
+
+  _Mirror = abs(data[adr + 13] - 1) / 10 + 1;     // (0 -> 10) = 1  //  (11 -> 20) = 2  // ...
 
 
   // DMX derivatives:pix position
@@ -70,13 +71,13 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   _Pix_start_v = (_Pix_start < 1) ? 1 : _Pix_start;
   _Pix_end = _Pix_start * 2;
 
-  if ( is_in(_Pix_mod, {1,3,4,5,9,10,11}) ) 
+  if ( is_in(_Pix_mod, {1, 3, 4, 5, 9, 10, 11}) )
     _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
-  else if ( is_in(_Pix_mod, {2,6,7,8,12,13,14}) ) 
+  else if ( is_in(_Pix_mod, {2, 6, 7, 8, 12, 13, 14}) )
     _Pix_pos = (((_Pix_start + NUM_LEDS_TOTAL + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
 
   _Pix_center = ((_Pix_start) / 2) + _Pix_pos;
-  
+
   // if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
   //   _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
   // } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
@@ -134,31 +135,31 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 
   // _Modulo
-  if ((_Modulo >= 0) && _Modulo <= 10)          
+  if ((_Modulo >= 0) && _Modulo <= 10)
     _Modulo_type = 0;
-  
-  else if ((_Modulo >= 11) && _Modulo <= 20)    
+
+  else if ((_Modulo >= 11) && _Modulo <= 20)
     _Modulo_type = 1;
-  
-  else if ((_Modulo >= 21) && _Modulo <= 30)    
+
+  else if ((_Modulo >= 21) && _Modulo <= 30)
     _Modulo_type = 2;
-  
+
   else if ((_Modulo >= 31) && _Modulo <= 110) {
     black();
     _Modulo_type = 3;
     S_seuil = (_Modulo - 30) * 4;
     //    _Fx_type = 255;
-  } 
-  
-  else if ((_Modulo >= 111) && _Modulo <= 120)  
+  }
+
+  else if ((_Modulo >= 111) && _Modulo <= 120)
     _Modulo_type = 4;
-  
+
   else if ((_Modulo >= 121) && _Modulo <= 200) {
     black();
     _Modulo_type = 5;
     S_seuil = (_Modulo - 120) * 4;
     //    _Fx_type = 255;
-  } 
+  }
   else if ((_Modulo >= 201) && _Modulo <= 255) {
     _Modulo_type = 6;
     S_seuil = (_Modulo - 200) * 4;
@@ -173,4 +174,3 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     memset(universesReceived, 0, maxUniverses);
   }
 }//onframedmx
-
