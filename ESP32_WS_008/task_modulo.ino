@@ -1,9 +1,12 @@
 
 ///////////////////////////////////  MODULO THREAD
 
-void modulo_task( void * pvParameters ) {
-
-  while(true) {
+//void modulo_task( void * pvParameters ) {
+void modulo_task() {
+#ifdef DEBUG
+  Serial.println("modulo_task()");
+#endif
+  while (true) {
     eff_modulo();
     yield(); // rend la main
   }
@@ -18,9 +21,9 @@ void modulo_task( void * pvParameters ) {
 // Pixel from pix_buffer with MASTER, MIRROR and MODULATION applied
 //
 pixelColor_t getPix_n( int strip, int i, float modulation = 1.0) {
-  if (modulation == 0) return pixelFromRGB(0,0,0);
+  if (modulation == 0) return pixelFromRGB(0, 0, 0);
   pixelColor_t p;
-  p = pix_buffer[strip][getMirroredPixNum(i)] * (_Master/255.0);
+  p = pix_buffer[strip][getMirroredPixNum(i)] * (_Master / 255.0);
   if (modulation != 1.0) p = p * modulation;
   return p;
 }
@@ -31,7 +34,7 @@ pixelColor_t getPix_n( int strip, int i, float modulation = 1.0) {
 //
 int getMirroredPixNum(int i) {
   if ((i / N_L_P_S) % 2 == 0) return (i % N_L_P_S);                   // paire = dans le bon sens
-  if ((i / N_L_P_S) % 2 == 1) return N_L_P_S - (i % N_L_P_S) - 1;  // impaire = inversé 
+  if ((i / N_L_P_S) % 2 == 1) return N_L_P_S - (i % N_L_P_S) - 1;  // impaire = inversé
 }
 
 
@@ -44,63 +47,63 @@ int ran;
 
 // EFFECT MODULO
 //
-void eff_modulo() 
-{  
+void eff_modulo()
+{
   unsigned long t_now = millis();
-  
+
   // NO MODULO
   if ( _Modulo_type == 0 ) {
-    
-    for (int strip = 0 ; strip < NUM_STRIPS ; strip++) 
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) 
+
+    for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         strands[strip]->pixels[i] = getPix_n( strip, i );
-        
+
   }//modulo 0
 
   // STROBE
   else if ( _Modulo_type == 1) {
-    
+
     if (!strobe && t_now - _Strobe_ws_last > _Strobe_ws) {
       _Strobe_ws_last = t_now;
       strobe = true;
-    } 
+    }
     else if (strobe && t_now - _Strobe_ws_last > STROB_ON_MS) {
       _Strobe_ws_last = t_now;
       strobe = false;
-    } 
+    }
     else return;
 
-    for (int strip = 0 ; strip < NUM_STRIPS ; strip++) 
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) 
+    for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         strands[strip]->pixels[i] = getPix_n(strip, i, strobe);
 
   }//modulo 1
 
   // TIME MODULO
   else if (_Modulo_type == 2) {
-    
+
     if (_Strobe_ws <= 0) _Strobe_ws = 1;
     float time_modulo = _Strobe_ws;
     float module = 2 * abs( (t_now % _Strobe_ws) - time_modulo / 2) / time_modulo;
     module *= module;
 
-    for (int strip = 0 ; strip < NUM_STRIPS ; strip++) 
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) 
+    for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         strands[strip]->pixels[i] = getPix_n(strip, i, module);
 
   }// modulo 2
-  
+
   // RANDOM BLINK
   else if ( _Modulo_type == 3 ) {
     if (!strobe && t_now - _Strobe_ws_last > _Strobe_ws) {
       _Strobe_ws_last = t_now;
       strobe = true;
-    } 
+    }
     else if (strobe && t_now - _Strobe_ws_last > STROB_ON_MS) {
       _Strobe_ws_last = t_now;
       strobe = false;
       black();
-    } 
+    }
     else return;
 
     int n_led_to_show = (min(NUM_LEDS_TOTAL - 8, S_seuil));
@@ -116,12 +119,12 @@ void eff_modulo()
       strands[n_strip]->pixels[p] = getPix_n(n_strip, p, strobe);
 
     }//for i
-    
+
   }//modulo 3
 
   // ANOTHER STROBE
   else if ( _Modulo_type == 4) {
-    
+
     if (!strobe && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
       _Strobe_ws_last = t_now;
       strobe = true;
@@ -132,22 +135,22 @@ void eff_modulo()
         strobe = false;
         _Strobe_ws_last = t_now + 1000;
       }
-    } 
+    }
     else if (strobe && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
       _Strobe_ws_last = t_now;
       strobe = false;
     }
     else return;
 
-    for (int strip = 0 ; strip < NUM_STRIPS ; strip++) 
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) 
-       strands[strip]->pixels[i] = getPix_n(strip, i, strobe);
+    for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
+        strands[strip]->pixels[i] = getPix_n(strip, i, strobe);
 
   }//modulo 4
-  
+
   // ANOTHER RANDOM BLINK
   else if ( _Modulo_type == 5 ) {
-    
+
     int S_seuil_B;
     if (!strobe && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
       _Strobe_ws_last = t_now;
@@ -159,7 +162,7 @@ void eff_modulo()
         strobe = false;
         _Strobe_ws_last = t_now + 1000;
       }
-    } 
+    }
     else if (strobe && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
       _Strobe_ws_last = t_now;
       strobe = false;
@@ -190,7 +193,7 @@ void eff_modulo()
       old_S_seuil = S_seuil;
     }
     int S_seuil_B;
-    
+
     int n_led_to_show = min(NUM_LEDS_TOTAL - 8, S_seuil);
     int n_strip = 0;
     int p = 0;
