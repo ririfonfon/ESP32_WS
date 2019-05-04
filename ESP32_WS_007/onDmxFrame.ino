@@ -8,11 +8,11 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.print("master = ");
   Serial.println(master);
   Serial.print("r = ");
-  Serial.println(r);
+  Serial.println(rr);
   Serial.print("g = ");
-  Serial.println(g);
+  Serial.println(gg);
   Serial.print("b = ");
-  Serial.println(b);
+  Serial.println(bb);
   Serial.print("mod = ");
   Serial.println(mod);
   Serial.print("pix_mod = ");
