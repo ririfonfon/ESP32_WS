@@ -5,19 +5,19 @@
 
 //////////////////////////////////////CORE //////////////////////////////////
 #if CONFIG_FREERTOS_UNICORE
-  #define CORE0 0
-  #define CORE1 0
+#define CORE0 0
+#define CORE1 0
 #else
-  #define CORE0 0
-  #define CORE1 1
+#define CORE0 0
+#define CORE1 1
 #endif
 
 /////////////////////////////////////////Adresse/////////////////////////////////////
 #define adr (((1+(NODE-1))*15)-14)
 
 /////////////////////////////////////////Debug///////////////////////////////////////
-//#define DEBUG 1
-//#define DEBUG_dmx 1
+#define DEBUG 1
+#define DEBUG_dmx 1
 //#define DEBUG_STR 1
 
 /////////////////////////////////////////lib/////////////////////////////////////////
@@ -31,8 +31,9 @@
 #include <algorithm>
 #include <initializer_list>
 template <typename T>
-bool is_in(const T& v, std::initializer_list<T> lst){
-    return std::find(std::begin(lst), std::end(lst), v) != std::end(lst); }
+bool is_in(const T& v, std::initializer_list<T> lst) {
+  return std::find(std::begin(lst), std::end(lst), v) != std::end(lst);
+}
 
 ///////////////////////////////Config//////////////////////////////////
 
@@ -59,7 +60,6 @@ ArtnetWifi artnet;
 pixelColor_t pix_buffer[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Buffer principal
 pixelColor_t pix_colorA[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Color
 pixelColor_t pix_colorB[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Color2 (background)
-
 
 // DMX Variables
 //
@@ -114,12 +114,17 @@ void setup() {
 
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
+  #ifdef DEBUG
+    Serial.println("void loop() {");
+#endif
 
-  modulo_task();  // SYNC WITH ARTNET
-   
   // Wifi check
   if (wifi_isok()) {
+#ifdef DEBUG
+    Serial.println("wifi_isok()");
+#endif
     artnet.read();
+    modulo_task();  // SYNC WITH ARTNET
     ota_loop();
   }
 
