@@ -31,11 +31,11 @@ void Map1code( void * pvParameters ) {
       }
     } else if (color_mode >= 11 && color_mode <= 20) {
       if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
-        pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
-        pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else {
-        pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       }
       float P_S = srr;
       float P_E = sgg;
@@ -78,7 +78,7 @@ void Map1code( void * pvParameters ) {
           bbb = map(P_S_N, 212.5, 255, 255, 0);
         }
 
-        int ci = pix_pos + i - 1;
+        int ci = _Pix_pos + i - 1;
         if (ci > NUM_LEDS_PER_STRIP) {
           ci = ci - NUM_LEDS_PER_STRIP - 1;
         }
@@ -117,11 +117,11 @@ void Map1code( void * pvParameters ) {
 
     else if (color_mode >= 21 && color_mode <= 30) {
       if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
-        pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
-        pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else {
-        pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+        _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       }
       float P_S = srr;
       float P_E = sgg;
@@ -164,7 +164,7 @@ void Map1code( void * pvParameters ) {
           bbb = map(P_S_N, 212.5, 255, 255, 0);
         }
 
-        int ci = pix_pos + i - 1;
+        int ci = _Pix_pos + i - 1;
         if (ci > NUM_LEDS_PER_STRIP) {
           ci = ci - NUM_LEDS_PER_STRIP - 1;
         } else  if (ci > NUM_LEDS_PER_STRIP * 2) {

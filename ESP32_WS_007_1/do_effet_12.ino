@@ -42,7 +42,7 @@ void do_effet_12() {
         ggg = map(P_S_N, 212.5, 255, 0, 0);
         bbb = map(P_S_N, 212.5, 255, 255, 0);
       }
-      int ci = pix_pos + i;
+      int ci = _Pix_pos + i;
       if (ci > NUM_LEDS_PER_STRIP) {
         ci = ci - NUM_LEDS_PER_STRIP;
       }
