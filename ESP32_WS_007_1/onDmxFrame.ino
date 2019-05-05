@@ -5,8 +5,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   boolean tail = false;
 
 #ifdef DEBUG_dmx
-  Serial.print("master = ");
-  Serial.println(master);
+  Serial.print("_Master = ");
+  Serial.println(_Master);
   Serial.print("r = ");
   Serial.println(rr);
   Serial.print("g = ");
@@ -33,7 +33,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(M_g);
 #endif
 
-  master = data[adr - 1];
+  _Master = data[adr - 1];
+  
   rr = (data[adr] * data[adr]) / 255;
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;

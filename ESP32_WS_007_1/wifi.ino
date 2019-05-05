@@ -34,7 +34,7 @@ void wifi_event(WiFiEvent_t event) {
 
   switch (event) {
     case SYSTEM_EVENT_STA_DISCONNECTED:
-      master = 0;
+      _Master = 0;
       rr = 0;
       gg = 0;
       bb = 0;
