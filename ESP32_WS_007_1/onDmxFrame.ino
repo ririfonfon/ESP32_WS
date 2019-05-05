@@ -29,8 +29,6 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(_Modulo);
   Serial.print("_Strobe_ws = ");
   Serial.println(_Strobe_ws);
-  Serial.print("MG = ");
-  Serial.println(MG);
 #endif
 
   _Master = data[adr - 1];
