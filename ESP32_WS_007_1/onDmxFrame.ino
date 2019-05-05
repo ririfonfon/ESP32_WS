@@ -45,7 +45,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   
   _Pix_start = data[adr + 5] - 1;
   
-  pix_pos_v = data[adr + 6];
+  _Pix_pos_v = data[adr + 6];
 
   pix_end = _Pix_start + _Pix_start;
   if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {

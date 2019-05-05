@@ -105,7 +105,7 @@ int type_modulo = 0;
 int str = 0;
 int str_l = 0;
 int pix_pos;
-int pix_pos_v;
+int _Pix_pos_v;
 int _Pix_start;
 int pix_center;
 int pix_end;
