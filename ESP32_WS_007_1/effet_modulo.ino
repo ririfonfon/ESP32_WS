@@ -1,7 +1,7 @@
 
-void eff_modulo() {
+void eff__Modulo() {
   unsigned long t_now = millis();
-  if ( type_modulo == 0 ) {
+  if ( type__Modulo == 0 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[i] / 255) * _Master), ((pi_n_0_g[i] / 255) * _Master), ((pi_n_0_b[i] / 255) * _Master));
       strands[1]->pixels[i] = pixelFromRGB(((pi_n_1_r[i] / 255) * _Master), ((pi_n_1_g[i] / 255) * _Master), ((pi_n_1_b[i] / 255) * _Master));
@@ -10,7 +10,7 @@ void eff_modulo() {
     }
 
   }
-  else if ( type_modulo == 1) {
+  else if ( type__Modulo == 1) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -27,12 +27,12 @@ void eff_modulo() {
       strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[i] * str * _Master / 255), (pi_n_3_g[i] * str * _Master / 255), (pi_n_3_b[i] * str * _Master / 255));
     }
 
-  }//modulo 1
+  }//_Modulo 1
 
-  else if (type_modulo == 2) {
+  else if (type__Modulo == 2) {
     if (str_ws <= 0) str_ws = 1;
-    float time_modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    float time__Modulo = str_ws;
+    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       strands[0]->pixels[i] = pixelFromRGB((pi_n_0_r[i] * module * _Master / 255), (pi_n_0_g[i] * module * _Master / 255), (pi_n_0_b[i] * module * _Master / 255));
@@ -41,9 +41,9 @@ void eff_modulo() {
       strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[i] * module * _Master / 255), (pi_n_3_g[i] * module * _Master / 255), (pi_n_3_b[i] * module * _Master / 255));
     }
 
-  }// modulo 2
+  }// _Modulo 2
 
-  else if ( type_modulo == 3 ) {
+  else if ( type__Modulo == 3 ) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -73,9 +73,9 @@ void eff_modulo() {
         strands[3]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB((pi_n_3_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255), (pi_n_3_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255), (pi_n_3_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255));
       }
     }//for i
-  }//modulo 3
+  }//_Modulo 3
 
-  else if ( type_modulo == 4) {
+  else if ( type__Modulo == 4) {
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
       str = 1;
@@ -99,8 +99,8 @@ void eff_modulo() {
       strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[i] * str * _Master / 255), (pi_n_3_g[i] * str * _Master / 255), (pi_n_3_b[i] * str * _Master / 255));
     }
 
-  }//modulo 4
-  else if ( type_modulo == 5 ) {
+  }//_Modulo 4
+  else if ( type__Modulo == 5 ) {
     int S_seuil_B;
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
@@ -137,9 +137,9 @@ void eff_modulo() {
         strands[3]->pixels[a - (NUM_LEDS_PER_STRIP * n_strip)] = pixelFromRGB((pi_n_3_r[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255), (pi_n_3_g[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255), (pi_n_3_b[a - (NUM_LEDS_PER_STRIP * n_strip)] * str * _Master / 255));
       }
     }//for i
-  }//modulo 5
+  }//_Modulo 5
 
-  else if ( type_modulo == 6 ) {
+  else if ( type__Modulo == 6 ) {
     if (old_S_seuil != S_seuil) {
       Black();
       old_S_seuil = S_seuil;
@@ -163,9 +163,9 @@ void eff_modulo() {
       }
     }//for i
     old_S_seuil = S_seuil - 1;
-  }//modulo 6
+  }//_Modulo 6
 
-  //  else if ( type_modulo == 6 ) {
+  //  else if ( type__Modulo == 6 ) {
   //    if (old_S_seuil != S_seuil) {
   //      for (int i = 0; i < numberOfLed; i++) {
   //        randArray[i] = false;
@@ -200,9 +200,9 @@ void eff_modulo() {
   //      }
   //    }//for i
   //    return;
-  //  }//modulo 6
+  //  }//_Modulo 6
 
-  if ( type_modulo == 10 ) {
+  if ( type__Modulo == 10 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
         strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[i] / 255) * _Master), ((pi_n_0_g[i] / 255) * _Master), ((pi_n_0_b[i] / 255) * _Master));
@@ -217,8 +217,8 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * _Master), ((pi_n_3_g[di] / 255) * _Master), ((pi_n_3_b[di] / 255) * _Master));
       }
     }
-  }//modulo 10
-  else if ( type_modulo == 11) {
+  }//_Modulo 10
+  else if ( type__Modulo == 11) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -242,12 +242,12 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[di] * str * _Master / 255), (pi_n_3_g[di] * str * _Master / 255), (pi_n_3_b[di] * str * _Master / 255));
       }
     }
-  }//modulo 11
+  }//_Modulo 11
 
-  else if (type_modulo == 12) {
+  else if (type__Modulo == 12) {
     if (str_ws <= 0) str_ws = 1;
-    float time_modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    float time__Modulo = str_ws;
+    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -263,9 +263,9 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB((pi_n_3_r[di] * module * _Master / 255), (pi_n_3_g[di] * module * _Master / 255), (pi_n_3_b[di] * module * _Master / 255));
       }
     }
-  }// modulo 12
+  }// _Modulo 12
 
-  else if ( type_modulo == 13 ) {
+  else if ( type__Modulo == 13 ) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -316,9 +316,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 13
+  }//_Modulo 13
 
-  else if ( type_modulo == 14) {
+  else if ( type__Modulo == 14) {
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
       str = 1;
@@ -350,8 +350,8 @@ void eff_modulo() {
       }
     }
 
-  }//modulo 14
-  else if ( type_modulo == 15 ) {
+  }//_Modulo 14
+  else if ( type__Modulo == 15 ) {
     int S_seuil_B;
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
@@ -410,9 +410,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 15
+  }//_Modulo 15
 
-  else if ( type_modulo == 16 ) {
+  else if ( type__Modulo == 16 ) {
     if (old_S_seuil != S_seuil) {
       Black();
       old_S_seuil = S_seuil;
@@ -458,9 +458,9 @@ void eff_modulo() {
       }
     }//for i
     old_S_seuil = S_seuil - 1;
-  }//modulo 16
+  }//_Modulo 16
 
-  if ( type_modulo == 20 ) {
+  if ( type__Modulo == 20 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
         strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[i] / 255) * _Master), ((pi_n_0_g[i] / 255) * _Master), ((pi_n_0_b[i] / 255) * _Master));
@@ -481,8 +481,8 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * _Master), ((pi_n_3_g[di] / 255) * _Master), ((pi_n_3_b[di] / 255) * _Master));
       }
     }
-  }//modulo 20
-  else if ( type_modulo == 21) {
+  }//_Modulo 20
+  else if ( type__Modulo == 21) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -512,12 +512,12 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * str * _Master), ((pi_n_3_g[di] / 255) * str * _Master), ((pi_n_3_b[di] / 255) * str * _Master));
       }
     }
-  }//modulo 21
+  }//_Modulo 21
 
-  else if (type_modulo == 22) {
+  else if (type__Modulo == 22) {
     if (str_ws <= 0) str_ws = 1;
-    float time_modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    float time__Modulo = str_ws;
+    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -539,9 +539,9 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * module * _Master), ((pi_n_3_g[di] / 255) * module * _Master), ((pi_n_3_b[di] / 255) * module * _Master));
       }
     }
-  }// modulo 22
+  }// _Modulo 22
 
-  else if ( type_modulo == 23 ) {
+  else if ( type__Modulo == 23 ) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -603,9 +603,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 23
+  }//_Modulo 23
 
-  else if ( type_modulo == 24) {
+  else if ( type__Modulo == 24) {
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
       str = 1;
@@ -643,8 +643,8 @@ void eff_modulo() {
       }
     }
 
-  }//modulo 24
-  else if ( type_modulo == 25 ) {
+  }//_Modulo 24
+  else if ( type__Modulo == 25 ) {
     int S_seuil_B;
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
@@ -714,9 +714,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 25
+  }//_Modulo 25
 
-  else if ( type_modulo == 26 ) {
+  else if ( type__Modulo == 26 ) {
     if (old_S_seuil != S_seuil) {
       Black();
       old_S_seuil = S_seuil;
@@ -773,11 +773,11 @@ void eff_modulo() {
       }
     }//for i
     old_S_seuil = S_seuil - 1;
-  }//modulo 26
+  }//_Modulo 26
 
 
 
-  if ( type_modulo == 30 ) {
+  if ( type__Modulo == 30 ) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
         strands[0]->pixels[i] = pixelFromRGB(((pi_n_0_r[i] / 255) * _Master), ((pi_n_0_g[i] / 255) * _Master), ((pi_n_0_b[i] / 255) * _Master));
@@ -804,8 +804,8 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * _Master), ((pi_n_3_g[di] / 255) * _Master), ((pi_n_3_b[di] / 255) * _Master));
       }
     }
-  }//modulo 30
-  else if ( type_modulo == 31) {
+  }//_Modulo 30
+  else if ( type__Modulo == 31) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -841,12 +841,12 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * str * _Master), ((pi_n_3_g[di] / 255) * str * _Master), ((pi_n_3_b[di] / 255) * str * _Master));
       }
     }
-  }//modulo 31
+  }//_Modulo 31
 
-  else if (type_modulo == 32) {
+  else if (type__Modulo == 32) {
     if (str_ws <= 0) str_ws = 1;
-    float time_modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time_modulo / 2) / time_modulo;
+    float time__Modulo = str_ws;
+    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -874,9 +874,9 @@ void eff_modulo() {
         strands[3]->pixels[i] = pixelFromRGB(((pi_n_3_r[di] / 255) * module * _Master), ((pi_n_3_g[di] / 255) * module * _Master), ((pi_n_3_b[di] / 255) * module * _Master));
       }
     }
-  }// modulo 32
+  }// _Modulo 32
 
-  else if ( type_modulo == 33 ) {
+  else if ( type__Modulo == 33 ) {
     if (str == 0 && t_now - str_ws_last > str_ws) {
       str_ws_last = t_now;
       str = 1;
@@ -950,9 +950,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 33
+  }//_Modulo 33
 
-  else if ( type_modulo == 34) {
+  else if ( type__Modulo == 34) {
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
       str = 1;
@@ -996,8 +996,8 @@ void eff_modulo() {
       }
     }
 
-  }//modulo 34
-  else if ( type_modulo == 35 ) {
+  }//_Modulo 34
+  else if ( type__Modulo == 35 ) {
     int S_seuil_B;
     if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
       str_ws_last = t_now;
@@ -1079,9 +1079,9 @@ void eff_modulo() {
         }
       }
     }//for i
-  }//modulo 35
+  }//_Modulo 35
 
-  else if ( type_modulo == 36 ) {
+  else if ( type__Modulo == 36 ) {
     if (old_S_seuil != S_seuil) {
       Black();
       old_S_seuil = S_seuil;
@@ -1150,5 +1150,5 @@ void eff_modulo() {
       }
     }//for i
     old_S_seuil = S_seuil - 1;
-  }//modulo 36
-}//eff_modulo
+  }//_Modulo 36
+}//eff_

@@ -98,10 +98,10 @@ unsigned long now;
 int effet_etat = 0;
 int last_time_effet = 0;
 int type_effet = 0;
-int modulo = 0;
+int _Modulo = 0;
 unsigned int str_ws = 0;
 unsigned int l_str;
-int type_modulo = 0;
+int type__Modulo = 0;
 int str = 0;
 int str_l = 0;
 int _Pix_pos;
@@ -214,7 +214,7 @@ void setup() {
 ///////////////////////////////////////// LOOP /////////////////////////////////////////////////
 void loop() {
   if (wifi_isok()) artnet.read();
-  eff_modulo();
+  eff__Modulo();
  // effet();
   if ((millis() - lastRefresh) > REFRESH) {
     if (!wifi_isok())  ledBlack();//passe led noir
