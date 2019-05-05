@@ -39,7 +39,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;
 
-  _Fx_mod = data[adr + 3];
+//  _Fx_mod = data[adr + 3];
+ _Fx_mod = abs(data[adr + 3] - 1) / 10;              // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
 
   _Pix_mod = data[adr + 4];
 
@@ -74,42 +75,44 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   //    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
   //  }
 
+// FX 0 -> 10
+  if ( _Fx_mod <= 10 ) _Fx_type = _Fx_mod;    // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
 
+//  if ((_Fx_mod >= 0) && (_Fx_mod <= 10)) {
+//    _Fx_type = 0;
+//  }//_Fx_mod fix
+//  else if ((_Fx_mod >= 11) && (_Fx_mod <= 20)) {
+//    _Fx_type  = 1;
+//  }//rudan 1
+//  else if ((_Fx_mod >= 21) && (_Fx_mod <= 30)) {
+//    _Fx_type  = 2;
+//  }//rudan 2
+//  else if ((_Fx_mod >= 31) && (_Fx_mod <= 40)) {
+//    _Fx_type  = 3;
+//  }//rudan 3
+//  else if ((_Fx_mod >= 41) && (_Fx_mod <= 50)) {
+//    _Fx_type  = 4;
+//  }//rudan 4
+//  else if ((_Fx_mod >= 51) && (_Fx_mod <= 60)) {
+//    _Fx_type  = 5;
+//  }//rudan 12
+//  else if ((_Fx_mod >= 61) && (_Fx_mod <= 70)) {
+//    _Fx_type  = 6;
+//  }//rudan 13
+//  else if ((_Fx_mod >= 71) && (_Fx_mod <= 80)) {
+//    _Fx_type  = 7;
+//  }//rudan 14
+//  else if ((_Fx_mod >= 81) && (_Fx_mod <= 90)) {
+//    _Fx_type  = 8;
+//  }//rudan 23
+//  else if ((_Fx_mod >= 91) && (_Fx_mod <= 100)) {
+//    _Fx_type  = 9;
+//  }//rudan 24
+//  else if ((_Fx_mod >= 101) && (_Fx_mod <= 110)) {
+//    _Fx_type  = 10;
+//  }//rudan 34
 
-  if ((_Fx_mod >= 0) && (_Fx_mod <= 10)) {
-    _Fx_type = 0;
-  }//_Fx_mod fix
-  else if ((_Fx_mod >= 11) && (_Fx_mod <= 20)) {
-    _Fx_type  = 1;
-  }//rudan 1
-  else if ((_Fx_mod >= 21) && (_Fx_mod <= 30)) {
-    _Fx_type  = 2;
-  }//rudan 2
-  else if ((_Fx_mod >= 31) && (_Fx_mod <= 40)) {
-    _Fx_type  = 3;
-  }//rudan 3
-  else if ((_Fx_mod >= 41) && (_Fx_mod <= 50)) {
-    _Fx_type  = 4;
-  }//rudan 4
-  else if ((_Fx_mod >= 51) && (_Fx_mod <= 60)) {
-    _Fx_type  = 5;
-  }//rudan 12
-  else if ((_Fx_mod >= 61) && (_Fx_mod <= 70)) {
-    _Fx_type  = 6;
-  }//rudan 13
-  else if ((_Fx_mod >= 71) && (_Fx_mod <= 80)) {
-    _Fx_type  = 7;
-  }//rudan 14
-  else if ((_Fx_mod >= 81) && (_Fx_mod <= 90)) {
-    _Fx_type  = 8;
-  }//rudan 23
-  else if ((_Fx_mod >= 91) && (_Fx_mod <= 100)) {
-    _Fx_type  = 9;
-  }//rudan 24
-  else if ((_Fx_mod >= 101) && (_Fx_mod <= 110)) {
-    _Fx_type  = 10;
-  }//rudan 34
-  else if ((_Fx_mod >= 111) && (_Fx_mod <= 120)) {
+  else if (_Fx_mod == 12) {
     _Fx_type  = 11;
     M_g_ref = 0;
     M_g1 = M_g;
@@ -120,7 +123,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g * 3;
     M_g4 = M_g * 4;
   }//rudan 1/4
-  else if ((_Fx_mod >= 121) && (_Fx_mod <= 130)) {
+  else if (_Fx_mod == 13) {
     _Fx_type  = 11;
     M_g_ref = M_g * 3;
     M_g1 = M_g * 4;
@@ -131,7 +134,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g * 2;
     M_g4 = M_g * 3;
   }//rudan 2/4
-  else if ((_Fx_mod >= 131) && (_Fx_mod <= 140)) {
+  else if (_Fx_mod == 14) {
     _Fx_type  = 11;
     M_g_ref = M_g * 2;
     M_g1 = M_g * 3;
@@ -142,7 +145,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g;
     M_g4 = M_g * 2;
   }//rudan 3/4
-  else if ((_Fx_mod >= 141) && (_Fx_mod <= 150)) {
+  else if (_Fx_mod == 15) {
     _Fx_type  = 11;
     M_g_ref = M_g;
     M_g1 = M_g * 2;
