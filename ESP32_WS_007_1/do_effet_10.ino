@@ -1,5 +1,5 @@
 void do_effet_10() {
-  if (_Pix_mod >= 0 && _Pix_mod <= 10) {
+  if (_Pix_mod == 0) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       pi_n_0_r[i] = pi_0_sr[i];
       pi_n_0_g[i] = pi_0_sg[i];
@@ -16,7 +16,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 0
 
-  if (_Pix_mod >= 11 && _Pix_mod <= 20) {
+  if (_Pix_mod == 1) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         pi_n_0_r[i] = pi_0_sr[i];
@@ -48,7 +48,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 10
 
-  if (_Pix_mod >= 21 && _Pix_mod <= 30) {
+  if (_Pix_mod == 2) {
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i <= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -97,7 +97,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 20
 
-  if (_Pix_mod >= 31 && _Pix_mod <= 40) {
+  if (_Pix_mod == 3) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (_Pix_start <= 1) {
@@ -137,7 +137,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 30
 
-  if (_Pix_mod >= 41 && _Pix_mod <= 50) {
+  if (_Pix_mod == 4) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -179,7 +179,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 40
 
-  if (_Pix_mod >= 51 && _Pix_mod <= 60) {
+  if (_Pix_mod == 5) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -229,7 +229,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 50
 
-  if (_Pix_mod >= 61 && _Pix_mod <= 70) {
+  if (_Pix_mod == 6) {
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (_Pix_start <= 1) {
@@ -279,7 +279,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 60
 
-  if (_Pix_mod >= 71 && _Pix_mod <= 80) {
+  if (_Pix_mod == 7) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -331,7 +331,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 70
 
-  if (_Pix_mod >= 81 && _Pix_mod <= 90) {
+  if (_Pix_mod == 8) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -390,7 +390,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 80
 
-  if (_Pix_mod >= 91 && _Pix_mod <= 100) {
+  if (_Pix_mod == 9) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (_Pix_start <= 1) {
@@ -432,7 +432,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 90
 
-  if (_Pix_mod >= 101 && _Pix_mod <= 110) {
+  if (_Pix_mod == 10) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -476,7 +476,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 100
 
-  if (_Pix_mod >= 111 && _Pix_mod <= 120) {
+  if (_Pix_mod == 11) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -528,7 +528,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 110
 
-  if (_Pix_mod >= 121 && _Pix_mod <= 130) {
+  if (_Pix_mod == 12) {
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (_Pix_start <= 1) {
@@ -581,7 +581,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 120
 
-  if (_Pix_mod >= 131 && _Pix_mod <= 140) {
+  if (_Pix_mod == 13) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
@@ -636,7 +636,7 @@ void do_effet_10() {
     }//for i
   }//_Pix_mod 130
 
-  if (_Pix_mod >= 141 && _Pix_mod <= 150) {
+  if (_Pix_mod == 14) {
     ref__Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {

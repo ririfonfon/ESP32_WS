@@ -60,7 +60,12 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
   else if ( is_in(_Pix_mod, {2, 6, 7, 8, 12, 13, 14}) )
     _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+//  if (_Pix_mod == 1 || _Pix_mod >= 3 && _Pix_mod <= 6 || _Pix_mod >= 9 && _Pix_mod <= 12)
+//    _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
+//  else if (_Pix_mod == 2 || _Pix_mod >= 6 && _Pix_mod <= 9 || _Pix_mod >= 12 && _Pix_mod <= 15)
+//    _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
 
+    
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
   _Pix_center = ((_Pix_start) / 2) + _Pix_pos;

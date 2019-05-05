@@ -1,5 +1,5 @@
 void do_effet_12() {
-  if (_Pix_mod >= 0 && _Pix_mod <= 10) {
+  if (_Pix_mod == 0) {
     float P_S = srr;
     float P_E = sgg;
     float P_S_E;
