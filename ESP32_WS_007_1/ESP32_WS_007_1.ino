@@ -106,7 +106,7 @@ int str = 0;
 int str_l = 0;
 int pix_pos;
 int pix_pos_v;
-int pix_start;
+int _Pix_start;
 int pix_center;
 int pix_end;
 int _Master;
@@ -136,7 +136,7 @@ unsigned long t_last_l = 0;
 #define STROB_ON_L 1
 #define STROB_ON_MS_L 15
 int l_s_count = 1;
-int pix_start_v;
+int _Pix_start_v;
 int ref_pix_pos;
 float pix_coef;
 float pix_coefi;
