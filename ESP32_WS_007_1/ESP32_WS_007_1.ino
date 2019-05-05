@@ -108,7 +108,7 @@ int pix_pos;
 int _Pix_pos_v;
 int _Pix_start;
 int pix_center;
-int pix_end;
+int _Pix_end;
 int _Master;
 float rrr;
 float ggg;

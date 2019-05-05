@@ -21,8 +21,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(_Pix_start);
   Serial.print("pix_center = ");
   Serial.println(pix_center);
-  Serial.print("pix_end = ");
-  Serial.println(pix_end);
+  Serial.print("_Pix_end = ");
+  Serial.println(_Pix_end);
   Serial.print("pix_pos = ");
   Serial.println(pix_pos);
   Serial.print("modulo = ");
@@ -34,24 +34,24 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 #endif
 
   _Master = data[adr - 1];
-  
+
   rr = (data[adr] * data[adr]) / 255;
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;
-  
+
   mod = data[adr + 3];
-  
+
   _Pix_mod = data[adr + 4];
-  
+
   _Pix_start = data[adr + 5] - 1;
-  
+
   _Pix_pos_v = data[adr + 6];
 
-  pix_end = _Pix_start + _Pix_start;
+  _Pix_end = _Pix_start + _Pix_start;
   if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
-    pix_pos = (((_Pix_start + N_L_P_S + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * data[adr + 6]) / 255) - (_Pix_end + 1);
   } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
-    pix_pos = (((_Pix_start + numberOfLed + pix_end) * data[adr + 6]) / 255) - (pix_end + 1);
+    pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * data[adr + 6]) / 255) - (_Pix_end + 1);
   }
   modulo = data[adr + 7];
   str_ws = (data[adr + 8] * data[adr + 8]) / 33;
