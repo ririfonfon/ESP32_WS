@@ -123,7 +123,7 @@ float srr;
 float sgg;
 float sbb;
 int mod;
-int pix_mod;
+int _Pix_mod;
 unsigned long t_now_effet = 0;
 uint8_t strob_count = 0;
 uint8_t strob_count_l = 0;

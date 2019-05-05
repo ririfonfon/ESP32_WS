@@ -1,5 +1,5 @@
 void do_effet_12() {
-  if (pix_mod >= 0 && pix_mod <= 10) {
+  if (_Pix_mod >= 0 && _Pix_mod <= 10) {
     float P_S = srr;
     float P_E = sgg;
     float P_S_E;
@@ -59,5 +59,5 @@ void do_effet_12() {
       pi_n_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
       pi_n_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
     }//for i
-  }//pix_mod 0
+  }//_Pix_mod 0
 }//do_effet_12()
