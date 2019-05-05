@@ -223,7 +223,7 @@ void setup() {
 void loop() {
   if (wifi_isok()) artnet.read();
   eff__Modulo();
- // effet();
+  // effet();
   if ((millis() - lastRefresh) > REFRESH) {
     if (!wifi_isok())  ledBlack();//passe led noir
     lastRefresh = millis();

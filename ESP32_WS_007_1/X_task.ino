@@ -210,7 +210,7 @@ void Map1code( void * pvParameters ) {
 }
 
 void effTask( void * pvParameters ) {
-  while(1) {
+  while (1) {
     //eff__Modulo();
     effet();
     yield(); // rend la main
