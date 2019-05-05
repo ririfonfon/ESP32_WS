@@ -97,7 +97,7 @@ int _Mirror;
 unsigned long now;
 int effet_etat = 0;
 int last_time_effet = 0;
-int type_effet = 0;
+int _Fx_type = 0;
 int _Modulo = 0;
 unsigned int _Strobe_ws = 0;
 unsigned int l_str;

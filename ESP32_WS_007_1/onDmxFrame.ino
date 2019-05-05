@@ -77,40 +77,40 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 
   if ((_Fx_mod >= 0) && (_Fx_mod <= 10)) {
-    type_effet = 0;
+    _Fx_type = 0;
   }//_Fx_mod fix
   else if ((_Fx_mod >= 11) && (_Fx_mod <= 20)) {
-    type_effet  = 1;
+    _Fx_type  = 1;
   }//rudan 1
   else if ((_Fx_mod >= 21) && (_Fx_mod <= 30)) {
-    type_effet  = 2;
+    _Fx_type  = 2;
   }//rudan 2
   else if ((_Fx_mod >= 31) && (_Fx_mod <= 40)) {
-    type_effet  = 3;
+    _Fx_type  = 3;
   }//rudan 3
   else if ((_Fx_mod >= 41) && (_Fx_mod <= 50)) {
-    type_effet  = 4;
+    _Fx_type  = 4;
   }//rudan 4
   else if ((_Fx_mod >= 51) && (_Fx_mod <= 60)) {
-    type_effet  = 5;
+    _Fx_type  = 5;
   }//rudan 12
   else if ((_Fx_mod >= 61) && (_Fx_mod <= 70)) {
-    type_effet  = 6;
+    _Fx_type  = 6;
   }//rudan 13
   else if ((_Fx_mod >= 71) && (_Fx_mod <= 80)) {
-    type_effet  = 7;
+    _Fx_type  = 7;
   }//rudan 14
   else if ((_Fx_mod >= 81) && (_Fx_mod <= 90)) {
-    type_effet  = 8;
+    _Fx_type  = 8;
   }//rudan 23
   else if ((_Fx_mod >= 91) && (_Fx_mod <= 100)) {
-    type_effet  = 9;
+    _Fx_type  = 9;
   }//rudan 24
   else if ((_Fx_mod >= 101) && (_Fx_mod <= 110)) {
-    type_effet  = 10;
+    _Fx_type  = 10;
   }//rudan 34
   else if ((_Fx_mod >= 111) && (_Fx_mod <= 120)) {
-    type_effet  = 11;
+    _Fx_type  = 11;
     M_g_ref = 0;
     M_g1 = M_g;
     M_g1_ref = M_g;
@@ -121,7 +121,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g * 4;
   }//rudan 1/4
   else if ((_Fx_mod >= 121) && (_Fx_mod <= 130)) {
-    type_effet  = 11;
+    _Fx_type  = 11;
     M_g_ref = M_g * 3;
     M_g1 = M_g * 4;
     M_g1_ref = 0;
@@ -132,7 +132,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g * 3;
   }//rudan 2/4
   else if ((_Fx_mod >= 131) && (_Fx_mod <= 140)) {
-    type_effet  = 11;
+    _Fx_type  = 11;
     M_g_ref = M_g * 2;
     M_g1 = M_g * 3;
     M_g1_ref = M_g * 3;
@@ -143,7 +143,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g4 = M_g * 2;
   }//rudan 3/4
   else if ((_Fx_mod >= 141) && (_Fx_mod <= 150)) {
-    type_effet  = 11;
+    _Fx_type  = 11;
     M_g_ref = M_g;
     M_g1 = M_g * 2;
     M_g1_ref = M_g * 2;
@@ -165,18 +165,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   //    Black();
   //    type__Modulo = 3;
   //    S_seuil = (_Modulo - 30) * 4;
-  //    //    type_effet = 255;
+  //    //    _Fx_type = 255;
   //  } else if ((_Modulo >= 111) && _Modulo <= 120) {
   //    type__Modulo = 4;
   //  } else if ((_Modulo >= 121) && _Modulo <= 200) {
   //    Black();
   //    type__Modulo = 5;
   //    S_seuil = (_Modulo - 120) * 4;
-  //    //    type_effet = 255;
+  //    //    _Fx_type = 255;
   //  } else if ((_Modulo >= 201) && _Modulo <= 255) {
   //    type__Modulo = 6;
   //    S_seuil = (_Modulo - 200) * 4;
-  //    //    type_effet = 255;
+  //    //    _Fx_type = 255;
   //  }
 
   // _Modulo mode && _Mirror
@@ -192,18 +192,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       Black();
       type__Modulo = 3;
       S_seuil = (_Modulo - 30) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 111) && _Modulo <= 120) {
       type__Modulo = 4;
     } else if ((_Modulo >= 121) && _Modulo <= 200) {
       Black();
       type__Modulo = 5;
       S_seuil = (_Modulo - 120) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 201) && _Modulo <= 255) {
       type__Modulo = 6;
       S_seuil = (_Modulo - 200) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     }
   } else if (_Mirror >= 11 && _Mirror <= 20) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
@@ -217,18 +217,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       Black();
       type__Modulo = 13;
       S_seuil = (_Modulo - 30) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 111) && _Modulo <= 120) {
       type__Modulo = 14;
     } else if ((_Modulo >= 121) && _Modulo <= 200) {
       Black();
       type__Modulo = 15;
       S_seuil = (_Modulo - 120) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 201) && _Modulo <= 255) {
       type__Modulo = 16;
       S_seuil = (_Modulo - 200) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     }
   } else if (_Mirror >= 21 && _Mirror <= 30) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
@@ -242,18 +242,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       Black();
       type__Modulo = 23;
       S_seuil = (_Modulo - 30) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 111) && _Modulo <= 120) {
       type__Modulo = 24;
     } else if ((_Modulo >= 121) && _Modulo <= 200) {
       Black();
       type__Modulo = 25;
       S_seuil = (_Modulo - 120) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 201) && _Modulo <= 255) {
       type__Modulo = 26;
       S_seuil = (_Modulo - 200) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     }
   } else if (_Mirror >= 31 && _Mirror <= 40) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
@@ -267,18 +267,18 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       Black();
       type__Modulo = 3;
       S_seuil = (_Modulo - 30) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 111) && _Modulo <= 120) {
       type__Modulo = 34;
     } else if ((_Modulo >= 121) && _Modulo <= 200) {
       Black();
       type__Modulo = 35;
       S_seuil = (_Modulo - 120) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     } else if ((_Modulo >= 201) && _Modulo <= 255) {
       type__Modulo = 36;
       S_seuil = (_Modulo - 200) * 4;
-      //    type_effet = 255;
+      //    _Fx_type = 255;
     }
   }
 
