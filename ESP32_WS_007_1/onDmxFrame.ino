@@ -61,16 +61,16 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
   _Color_mode = data[adr + 12];
-  mirror = data[adr + 13];
+  _Mirror = data[adr + 13];
 
-  //  // mirror mode
-  //  if (mirror >= 0 && mirror <= 10) {
+  //  // _Mirror mode
+  //  if (_Mirror >= 0 && _Mirror <= 10) {
   //    N_L_P_S = (NUM_LEDS_PER_STRIP);
-  //  } else if (mirror >= 11 && mirror <= 20) {
+  //  } else if (_Mirror >= 11 && _Mirror <= 20) {
   //    N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
-  //  } else if (mirror >= 21 && mirror <= 30) {
+  //  } else if (_Mirror >= 21 && _Mirror <= 30) {
   //    N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
-  //  } else if (mirror >= 31 && mirror <= 40) {
+  //  } else if (_Mirror >= 31 && _Mirror <= 40) {
   //    N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
   //  }
 
@@ -179,8 +179,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   //    //    type_effet = 255;
   //  }
 
-  // _Modulo mode && mirror
-  if (mirror >= 0 && mirror <= 10) {
+  // _Modulo mode && _Mirror
+  if (_Mirror >= 0 && _Mirror <= 10) {
     N_L_P_S = (NUM_LEDS_PER_STRIP);
     if ((_Modulo >= 0) && _Modulo <= 10) {
       type__Modulo = 0;
@@ -205,7 +205,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (_Modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 11 && mirror <= 20) {
+  } else if (_Mirror >= 11 && _Mirror <= 20) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 2);
     if ((_Modulo >= 0) && _Modulo <= 10) {
       type__Modulo = 10;
@@ -230,7 +230,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (_Modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 21 && mirror <= 30) {
+  } else if (_Mirror >= 21 && _Mirror <= 30) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 3);
     if ((_Modulo >= 0) && _Modulo <= 10) {
       type__Modulo = 20;
@@ -255,7 +255,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
       S_seuil = (_Modulo - 200) * 4;
       //    type_effet = 255;
     }
-  } else if (mirror >= 31 && mirror <= 40) {
+  } else if (_Mirror >= 31 && _Mirror <= 40) {
     N_L_P_S = (NUM_LEDS_PER_STRIP / 4);
     if ((_Modulo >= 0) && _Modulo <= 10) {
       type__Modulo = 30;
