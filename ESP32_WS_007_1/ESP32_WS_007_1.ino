@@ -61,6 +61,7 @@ bool randArray[numberOfLed];
 
 ///////////////////////////////////dmx variables////////////////////////////////////
 int M_g[NUM_STRIPS][2];
+const int MG = ((NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS);
 
 float pi_n_0_r[NUM_LEDS_PER_STRIP];
 float pi_n_0_g[NUM_LEDS_PER_STRIP];
@@ -152,15 +153,8 @@ float pix_coef;
 float pix_coefi;
 float pix_coef_fond;
 float pix_coefi_fond;
-int MG;
-//int M_g[0][0];
-//int M_g[0][1];
-//int M_g[1][0];
-//int M_g[1][1];
-//int M_g[2][0];
-//int M_g[2][1];
-//int M_g[3][0];
-//int M_g[3][1];
+
+
 int S_seuil;
 int old_S_seuil = 0;
 int S_count;

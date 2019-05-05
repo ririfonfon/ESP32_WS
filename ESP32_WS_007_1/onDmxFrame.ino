@@ -58,7 +58,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
   _Pix_center = ((_Pix_start) / 2) + _Pix_pos;
-  MG = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+//  MG = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
