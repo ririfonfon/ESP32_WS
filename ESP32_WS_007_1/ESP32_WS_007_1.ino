@@ -40,6 +40,14 @@ unsigned long lastRefresh = 0;
 char nodeName[HBSIZE];
 byte myID;
 
+
+#include <algorithm>
+#include <initializer_list>
+template <typename T>
+bool is_in(const T& v, std::initializer_list<T> lst) {
+  return std::find(std::begin(lst), std::end(lst), v) != std::end(lst);
+}
+
 ///////////////////////////////Lib esp32_digital_led_lib//////////////////////////////
 #include "esp32_digital_led_lib.h"
 #define min(m,n) ((m)<(n)?(m):(n))
