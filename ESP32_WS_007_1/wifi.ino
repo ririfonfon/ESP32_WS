@@ -42,7 +42,7 @@ void wifi_event(WiFiEvent_t event) {
       _Pix_mod = 0;
       _Pix_start = 0;
      _Modulo = 0;
-      str_ws = 0;
+      _Strobe_ws = 0;
       pix_center = 0;
       srr = 0;
       sgg = 0;

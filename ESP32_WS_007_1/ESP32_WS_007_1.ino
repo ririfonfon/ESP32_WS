@@ -99,7 +99,7 @@ int effet_etat = 0;
 int last_time_effet = 0;
 int type_effet = 0;
 int _Modulo = 0;
-unsigned int str_ws = 0;
+unsigned int _Strobe_ws = 0;
 unsigned int l_str;
 int type__Modulo = 0;
 int str = 0;
@@ -127,7 +127,7 @@ int _Pix_mod;
 unsigned long t_now_effet = 0;
 uint8_t strob_count = 0;
 uint8_t strob_count_l = 0;
-unsigned long str_ws_last = 0;
+unsigned long _Strobe_ws_last = 0;
 unsigned long t_last_l = 0;
 #define STROB_FRACTION 5
 #define STROB_ON 1

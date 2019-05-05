@@ -11,11 +11,11 @@ void eff__Modulo() {
 
   }
   else if ( type__Modulo == 1) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -30,9 +30,9 @@ void eff__Modulo() {
   }//_Modulo 1
 
   else if (type__Modulo == 2) {
-    if (str_ws <= 0) str_ws = 1;
-    float time__Modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
+    if (_Strobe_ws <= 0) _Strobe_ws = 1;
+    float time__Modulo = _Strobe_ws;
+    float module = 2 * abs( (t_now % _Strobe_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       strands[0]->pixels[i] = pixelFromRGB((pi_n_0_r[i] * module * _Master / 255), (pi_n_0_g[i] * module * _Master / 255), (pi_n_0_b[i] * module * _Master / 255));
@@ -44,11 +44,11 @@ void eff__Modulo() {
   }// _Modulo 2
 
   else if ( type__Modulo == 3 ) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -76,18 +76,18 @@ void eff__Modulo() {
   }//_Modulo 3
 
   else if ( type__Modulo == 4) {
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -102,18 +102,18 @@ void eff__Modulo() {
   }//_Modulo 4
   else if ( type__Modulo == 5 ) {
     int S_seuil_B;
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -219,11 +219,11 @@ void eff__Modulo() {
     }
   }//_Modulo 10
   else if ( type__Modulo == 11) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -245,9 +245,9 @@ void eff__Modulo() {
   }//_Modulo 11
 
   else if (type__Modulo == 12) {
-    if (str_ws <= 0) str_ws = 1;
-    float time__Modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
+    if (_Strobe_ws <= 0) _Strobe_ws = 1;
+    float time__Modulo = _Strobe_ws;
+    float module = 2 * abs( (t_now % _Strobe_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -266,11 +266,11 @@ void eff__Modulo() {
   }// _Modulo 12
 
   else if ( type__Modulo == 13 ) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -319,18 +319,18 @@ void eff__Modulo() {
   }//_Modulo 13
 
   else if ( type__Modulo == 14) {
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -353,18 +353,18 @@ void eff__Modulo() {
   }//_Modulo 14
   else if ( type__Modulo == 15 ) {
     int S_seuil_B;
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -483,11 +483,11 @@ void eff__Modulo() {
     }
   }//_Modulo 20
   else if ( type__Modulo == 21) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -515,9 +515,9 @@ void eff__Modulo() {
   }//_Modulo 21
 
   else if (type__Modulo == 22) {
-    if (str_ws <= 0) str_ws = 1;
-    float time__Modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
+    if (_Strobe_ws <= 0) _Strobe_ws = 1;
+    float time__Modulo = _Strobe_ws;
+    float module = 2 * abs( (t_now % _Strobe_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -542,11 +542,11 @@ void eff__Modulo() {
   }// _Modulo 22
 
   else if ( type__Modulo == 23 ) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -606,18 +606,18 @@ void eff__Modulo() {
   }//_Modulo 23
 
   else if ( type__Modulo == 24) {
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -646,18 +646,18 @@ void eff__Modulo() {
   }//_Modulo 24
   else if ( type__Modulo == 25 ) {
     int S_seuil_B;
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -806,11 +806,11 @@ void eff__Modulo() {
     }
   }//_Modulo 30
   else if ( type__Modulo == 31) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -844,9 +844,9 @@ void eff__Modulo() {
   }//_Modulo 31
 
   else if (type__Modulo == 32) {
-    if (str_ws <= 0) str_ws = 1;
-    float time__Modulo = str_ws;
-    float module = 2 * abs( (t_now % str_ws) - time__Modulo / 2) / time__Modulo;
+    if (_Strobe_ws <= 0) _Strobe_ws = 1;
+    float time__Modulo = _Strobe_ws;
+    float module = 2 * abs( (t_now % _Strobe_ws) - time__Modulo / 2) / time__Modulo;
     module *= module;
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i <= N_L_P_S) {
@@ -877,11 +877,11 @@ void eff__Modulo() {
   }// _Modulo 32
 
   else if ( type__Modulo == 33 ) {
-    if (str == 0 && t_now - str_ws_last > str_ws) {
-      str_ws_last = t_now;
+    if (str == 0 && t_now - _Strobe_ws_last > _Strobe_ws) {
+      _Strobe_ws_last = t_now;
       str = 1;
-    } else if (str == 1 && t_now - str_ws_last > STROB_ON_MS) {
-      str_ws_last = t_now;
+    } else if (str == 1 && t_now - _Strobe_ws_last > STROB_ON_MS) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
@@ -953,18 +953,18 @@ void eff__Modulo() {
   }//_Modulo 33
 
   else if ( type__Modulo == 34) {
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
     } else {
       return;
@@ -999,18 +999,18 @@ void eff__Modulo() {
   }//_Modulo 34
   else if ( type__Modulo == 35 ) {
     int S_seuil_B;
-    if (str == 0 && str_ws_last < t_now && t_now - str_ws_last > str_ws / (str_blind_ws * str_blind_ws)) {
-      str_ws_last = t_now;
+    if (str == 0 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > _Strobe_ws / (str_blind_ws * str_blind_ws)) {
+      _Strobe_ws_last = t_now;
       str = 1;
       str_blind_ws = str_blind_ws + 0.05;
       if (str_blind_ws >= 3) {
         str_blind_ws = 1;
         // Noir pendant 1 sec (dans le futur)
         str = 0;
-        str_ws_last = t_now + 1000;
+        _Strobe_ws_last = t_now + 1000;
       }
-    } else if (str == 1 && str_ws_last < t_now && t_now - str_ws_last > (STROB_ON_MS)) {
-      str_ws_last = t_now;
+    } else if (str == 1 && _Strobe_ws_last < t_now && t_now - _Strobe_ws_last > (STROB_ON_MS)) {
+      _Strobe_ws_last = t_now;
       str = 0;
       Black();
     } else {
