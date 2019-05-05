@@ -60,7 +60,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
-  color_mode = data[adr + 12];
+  _Color_mode = data[adr + 12];
   mirror = data[adr + 13];
 
   //  // mirror mode

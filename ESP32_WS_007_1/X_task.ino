@@ -2,7 +2,7 @@
 void Map1code( void * pvParameters ) {
   while (1) {
     // color mode
-    if (color_mode >= 0 && color_mode <= 10) {
+    if (_Color_mode >= 0 && _Color_mode <= 10) {
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
         pi_0_r[i] = rr;
         pi_0_g[i] = gg;
@@ -29,7 +29,7 @@ void Map1code( void * pvParameters ) {
         pi_3_sg[i] = sgg;
         pi_3_sb[i] = sbb;
       }
-    } else if (color_mode >= 11 && color_mode <= 20) {
+    } else if (_Color_mode >= 11 && _Color_mode <= 20) {
       if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
@@ -110,12 +110,12 @@ void Map1code( void * pvParameters ) {
           pi_3_sb[ci] = 0;
         }
       }//for (i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-    }//(color_mode >= 11 && color_mode <= 20)
+    }//(_Color_mode >= 11 && _Color_mode <= 20)
 
 
 
 
-    else if (color_mode >= 21 && color_mode <= 30) {
+    else if (_Color_mode >= 21 && _Color_mode <= 30) {
       if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
@@ -204,7 +204,7 @@ void Map1code( void * pvParameters ) {
           pi_3_sb[ci] = 0;
         }
       }//for (int i = 0 ; i < numberOfLed ; i++) {
-    }//else if (color_mode >= 21 && color_mode <= 30)
+    }//else if (_Color_mode >= 21 && _Color_mode <= 30)
 
   }
 }

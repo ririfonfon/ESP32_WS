@@ -91,7 +91,7 @@ float pi_3_sr[NUM_LEDS_PER_STRIP];
 float pi_3_sg[NUM_LEDS_PER_STRIP];
 float pi_3_sb[NUM_LEDS_PER_STRIP];
 
-int color_mode;
+int _Color_mode;
 int mirror;
 
 unsigned long now;
