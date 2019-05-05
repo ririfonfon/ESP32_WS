@@ -60,6 +60,8 @@ strand_t * strands [] = { &STRANDS[0], &STRANDS[1], &STRANDS[2], &STRANDS[3]};
 bool randArray[numberOfLed];
 
 ///////////////////////////////////dmx variables////////////////////////////////////
+int M_g[NUM_STRIPS][2];
+
 float pi_n_0_r[NUM_LEDS_PER_STRIP];
 float pi_n_0_g[NUM_LEDS_PER_STRIP];
 float pi_n_0_b[NUM_LEDS_PER_STRIP];
@@ -150,15 +152,15 @@ float pix_coef;
 float pix_coefi;
 float pix_coef_fond;
 float pix_coefi_fond;
-int M_g;
-int M_g_ref;
-int M_g1;
-int M_g1_ref;
-int M_g2;
-int M_g2_ref;
-int M_g3;
-int M_g3_ref;
-int M_g4;
+int MG;
+//int M_g[0][0];
+//int M_g[0][1];
+//int M_g[1][0];
+//int M_g[1][1];
+//int M_g[2][0];
+//int M_g[2][1];
+//int M_g[3][0];
+//int M_g[3][1];
 int S_seuil;
 int old_S_seuil = 0;
 int S_count;

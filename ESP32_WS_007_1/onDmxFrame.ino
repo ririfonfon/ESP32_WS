@@ -29,8 +29,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(_Modulo);
   Serial.print("_Strobe_ws = ");
   Serial.println(_Strobe_ws);
-  Serial.print("M_g = ");
-  Serial.println(M_g);
+  Serial.print("MG = ");
+  Serial.println(MG);
 #endif
 
   _Master = data[adr - 1];
@@ -58,7 +58,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
   _Pix_center = ((_Pix_start) / 2) + _Pix_pos;
-  M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+  MG = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
   sbb = (data[adr + 11] * data[adr + 11]) / 255;
@@ -72,47 +72,47 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
   else if (_Fx_mod == 12) {
     _Fx_type  = 11;
-    M_g_ref = 0;
-    M_g1 = M_g;
-    M_g1_ref = M_g;
-    M_g2 = M_g * 2;
-    M_g2_ref = M_g * 2;
-    M_g3 = M_g * 3;
-    M_g3_ref = M_g * 3;
-    M_g4 = M_g * 4;
+    M_g[0][0] = 0;
+    M_g[0][1] = MG;
+    M_g[1][0] = MG;
+    M_g[1][1] = MG * 2;
+    M_g[2][0] = MG * 2;
+    M_g[2][1] = MG * 3;
+    M_g[3][0] = MG * 3;
+    M_g[3][1] = MG * 4;
   }//rudan 1/4
   else if (_Fx_mod == 13) {
     _Fx_type  = 11;
-    M_g_ref = M_g * 3;
-    M_g1 = M_g * 4;
-    M_g1_ref = 0;
-    M_g2 = M_g;
-    M_g2_ref = M_g;
-    M_g3 = M_g * 2;
-    M_g3_ref = M_g * 2;
-    M_g4 = M_g * 3;
+    M_g[0][0] = MG * 3;
+    M_g[0][1] = MG * 4;
+    M_g[1][0] = 0;
+    M_g[1][1] = MG;
+    M_g[2][0] = MG;
+    M_g[2][1] = MG * 2;
+    M_g[3][0] = MG * 2;
+    M_g[3][1] = MG * 3;
   }//rudan 2/4
   else if (_Fx_mod == 14) {
     _Fx_type  = 11;
-    M_g_ref = M_g * 2;
-    M_g1 = M_g * 3;
-    M_g1_ref = M_g * 3;
-    M_g2 = M_g * 4;
-    M_g2_ref = 0;
-    M_g3 = M_g;
-    M_g3_ref = M_g;
-    M_g4 = M_g * 2;
+    M_g[0][0] = MG * 2;
+    M_g[0][1] = MG * 3;
+    M_g[1][0] = MG * 3;
+    M_g[1][1] = MG * 4;
+    M_g[2][0] = 0;
+    M_g[2][1] = MG;
+    M_g[3][0] = MG;
+    M_g[3][1] = MG * 2;
   }//rudan 3/4
   else if (_Fx_mod == 15) {
     _Fx_type  = 11;
-    M_g_ref = M_g;
-    M_g1 = M_g * 2;
-    M_g1_ref = M_g * 2;
-    M_g2 = M_g * 3;
-    M_g2_ref = M_g * 3;
-    M_g3 = M_g * 4;
-    M_g3_ref = 0;
-    M_g4 = M_g;
+    M_g[0][0] = MG;
+    M_g[0][1] = MG * 2;
+    M_g[1][0] = MG * 2;
+    M_g[1][1] = MG * 3;
+    M_g[2][0] = MG * 3;
+    M_g[2][1] = MG * 4;
+    M_g[3][0] = 0;
+    M_g[3][1] = MG;
   }//rudan 4/4
 
 
