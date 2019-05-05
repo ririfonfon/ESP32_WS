@@ -38,7 +38,7 @@ void wifi_event(WiFiEvent_t event) {
       rr = 0;
       gg = 0;
       bb = 0;
-      mod = 0;
+      _Fx_mod = 0;
       _Pix_mod = 0;
       _Pix_start = 0;
      _Modulo = 0;

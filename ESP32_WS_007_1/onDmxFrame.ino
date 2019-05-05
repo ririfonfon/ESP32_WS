@@ -13,8 +13,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(gg);
   Serial.print("b = ");
   Serial.println(bb);
-  Serial.print("mod = ");
-  Serial.println(mod);
+  Serial.print("_Fx_mod = ");
+  Serial.println(_Fx_mod);
   Serial.print("_Pix_mod = ");
   Serial.println(_Pix_mod);
   Serial.print("_Pix_start = ");
@@ -39,7 +39,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   gg = (data[adr + 1] * data[adr + 1]) / 255;
   bb = (data[adr + 2] * data[adr + 2]) / 255;
 
-  mod = data[adr + 3];
+  _Fx_mod = data[adr + 3];
 
   _Pix_mod = data[adr + 4];
 
@@ -76,40 +76,40 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
 
 
-  if ((mod >= 0) && (mod <= 10)) {
+  if ((_Fx_mod >= 0) && (_Fx_mod <= 10)) {
     type_effet = 0;
-  }//mod fix
-  else if ((mod >= 11) && (mod <= 20)) {
+  }//_Fx_mod fix
+  else if ((_Fx_mod >= 11) && (_Fx_mod <= 20)) {
     type_effet  = 1;
   }//rudan 1
-  else if ((mod >= 21) && (mod <= 30)) {
+  else if ((_Fx_mod >= 21) && (_Fx_mod <= 30)) {
     type_effet  = 2;
   }//rudan 2
-  else if ((mod >= 31) && (mod <= 40)) {
+  else if ((_Fx_mod >= 31) && (_Fx_mod <= 40)) {
     type_effet  = 3;
   }//rudan 3
-  else if ((mod >= 41) && (mod <= 50)) {
+  else if ((_Fx_mod >= 41) && (_Fx_mod <= 50)) {
     type_effet  = 4;
   }//rudan 4
-  else if ((mod >= 51) && (mod <= 60)) {
+  else if ((_Fx_mod >= 51) && (_Fx_mod <= 60)) {
     type_effet  = 5;
   }//rudan 12
-  else if ((mod >= 61) && (mod <= 70)) {
+  else if ((_Fx_mod >= 61) && (_Fx_mod <= 70)) {
     type_effet  = 6;
   }//rudan 13
-  else if ((mod >= 71) && (mod <= 80)) {
+  else if ((_Fx_mod >= 71) && (_Fx_mod <= 80)) {
     type_effet  = 7;
   }//rudan 14
-  else if ((mod >= 81) && (mod <= 90)) {
+  else if ((_Fx_mod >= 81) && (_Fx_mod <= 90)) {
     type_effet  = 8;
   }//rudan 23
-  else if ((mod >= 91) && (mod <= 100)) {
+  else if ((_Fx_mod >= 91) && (_Fx_mod <= 100)) {
     type_effet  = 9;
   }//rudan 24
-  else if ((mod >= 101) && (mod <= 110)) {
+  else if ((_Fx_mod >= 101) && (_Fx_mod <= 110)) {
     type_effet  = 10;
   }//rudan 34
-  else if ((mod >= 111) && (mod <= 120)) {
+  else if ((_Fx_mod >= 111) && (_Fx_mod <= 120)) {
     type_effet  = 11;
     M_g_ref = 0;
     M_g1 = M_g;
@@ -120,7 +120,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g * 3;
     M_g4 = M_g * 4;
   }//rudan 1/4
-  else if ((mod >= 121) && (mod <= 130)) {
+  else if ((_Fx_mod >= 121) && (_Fx_mod <= 130)) {
     type_effet  = 11;
     M_g_ref = M_g * 3;
     M_g1 = M_g * 4;
@@ -131,7 +131,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g * 2;
     M_g4 = M_g * 3;
   }//rudan 2/4
-  else if ((mod >= 131) && (mod <= 140)) {
+  else if ((_Fx_mod >= 131) && (_Fx_mod <= 140)) {
     type_effet  = 11;
     M_g_ref = M_g * 2;
     M_g1 = M_g * 3;
@@ -142,7 +142,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
     M_g3_ref = M_g;
     M_g4 = M_g * 2;
   }//rudan 3/4
-  else if ((mod >= 141) && (mod <= 150)) {
+  else if ((_Fx_mod >= 141) && (_Fx_mod <= 150)) {
     type_effet  = 11;
     M_g_ref = M_g;
     M_g1 = M_g * 2;
