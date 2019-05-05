@@ -54,8 +54,20 @@ strand_t STRANDS[NUM_STRIPS];
 strand_t * strands [] = { &STRANDS[0], &STRANDS[1], &STRANDS[2], &STRANDS[3]};
 bool randArray[NUM_LEDS_TOTAL];
 
-///////////////////////////////////dmx variables////////////////////////////////////
+
+///////////////////////////////////// Artnet settings /////////////////////////////////////
 ArtnetWifi artnet;
+//const int startUniverse = 0; // CHANGE FOR YOUR SETUP most software this is 1, some software send out artnet first universe as 0.
+const int startUniverse = NOEUX; // CHANGE FOR NOEUX.
+
+// Check if we got all universes
+const int maxUniverses = numberOfChannels / 512 + ((numberOfChannels % 512) ? 1 : 0);
+bool universesReceived[maxUniverses];
+bool sendFrame = 1;
+int previousDataLength = 0;
+
+
+///////////////////////////////////dmx variables////////////////////////////////////
 
 pixelColor_t pix_buffer[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Buffer principal
 pixelColor_t pix_colorA[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Color
