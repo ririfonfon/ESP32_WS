@@ -107,7 +107,7 @@ int str_l = 0;
 int _Pix_pos;
 int _Pix_pos_v;
 int _Pix_start;
-int pix_center;
+int _Pix_center;
 int _Pix_end;
 int _Master;
 float rrr;

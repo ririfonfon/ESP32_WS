@@ -307,11 +307,11 @@ void do_effet_11() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        if (i <= pix_center) {
+        if (i <= _Pix_center) {
           pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
         }
-        else if (i >= pix_center) {
+        else if (i >= _Pix_center) {
           pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
           ref__Pix_pos = ref__Pix_pos - 2;
@@ -542,11 +542,11 @@ void do_effet_11() {
       } else {
         _Pix_start_v = _Pix_start;
       }
-      if (i <= pix_center) {
+      if (i <= _Pix_center) {
         pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
       }
-      else if (i >= pix_center) {
+      else if (i >= _Pix_center) {
         pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         ref__Pix_pos = ref__Pix_pos - 2;
@@ -767,11 +767,11 @@ void do_effet_11() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        if (i <= pix_center) {
+        if (i <= _Pix_center) {
           pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
         }
-        else if (i >= pix_center) {
+        else if (i >= _Pix_center) {
           pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
           ref__Pix_pos = ref__Pix_pos - 2;
@@ -1017,11 +1017,11 @@ void do_effet_11() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        if (i <= pix_center) {
+        if (i <= _Pix_center) {
           pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
         }
-        else if (i >= pix_center) {
+        else if (i >= _Pix_center) {
           pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
           ref__Pix_pos = ref__Pix_pos - 2;

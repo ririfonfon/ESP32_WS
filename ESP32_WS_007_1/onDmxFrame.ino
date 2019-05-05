@@ -19,8 +19,8 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.println(_Pix_mod);
   Serial.print("_Pix_start = ");
   Serial.println(_Pix_start);
-  Serial.print("pix_center = ");
-  Serial.println(pix_center);
+  Serial.print("_Pix_center = ");
+  Serial.println(_Pix_center);
   Serial.print("_Pix_end = ");
   Serial.println(_Pix_end);
   Serial.print("_Pix_pos = ");
@@ -55,7 +55,7 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   }
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
-  pix_center = ((_Pix_start) / 2) + _Pix_pos;
+  _Pix_center = ((_Pix_start) / 2) + _Pix_pos;
   M_g = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
   srr = (data[adr + 9] * data[adr + 9]) / 255;
   sgg = (data[adr + 10] * data[adr + 10]) / 255;
