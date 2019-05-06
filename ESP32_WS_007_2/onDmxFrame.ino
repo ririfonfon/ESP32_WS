@@ -8,11 +8,11 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   Serial.print("_Master = ");
   Serial.println(_Master);
   Serial.print("r = ");
-  Serial.println(rr);
+  Serial.println(data[adr + 0]);
   Serial.print("g = ");
-  Serial.println(gg);
+  Serial.println(data[adr + 1]);
   Serial.print("b = ");
-  Serial.println(bb);
+  Serial.println(data[adr + 2]);
   Serial.print("_Fx_mod = ");
   Serial.println(_Fx_mod);
   Serial.print("_Pix_mod = ");
@@ -33,9 +33,10 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
 
   _Master = data[adr - 1];
 
-  rr = (data[adr] * data[adr]) / 255;
-  gg = (data[adr + 1] * data[adr + 1]) / 255;
-  bb = (data[adr + 2] * data[adr + 2]) / 255;
+  //  rr = (data[adr] * data[adr]) / 255;
+  //  gg = (data[adr + 1] * data[adr + 1]) / 255;
+  //  bb = (data[adr + 2] * data[adr + 2]) / 255;
+  _Color = pixelFromRGB( linear(data[adr + 0]), linear(data[adr + 1]), linear(data[adr + 2]));
 
   _Fx_mod = abs(data[adr + 3] - 1) / 10;              // (0 -> 10) = 0  //  (11 -> 20) = 1  // ...
 
@@ -56,10 +57,11 @@ void onDmxFrame(uint16_t universe, uint16_t length, uint8_t sequence, uint8_t* d
   _Modulo = data[adr + 7];
   _Strobe_ws = (data[adr + 8] * data[adr + 8]) / 33;
   _Pix_center = ((_Pix_start) / 2) + _Pix_pos;
-//  MG = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
-  srr = (data[adr + 9] * data[adr + 9]) / 255;
-  sgg = (data[adr + 10] * data[adr + 10]) / 255;
-  sbb = (data[adr + 11] * data[adr + 11]) / 255;
+  //  MG = (NUM_LEDS_PER_STRIP + 1) / NUM_STRIPS;
+  //  srr = (data[adr + 9] * data[adr + 9]) / 255;
+  //  sgg = (data[adr + 10] * data[adr + 10]) / 255;
+  //  sbb = (data[adr + 11] * data[adr + 11]) / 255;
+  _Color2 = pixelFromRGB( linear(data[adr + 9]), linear(data[adr + 10]), linear(data[adr + 11]));
   _Color_mode = data[adr + 12];
   _Mirror = data[adr + 13];
 

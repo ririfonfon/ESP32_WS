@@ -2,40 +2,24 @@ void do_effet_11() {
   if (_Pix_mod == 0) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= M_g[0][0] && i <= M_g[0][1]) {
-        pi_n_0_r[i] = pi_0_r[i];
-        pi_n_0_g[i] = pi_0_g[i];
-        pi_n_0_b[i] = pi_0_b[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i];
       } else {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
       }
       if (i > M_g[1][0] && i <= M_g[1][1]) {
-        pi_n_1_r[i] = pi_1_r[i];
-        pi_n_1_g[i] = pi_1_g[i];
-        pi_n_1_b[i] = pi_1_b[i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorA[1][i];
       } else {
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
       }
       if (i > M_g[2][0] && i <= M_g[2][1]) {
-        pi_n_2_r[i] = pi_2_r[i];
-        pi_n_2_g[i] = pi_2_g[i];
-        pi_n_2_b[i] = pi_2_b[i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorA[2][i];
       } else {
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
       }
       if (i > M_g[3][0] && i <= M_g[3][1]) {
-        pi_n_3_r[i] = pi_3_r[i];
-        pi_n_3_g[i] = pi_3_g[i];
-        pi_n_3_b[i] = pi_3_b[i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorA[3][i];
       } else {
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 0
@@ -44,54 +28,30 @@ void do_effet_11() {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = pi_0_r[i];
-          pi_n_0_g[i] = pi_0_g[i];
-          pi_n_0_b[i] = pi_0_b[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i];
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = pi_1_r[i];
-          pi_n_1_g[i] = pi_1_g[i];
-          pi_n_1_b[i] = pi_1_b[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorA[1][i];
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = pi_2_r[i];
-          pi_n_2_g[i] = pi_2_g[i];
-          pi_n_2_b[i] = pi_2_b[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorA[2][i];
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = pi_3_r[i];
-          pi_n_3_g[i] = pi_3_g[i];
-          pi_n_3_b[i] = pi_3_b[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorA[3][i];
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 10
@@ -101,69 +61,45 @@ void do_effet_11() {
       if (i <= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
-            pi_n_0_r[i] = pi_0_r[i];
-            pi_n_0_g[i] = pi_0_g[i];
-            pi_n_0_b[i] = pi_0_b[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i];
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-            pi_n_1_r[i - N_L_P_S] = pi_1_r[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorA[1][i - N_L_P_S];
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         } else {
-          pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-          pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-          pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+          pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_r[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_g[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_b[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorA[2][i - N_L_P_S * 2];
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         } else {
-          pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-          pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-          pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+          pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_r[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_g[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_b[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorA[3][i - N_L_P_S * 3];
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         } else {
-          pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-          pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-          pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+          pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
         }
       }
     }//for i
@@ -180,54 +116,30 @@ void do_effet_11() {
         pix_coefi = (((i - _Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-          pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-          pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = pi_1_r[i] * pix_coef;
-          pi_n_1_g[i] = pi_1_g[i] * pix_coef;
-          pi_n_1_b[i] = pi_1_b[i] * pix_coef;
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorA[1][i] * pix_coef;
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = pi_2_r[i] * pix_coef;
-          pi_n_2_g[i] = pi_2_g[i] * pix_coef;
-          pi_n_2_b[i] = pi_2_b[i] * pix_coef;
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorA[2][i] * pix_coef;
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = pi_3_r[i] * pix_coef;
-          pi_n_3_g[i] = pi_3_g[i] * pix_coef;
-          pi_n_3_b[i] = pi_3_b[i] * pix_coef;
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorA[3][i] * pix_coef;
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 30
@@ -246,54 +158,30 @@ void do_effet_11() {
         ref__Pix_pos--;
 
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-          pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-          pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = pi_1_r[i] * pix_coef;
-          pi_n_1_g[i] = pi_1_g[i] * pix_coef;
-          pi_n_1_b[i] = pi_1_b[i] * pix_coef;
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorA[1][i] * pix_coef;
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = pi_2_r[i] * pix_coef;
-          pi_n_2_g[i] = pi_2_g[i] * pix_coef;
-          pi_n_2_b[i] = pi_2_b[i] * pix_coef;
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorA[2][i] * pix_coef;
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = pi_3_r[i] * pix_coef;
-          pi_n_3_g[i] = pi_3_g[i] * pix_coef;
-          pi_n_3_b[i] = pi_3_b[i] * pix_coef;
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorA[3][i] * pix_coef;
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 40
@@ -318,54 +206,30 @@ void do_effet_11() {
         }
         if (pix_coef > 1) pix_coef = 1;
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-          pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-          pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = pi_1_r[i] * pix_coef;
-          pi_n_1_g[i] = pi_1_g[i] * pix_coef;
-          pi_n_1_b[i] = pi_1_b[i] * pix_coef;
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorA[1][i] * pix_coef;
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = pi_2_r[i] * pix_coef;
-          pi_n_2_g[i] = pi_2_g[i] * pix_coef;
-          pi_n_2_b[i] = pi_2_b[i] * pix_coef;
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorA[2][i] * pix_coef;
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = pi_3_r[i] * pix_coef;
-          pi_n_3_g[i] = pi_3_g[i] * pix_coef;
-          pi_n_3_b[i] = pi_3_b[i] * pix_coef;
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorA[3][i] * pix_coef;
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 50
@@ -383,69 +247,47 @@ void do_effet_11() {
       if (i <= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
-            pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-            pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-            pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-            pi_n_1_r[i - N_L_P_S] = pi_1_r[i - N_L_P_S] * pix_coef;
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorA[1][ - N_L_P_S] * pix_coef;
             pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
             pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         } else {
-          pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-          pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-          pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+          pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_r[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_g[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_b[i - N_L_P_S * 2] * pix_coef;
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         } else {
-          pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-          pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-          pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+          pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_r[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_g[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_b[i - N_L_P_S * 3] * pix_coef;
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         } else {
-          pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-          pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-          pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+          pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
         }
       }
     }//for i
@@ -466,69 +308,47 @@ void do_effet_11() {
       if (i <= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
-            pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-            pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-            pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-            pi_n_1_r[i - N_L_P_S] = pi_1_r[i - N_L_P_S] * pix_coef;
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorA[1][ - N_L_P_S] * pix_coef;
             pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
             pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         } else {
-          pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-          pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-          pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+          pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_r[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_g[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_b[i - N_L_P_S * 2] * pix_coef;
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         } else {
-          pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-          pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-          pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+          pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_r[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_g[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_b[i - N_L_P_S * 3] * pix_coef;
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         } else {
-          pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-          pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-          pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+          pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
         }
       }
     }//for i
@@ -556,69 +376,47 @@ void do_effet_11() {
       if (i <= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
-            pi_n_0_r[i] = pi_0_r[i] * pix_coef;
-            pi_n_0_g[i] = pi_0_g[i] * pix_coef;
-            pi_n_0_b[i] = pi_0_b[i] * pix_coef;
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorA[0][i] * pix_coef;
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-            pi_n_1_r[i - N_L_P_S] = pi_1_r[i - N_L_P_S] * pix_coef;
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorA[1][ - N_L_P_S] * pix_coef;
             pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
             pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         } else {
-          pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-          pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-          pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+          pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_r[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_g[i - N_L_P_S * 2] * pix_coef;
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_b[i - N_L_P_S * 2] * pix_coef;
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         } else {
-          pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-          pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-          pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+          pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_r[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_g[i - N_L_P_S * 3] * pix_coef;
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_b[i - N_L_P_S * 3] * pix_coef;
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         } else {
-          pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-          pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-          pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+          pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
         }
       }
     }//for i
@@ -638,54 +436,30 @@ void do_effet_11() {
         pix_coef_fond = pix_coefi_fond / 100;
 
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-          pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-          pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = (pi_1_r[i] * pix_coef) + (pi_1_sr[i] * pix_coef_fond);
-          pi_n_1_g[i] = (pi_1_g[i] * pix_coef) + (pi_1_sg[i] * pix_coef_fond);
-          pi_n_1_b[i] = (pi_1_b[i] * pix_coef) + (pi_1_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[1][i] = ( pixelColor_t pix_colorA[1][i] * pix_coef) + (pixelColor_t pix_colorB[1][i] * pix_coef_fond);
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = (pi_2_r[i] * pix_coef) + (pi_2_sr[i] * pix_coef_fond);
-          pi_n_2_g[i] = (pi_2_g[i] * pix_coef) + (pi_2_sg[i] * pix_coef_fond);
-          pi_n_2_b[i] = (pi_2_b[i] * pix_coef) + (pi_2_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[2][i] = ( pixelColor_t pix_colorA[2][i] * pix_coef) + (pixelColor_t pix_colorB[2][i] * pix_coef_fond);
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = (pi_3_r[i] * pix_coef) + (pi_3_sr[i] * pix_coef_fond);
-          pi_n_3_g[i] = (pi_3_g[i] * pix_coef) + (pi_3_sg[i] * pix_coef_fond);
-          pi_n_3_b[i] = (pi_3_b[i] * pix_coef) + (pi_3_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[3][i] = ( pixelColor_t pix_colorA[3][i] * pix_coef) + (pixelColor_t pix_colorB[3][i] * pix_coef_fond);
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 90
@@ -706,54 +480,30 @@ void do_effet_11() {
         ref__Pix_pos--;
 
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-          pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-          pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = (pi_1_r[i] * pix_coef) + (pi_1_sr[i] * pix_coef_fond);
-          pi_n_1_g[i] = (pi_1_g[i] * pix_coef) + (pi_1_sg[i] * pix_coef_fond);
-          pi_n_1_b[i] = (pi_1_b[i] * pix_coef) + (pi_1_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[1][i] = ( pixelColor_t pix_colorA[1][i] * pix_coef) + (pixelColor_t pix_colorB[1][i] * pix_coef_fond);
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = (pi_2_r[i] * pix_coef) + (pi_2_sr[i] * pix_coef_fond);
-          pi_n_2_g[i] = (pi_2_g[i] * pix_coef) + (pi_2_sg[i] * pix_coef_fond);
-          pi_n_2_b[i] = (pi_2_b[i] * pix_coef) + (pi_2_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[2][i] = ( pixelColor_t pix_colorA[2][i] * pix_coef) + (pixelColor_t pix_colorB[2][i] * pix_coef_fond);
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = (pi_3_r[i] * pix_coef) + (pi_3_sr[i] * pix_coef_fond);
-          pi_n_3_g[i] = (pi_3_g[i] * pix_coef) + (pi_3_sg[i] * pix_coef_fond);
-          pi_n_3_b[i] = (pi_3_b[i] * pix_coef) + (pi_3_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[3][i] = ( pixelColor_t pix_colorA[3][i] * pix_coef) + (pixelColor_t pix_colorB[3][i] * pix_coef_fond);
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 100
@@ -782,54 +532,30 @@ void do_effet_11() {
         pix_coef_fond = pix_coefi_fond / 100;
 
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
-          pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-          pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-          pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
         } else {
-          pi_n_0_r[i] = pi_0_sr[i];
-          pi_n_0_g[i] = pi_0_sg[i];
-          pi_n_0_b[i] = pi_0_sb[i];
+          pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
         }
         if (i > M_g[1][0] && i <= M_g[1][1]) {
-          pi_n_1_r[i] = (pi_1_r[i] * pix_coef) + (pi_1_sr[i] * pix_coef_fond);
-          pi_n_1_g[i] = (pi_1_g[i] * pix_coef) + (pi_1_sg[i] * pix_coef_fond);
-          pi_n_1_b[i] = (pi_1_b[i] * pix_coef) + (pi_1_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[1][i] = ( pixelColor_t pix_colorA[1][i] * pix_coef) + (pixelColor_t pix_colorB[1][i] * pix_coef_fond);
         } else {
-          pi_n_1_r[i] = pi_1_sr[i];
-          pi_n_1_g[i] = pi_1_sg[i];
-          pi_n_1_b[i] = pi_1_sb[i];
+          pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
         }
         if (i > M_g[2][0] && i <= M_g[2][1]) {
-          pi_n_2_r[i] = (pi_2_r[i] * pix_coef) + (pi_2_sr[i] * pix_coef_fond);
-          pi_n_2_g[i] = (pi_2_g[i] * pix_coef) + (pi_2_sg[i] * pix_coef_fond);
-          pi_n_2_b[i] = (pi_2_b[i] * pix_coef) + (pi_2_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[2][i] = ( pixelColor_t pix_colorA[2][i] * pix_coef) + (pixelColor_t pix_colorB[2][i] * pix_coef_fond);
         } else {
-          pi_n_2_r[i] = pi_2_sr[i];
-          pi_n_2_g[i] = pi_2_sg[i];
-          pi_n_2_b[i] = pi_2_sb[i];
+          pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
         }
         if (i > M_g[3][0] && i <= M_g[3][1]) {
-          pi_n_3_r[i] = (pi_3_r[i] * pix_coef) + (pi_3_sr[i] * pix_coef_fond);
-          pi_n_3_g[i] = (pi_3_g[i] * pix_coef) + (pi_3_sg[i] * pix_coef_fond);
-          pi_n_3_b[i] = (pi_3_b[i] * pix_coef) + (pi_3_sb[i] * pix_coef_fond);
+          pixelColor_t pix_buffer[3][i] = ( pixelColor_t pix_colorA[3][i] * pix_coef) + (pixelColor_t pix_colorB[3][i] * pix_coef_fond);
         } else {
-          pi_n_3_r[i] = pi_3_sr[i];
-          pi_n_3_g[i] = pi_3_sg[i];
-          pi_n_3_b[i] = pi_3_sb[i];
+          pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
         }
       } else  {
-        pi_n_0_r[i] = pi_0_sr[i];
-        pi_n_0_g[i] = pi_0_sg[i];
-        pi_n_0_b[i] = pi_0_sb[i];
-        pi_n_1_r[i] = pi_1_sr[i];
-        pi_n_1_g[i] = pi_1_sg[i];
-        pi_n_1_b[i] = pi_1_sb[i];
-        pi_n_2_r[i] = pi_2_sr[i];
-        pi_n_2_g[i] = pi_2_sg[i];
-        pi_n_2_b[i] = pi_2_sb[i];
-        pi_n_3_r[i] = pi_3_sr[i];
-        pi_n_3_g[i] = pi_3_sg[i];
-        pi_n_3_b[i] = pi_3_sb[i];
+        pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
+        pixelColor_t pix_buffer[1][i] = pixelColor_t pix_colorB[1][i];
+        pixelColor_t pix_buffer[2][i] = pixelColor_t pix_colorB[2][i];
+        pixelColor_t pix_buffer[3][i] = pixelColor_t pix_colorB[3][i];
       }
     }//for i
   }//_Pix_mod 110
@@ -851,69 +577,45 @@ void do_effet_11() {
         if (i <= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
-              pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-              pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-              pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
             } else {
-              pi_n_0_r[i] = pi_0_sr[i];
-              pi_n_0_g[i] = pi_0_sg[i];
-              pi_n_0_b[i] = pi_0_sb[i];
+              pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
             }
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pi_n_1_r[i - N_L_P_S] = (pi_1_r[i - N_L_P_S] * pix_coef) + (pi_1_sr[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_g[i - N_L_P_S] = (pi_1_g[i - N_L_P_S] * pix_coef) + (pi_1_sg[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_b[i - N_L_P_S] = (pi_1_b[i - N_L_P_S] * pix_coef) + (pi_1_sb[i - N_L_P_S] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i - N_L_P_S] = ( pixelColor_t pix_colorA[1][i - N_L_P_S] * pix_coef) + (pixelColor_t pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
-              pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-              pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-              pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+              pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
             }
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-              pi_n_2_r[i - N_L_P_S * 2] = (pi_2_r[i - N_L_P_S * 2] * pix_coef) + (pi_2_sr[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_g[i - N_L_P_S * 2] = (pi_2_g[i - N_L_P_S * 2] * pix_coef) + (pi_2_sg[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_b[i - N_L_P_S * 2] = (pi_2_b[i - N_L_P_S * 2] * pix_coef) + (pi_2_sb[i - N_L_P_S * 2] * pix_coef_fond);
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = ( pixelColor_t pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pixelColor_t pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
-              pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-              pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-              pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
             }
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-              pi_n_3_r[i - N_L_P_S * 3] = (pi_3_r[i - N_L_P_S * 3] * pix_coef) + (pi_3_sr[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_g[i - N_L_P_S * 3] = (pi_3_g[i - N_L_P_S * 3] * pix_coef) + (pi_3_sg[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_b[i - N_L_P_S * 3] = (pi_3_b[i - N_L_P_S * 3] * pix_coef) + (pi_3_sb[i - N_L_P_S * 3] * pix_coef_fond);
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = ( pixelColor_t pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pixelColor_t pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {
-              pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-              pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-              pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
             }
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         }
       }
@@ -939,69 +641,45 @@ void do_effet_11() {
         if (i <= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
-              pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-              pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-              pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
             } else {
-              pi_n_0_r[i] = pi_0_sr[i];
-              pi_n_0_g[i] = pi_0_sg[i];
-              pi_n_0_b[i] = pi_0_sb[i];
+              pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
             }
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pi_n_1_r[i - N_L_P_S] = (pi_1_r[i - N_L_P_S] * pix_coef) + (pi_1_sr[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_g[i - N_L_P_S] = (pi_1_g[i - N_L_P_S] * pix_coef) + (pi_1_sg[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_b[i - N_L_P_S] = (pi_1_b[i - N_L_P_S] * pix_coef) + (pi_1_sb[i - N_L_P_S] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i - N_L_P_S] = ( pixelColor_t pix_colorA[1][i - N_L_P_S] * pix_coef) + (pixelColor_t pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
-              pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-              pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-              pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+              pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
             }
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-              pi_n_2_r[i - N_L_P_S * 2] = (pi_2_r[i - N_L_P_S * 2] * pix_coef) + (pi_2_sr[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_g[i - N_L_P_S * 2] = (pi_2_g[i - N_L_P_S * 2] * pix_coef) + (pi_2_sg[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_b[i - N_L_P_S * 2] = (pi_2_b[i - N_L_P_S * 2] * pix_coef) + (pi_2_sb[i - N_L_P_S * 2] * pix_coef_fond);
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = ( pixelColor_t pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pixelColor_t pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
-              pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-              pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-              pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
             }
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-              pi_n_3_r[i - N_L_P_S * 3] = (pi_3_r[i - N_L_P_S * 3] * pix_coef) + (pi_3_sr[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_g[i - N_L_P_S * 3] = (pi_3_g[i - N_L_P_S * 3] * pix_coef) + (pi_3_sg[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_b[i - N_L_P_S * 3] = (pi_3_b[i - N_L_P_S * 3] * pix_coef) + (pi_3_sb[i - N_L_P_S * 3] * pix_coef_fond);
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = ( pixelColor_t pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pixelColor_t pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {
-              pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-              pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-              pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
             }
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         }
       }
@@ -1034,69 +712,45 @@ void do_effet_11() {
         if (i <= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
-              pi_n_0_r[i] = (pi_0_r[i] * pix_coef) + (pi_0_sr[i] * pix_coef_fond);
-              pi_n_0_g[i] = (pi_0_g[i] * pix_coef) + (pi_0_sg[i] * pix_coef_fond);
-              pi_n_0_b[i] = (pi_0_b[i] * pix_coef) + (pi_0_sb[i] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i] = ( pixelColor_t pix_colorA[0][i] * pix_coef) + (pixelColor_t pix_colorB[0][i] * pix_coef_fond);
             } else {
-              pi_n_0_r[i] = pi_0_sr[i];
-              pi_n_0_g[i] = pi_0_sg[i];
-              pi_n_0_b[i] = pi_0_sb[i];
+              pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
             }
           } else {
-            pi_n_0_r[i] = pi_0_sr[i];
-            pi_n_0_g[i] = pi_0_sg[i];
-            pi_n_0_b[i] = pi_0_sb[i];
+            pixelColor_t pix_buffer[0][i] = pixelColor_t pix_colorB[0][i];
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pi_n_1_r[i - N_L_P_S] = (pi_1_r[i - N_L_P_S] * pix_coef) + (pi_1_sr[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_g[i - N_L_P_S] = (pi_1_g[i - N_L_P_S] * pix_coef) + (pi_1_sg[i - N_L_P_S] * pix_coef_fond);
-              pi_n_1_b[i - N_L_P_S] = (pi_1_b[i - N_L_P_S] * pix_coef) + (pi_1_sb[i - N_L_P_S] * pix_coef_fond);
+              pixelColor_t pix_buffer[0][i - N_L_P_S] = ( pixelColor_t pix_colorA[1][i - N_L_P_S] * pix_coef) + (pixelColor_t pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
-              pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-              pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-              pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+              pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
             }
           } else {
-            pi_n_1_r[i - N_L_P_S] = pi_1_sr[i - N_L_P_S];
-            pi_n_1_g[i - N_L_P_S] = pi_1_sg[i - N_L_P_S];
-            pi_n_1_b[i - N_L_P_S] = pi_1_sb[i - N_L_P_S];
+            pixelColor_t pix_buffer[1][i - N_L_P_S] = pixelColor_t pix_colorB[1][i - N_L_P_S];
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
-              pi_n_2_r[i - N_L_P_S * 2] = (pi_2_r[i - N_L_P_S * 2] * pix_coef) + (pi_2_sr[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_g[i - N_L_P_S * 2] = (pi_2_g[i - N_L_P_S * 2] * pix_coef) + (pi_2_sg[i - N_L_P_S * 2] * pix_coef_fond);
-              pi_n_2_b[i - N_L_P_S * 2] = (pi_2_b[i - N_L_P_S * 2] * pix_coef) + (pi_2_sb[i - N_L_P_S * 2] * pix_coef_fond);
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = ( pixelColor_t pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pixelColor_t pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
-              pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-              pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-              pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+              pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
             }
           } else {
-            pi_n_2_r[i - N_L_P_S * 2] = pi_2_sr[i - N_L_P_S * 2];
-            pi_n_2_g[i - N_L_P_S * 2] = pi_2_sg[i - N_L_P_S * 2];
-            pi_n_2_b[i - N_L_P_S * 2] = pi_2_sb[i - N_L_P_S * 2];
+            pixelColor_t pix_buffer[2][i - N_L_P_S * 2] = pixelColor_t pix_colorB[2][i - N_L_P_S * 2];
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
-              pi_n_3_r[i - N_L_P_S * 3] = (pi_3_r[i - N_L_P_S * 3] * pix_coef) + (pi_3_sr[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_g[i - N_L_P_S * 3] = (pi_3_g[i - N_L_P_S * 3] * pix_coef) + (pi_3_sg[i - N_L_P_S * 3] * pix_coef_fond);
-              pi_n_3_b[i - N_L_P_S * 3] = (pi_3_b[i - N_L_P_S * 3] * pix_coef) + (pi_3_sb[i - N_L_P_S * 3] * pix_coef_fond);
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = ( pixelColor_t pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pixelColor_t pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {
-              pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-              pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-              pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+              pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
             }
           } else {
-            pi_n_3_r[i - N_L_P_S * 3] = pi_3_sr[i - N_L_P_S * 3];
-            pi_n_3_g[i - N_L_P_S * 3] = pi_3_sg[i - N_L_P_S * 3];
-            pi_n_3_b[i - N_L_P_S * 3] = pi_3_sb[i - N_L_P_S * 3];
+            pixelColor_t pix_buffer[3][i - N_L_P_S * 3] = pixelColor_t pix_colorB[3][i - N_L_P_S * 3];
           }
         }
       }
