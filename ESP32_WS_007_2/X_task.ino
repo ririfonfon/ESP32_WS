@@ -4,30 +4,16 @@ void Map1code( void * pvParameters ) {
     // color mode
     if (_Color_mode >= 0 && _Color_mode <= 10) {
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-        pi_0_r[i] = rr;
-        pi_0_g[i] = gg;
-        pi_0_b[i] = bb;
-        pi_1_r[i] = rr;
-        pi_1_g[i] = gg;
-        pi_1_b[i] = bb;
-        pi_2_r[i] = rr;
-        pi_2_g[i] = gg;
-        pi_2_b[i] = bb;
-        pi_3_r[i] = rr;
-        pi_3_g[i] = gg;
-        pi_3_b[i] = bb;
-        pi_0_sr[i] = srr;
-        pi_0_sg[i] = sgg;
-        pi_0_sb[i] = sbb;
-        pi_1_sr[i] = srr;
-        pi_1_sg[i] = sgg;
-        pi_1_sb[i] = sbb;
-        pi_2_sr[i] = srr;
-        pi_2_sg[i] = sgg;
-        pi_2_sb[i] = sbb;
-        pi_3_sr[i] = srr;
-        pi_3_sg[i] = sgg;
-        pi_3_sb[i] = sbb;
+        pix_colorA[0][i] = _Color;
+        pix_colorA[1][i] = _Color;
+        pix_colorA[2][i] = _Color;
+        pix_colorA[3][i] = _Color;
+
+        pix_colorB[0][i] = _Color2;
+        pix_colorB[1][i] = _Color2;
+        pix_colorB[2][i] = _Color2;
+        pix_colorB[3][i] = _Color2;
+
       }
     } else if (_Color_mode >= 11 && _Color_mode <= 20) {
       if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
@@ -84,30 +70,25 @@ void Map1code( void * pvParameters ) {
         }
 
         if (ci >= 0 && ci <= N_L_P_S) {
-          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_0_sr[ci] = 0;
-          pi_0_sg[ci] = 0;
-          pi_0_sb[ci] = 0;
-          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_1_sr[ci] = 0;
-          pi_1_sg[ci] = 0;
-          pi_1_sb[ci] = 0;
-          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_2_sr[ci] = 0;
-          pi_2_sg[ci] = 0;
-          pi_2_sb[ci] = 0;
-          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_3_sr[ci] = 0;
-          pi_3_sg[ci] = 0;
-          pi_3_sb[ci] = 0;
+          pix_colorA[0][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[0][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[0][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[0][ci] = pixelFromRGB(0, 0, 0);
+
+          pix_colorA[1][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[1][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[1][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[1][ci] = pixelFromRGB(0, 0, 0);
+
+          pix_colorA[2][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[2][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[2][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[2][ci] = pixelFromRGB(0, 0, 0);
+
+          pix_colorA[3][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[3][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[3][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[3][ci] = pixelFromRGB(0, 0, 0);
         }
       }//for (i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
     }//(_Color_mode >= 11 && _Color_mode <= 20)
@@ -175,43 +156,36 @@ void Map1code( void * pvParameters ) {
           ci = ci - (NUM_LEDS_PER_STRIP * 4) - 1;
         }
         if (ci >= 0 && ci <= N_L_P_S) {
-          pi_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_0_sr[ci] = 0;
-          pi_0_sg[ci] = 0;
-          pi_0_sb[ci] = 0;
+          pix_colorA[0][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[0][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[0][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[0][ci] = pixelFromRGB(0, 0, 0);
         } else if (ci > N_L_P_S && ci <= N_L_P_S * 2) {
-          pi_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_1_sr[ci] = 0;
-          pi_1_sg[ci] = 0;
-          pi_1_sb[ci] = 0;
+          pix_colorA[1][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[1][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[1][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[1][ci] = pixelFromRGB(0, 0, 0);
         } else if (ci > N_L_P_S * 2 && ci <= N_L_P_S * 3) {
-          pi_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_2_sr[ci] = 0;
-          pi_2_sg[ci] = 0;
-          pi_2_sb[ci] = 0;
+          pix_colorA[2][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[2][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[2][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[2][ci] = pixelFromRGB(0, 0, 0);
         } else if (ci > N_L_P_S * 3 && ci <= N_L_P_S * 4) {
-          pi_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-          pi_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-          pi_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-          pi_3_sr[ci] = 0;
-          pi_3_sg[ci] = 0;
-          pi_3_sb[ci] = 0;
+          pix_colorA[3][ci].r = (( rrr * rrr / 255 )  * rr) / 255;
+          pix_colorA[3][ci].g = (( ggg * ggg / 255 )  * gg) / 255;
+          pix_colorA[3][ci].b = (( bbb * bbb / 255 )  * bb) / 255;
+          pix_colorB[3][ci] = pixelFromRGB(0, 0, 0);
         }
       }//for (int i = 0 ; i < numberOfLed ; i++) {
     }//else if (_Color_mode >= 21 && _Color_mode <= 30)
 
   }
-}
+  yield();
+  vTaskDelete(NULL);
+}//Map1code( void * pvParameters )
 
 void effTask( void * pvParameters ) {
   while (1) {
-    //eff__Modulo();
     effet();
     yield(); // rend la main
   }
