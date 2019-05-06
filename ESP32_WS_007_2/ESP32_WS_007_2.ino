@@ -154,7 +154,7 @@ unsigned long t_last_l = 0;
 #define STROB_ON_MS_L 15
 int l_s_count = 1;
 int _Pix_start_v;
-int ref__Pix_pos;
+int ref_Pix_pos;
 float pix_coef;
 float pix_coefi;
 float pix_coef_fond;

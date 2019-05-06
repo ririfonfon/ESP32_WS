@@ -82,7 +82,7 @@ void do_effet_5() {
   }//_Pix_mod 30
 
   if (_Pix_mod == 4) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -90,9 +90,9 @@ void do_effet_5() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        pix_coefi = (((_Pix_pos - ref__Pix_pos) * 100) / _Pix_start_v) * 0.01;
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
-        ref__Pix_pos--;
+        ref_Pix_pos--;
 
         pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
         pix_buffer[1][i] = pix_colorA[1][i] * pix_coef;
@@ -108,7 +108,7 @@ void do_effet_5() {
   }//_Pix_mod 40
 
   if (_Pix_mod == 5) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -121,9 +121,9 @@ void do_effet_5() {
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref__Pix_pos = ref__Pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
 
@@ -175,7 +175,7 @@ void do_effet_5() {
   }//_Pix_mod 60
 
   if (_Pix_mod == 7) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -183,9 +183,9 @@ void do_effet_5() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        pix_coefi = (((_Pix_pos - ref__Pix_pos) * 100) / _Pix_start_v) * 0.01;
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
-        ref__Pix_pos--;
+        ref_Pix_pos--;
 
         if (i <= N_L_P_S) {
           pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
@@ -211,7 +211,7 @@ void do_effet_5() {
   }//_Pix_mod 70
 
   if (_Pix_mod == 8) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -224,9 +224,9 @@ void do_effet_5() {
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref__Pix_pos = ref__Pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
 
@@ -280,7 +280,7 @@ void do_effet_5() {
   }//_Pix_mod 90
 
   if (_Pix_mod == 10) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -288,11 +288,11 @@ void do_effet_5() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        pix_coefi = (((_Pix_pos - ref__Pix_pos) * 100) / _Pix_start_v) * 0.01;
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
         pix_coef_fond = pix_coefi_fond / 100;
-        ref__Pix_pos--;
+        ref_Pix_pos--;
 
         pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
         pix_buffer[1][i] = ( pix_colorA[1][i] * pix_coef) + (pix_colorB[1][i] * pix_coef_fond);
@@ -308,7 +308,7 @@ void do_effet_5() {
   }//_Pix_mod 100
 
   if (_Pix_mod == 11) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -321,9 +321,9 @@ void do_effet_5() {
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref__Pix_pos = ref__Pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
 
@@ -381,7 +381,7 @@ void do_effet_5() {
   }//_Pix_mod 120
 
   if (_Pix_mod == 13) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -389,9 +389,9 @@ void do_effet_5() {
         } else {
           _Pix_start_v = _Pix_start;
         }
-        pix_coefi = (((_Pix_pos - ref__Pix_pos) * 100) / _Pix_start_v) * 0.01;
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
-        ref__Pix_pos--;
+        ref_Pix_pos--;
 
         pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
         pix_coef_fond = pix_coefi_fond / 100;
@@ -420,7 +420,7 @@ void do_effet_5() {
   }//_Pix_mod 130
 
   if (_Pix_mod == 14) {
-    ref__Pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos) ) {
         if (_Pix_start <= 1) {
@@ -433,9 +433,9 @@ void do_effet_5() {
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref__Pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref__Pix_pos = ref__Pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
 
