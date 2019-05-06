@@ -259,8 +259,6 @@ void do_effet_11() {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
-            pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
-            pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
             pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
           }
@@ -320,8 +318,6 @@ void do_effet_11() {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
-            pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
-            pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
             pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
           }
@@ -388,8 +384,6 @@ void do_effet_11() {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
-            pi_n_1_g[i - N_L_P_S] = pi_1_g[i - N_L_P_S] * pix_coef;
-            pi_n_1_b[i - N_L_P_S] = pi_1_b[i - N_L_P_S] * pix_coef;
           } else {
             pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
           }
@@ -588,7 +582,7 @@ void do_effet_11() {
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+              pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
               pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
             }
@@ -652,7 +646,7 @@ void do_effet_11() {
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+              pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
               pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
             }
@@ -723,7 +717,7 @@ void do_effet_11() {
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
           if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
-              pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+              pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
               pix_buffer[1][i - N_L_P_S] = pix_colorB[1][i - N_L_P_S];
             }

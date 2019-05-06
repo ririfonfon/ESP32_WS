@@ -23,6 +23,10 @@ void ledBlack() {
   leds_show();
 }//ledBlack
 
+int linear(int val) {
+  return (val * val) / 255;
+}
+
 void initTest() {
 
   black();

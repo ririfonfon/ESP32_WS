@@ -358,7 +358,7 @@ void do_effet_0() {
         if (i <= N_L_P_S) {
           pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+          pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
         } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
         } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
@@ -398,7 +398,7 @@ void do_effet_0() {
 
           pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+          pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
         } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
         } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
@@ -444,7 +444,7 @@ void do_effet_0() {
         if (i <= N_L_P_S) {
           pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          pix_buffer[0][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
+          pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
         } else if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
           pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
         } else if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
