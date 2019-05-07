@@ -65,6 +65,24 @@ inline pixelColor_t pixelFromRGBW(uint8_t r, uint8_t g, uint8_t b, uint8_t w)
   return v;
 }
 
+inline pixelColor_t operator*(const pixelColor_t &a, float factor) {
+  pixelColor_t v;
+  v.r = (a.r * factor);
+  v.g = (a.g * factor);
+  v.b = (a.b * factor);
+  v.w = (a.w * factor);
+  return v;
+}
+
+inline pixelColor_t operator+(const pixelColor_t &a, const pixelColor_t &b) {
+  pixelColor_t v;
+  v.r = (a.r + b.r);
+  v.g = (a.g + b.g);
+  v.b = (a.b + b.b);
+  v.w = (a.w + b.w);
+  return v;
+}
+
 typedef struct {
   int rmtChannel;
   int gpioNum;
