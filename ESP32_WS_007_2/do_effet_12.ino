@@ -46,18 +46,18 @@ void do_effet_12() {
       if (ci > NUM_LEDS_PER_STRIP) {
         ci = ci - NUM_LEDS_PER_STRIP;
       }
-      pi_n_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-      pi_n_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-      pi_n_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-      pi_n_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-      pi_n_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-      pi_n_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-      pi_n_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-      pi_n_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-      pi_n_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
-      pi_n_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
-      pi_n_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
-      pi_n_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
+//      pi_n_0_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+//      pi_n_0_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+//      pi_n_0_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
+//      pi_n_1_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+//      pi_n_1_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+//      pi_n_1_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
+//      pi_n_2_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+//      pi_n_2_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+//      pi_n_2_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
+//      pi_n_3_r[ci] = (( rrr * rrr / 255 )  * rr) / 255;
+//      pi_n_3_g[ci] = (( ggg * ggg / 255 )  * gg) / 255;
+//      pi_n_3_b[ci] = (( bbb * bbb / 255 )  * bb) / 255;
     }//for i
   }//_Pix_mod 0
 }//do_effet_12()

@@ -126,7 +126,7 @@ int _Pix_pos_v;
 int _Pix_start;
 int _Pix_center;
 int _Pix_end;
-int _Master;
+float _Master;
 float rrr;
 float ggg;
 float bbb;
