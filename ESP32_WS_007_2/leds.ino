@@ -7,7 +7,7 @@ void leds_show() {
 }//leds_show
 
 void black() {
-  
+
   for (int strip = 0 ; strip < NUM_STRIPS ; strip++)
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
       strands[strip]->pixels[i] = pixelFromRGB(0, 0, 0);
