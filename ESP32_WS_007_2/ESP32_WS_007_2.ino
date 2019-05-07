@@ -69,45 +69,6 @@ pixelColor_t pix_buffer[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Buffer principal
 pixelColor_t pix_colorA[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Color
 pixelColor_t pix_colorB[NUM_STRIPS][NUM_LEDS_PER_STRIP];  // Color2 (background)
 
-//float pi_n_0_r[NUM_LEDS_PER_STRIP];
-//float pi_n_0_g[NUM_LEDS_PER_STRIP];
-//float pi_n_0_b[NUM_LEDS_PER_STRIP];
-//float pi_n_1_r[NUM_LEDS_PER_STRIP];
-//float pi_n_1_g[NUM_LEDS_PER_STRIP];
-//float pi_n_1_b[NUM_LEDS_PER_STRIP];
-//float pi_n_2_r[NUM_LEDS_PER_STRIP];
-//float pi_n_2_g[NUM_LEDS_PER_STRIP];
-//float pi_n_2_b[NUM_LEDS_PER_STRIP];
-//float pi_n_3_r[NUM_LEDS_PER_STRIP];
-//float pi_n_3_g[NUM_LEDS_PER_STRIP];
-//float pi_n_3_b[NUM_LEDS_PER_STRIP];
-//
-//float pi_0_r[NUM_LEDS_PER_STRIP];
-//float pi_0_g[NUM_LEDS_PER_STRIP];
-//float pi_0_b[NUM_LEDS_PER_STRIP];
-//float pi_1_r[NUM_LEDS_PER_STRIP];
-//float pi_1_g[NUM_LEDS_PER_STRIP];
-//float pi_1_b[NUM_LEDS_PER_STRIP];
-//float pi_2_r[NUM_LEDS_PER_STRIP];
-//float pi_2_g[NUM_LEDS_PER_STRIP];
-//float pi_2_b[NUM_LEDS_PER_STRIP];
-//float pi_3_r[NUM_LEDS_PER_STRIP];
-//float pi_3_g[NUM_LEDS_PER_STRIP];
-//float pi_3_b[NUM_LEDS_PER_STRIP];
-//
-//float pi_0_sr[NUM_LEDS_PER_STRIP];
-//float pi_0_sg[NUM_LEDS_PER_STRIP];
-//float pi_0_sb[NUM_LEDS_PER_STRIP];
-//float pi_1_sr[NUM_LEDS_PER_STRIP];
-//float pi_1_sg[NUM_LEDS_PER_STRIP];
-//float pi_1_sb[NUM_LEDS_PER_STRIP];
-//float pi_2_sr[NUM_LEDS_PER_STRIP];
-//float pi_2_sg[NUM_LEDS_PER_STRIP];
-//float pi_2_sb[NUM_LEDS_PER_STRIP];
-//float pi_3_sr[NUM_LEDS_PER_STRIP];
-//float pi_3_sg[NUM_LEDS_PER_STRIP];
-//float pi_3_sb[NUM_LEDS_PER_STRIP];
-
 int _Color_mode;
 int _Mirror;
 
@@ -133,9 +94,6 @@ float bbb;
 float rr;
 float gg;
 float bb;
-float r;
-float g;
-float b;
 float srr;
 float sgg;
 float sbb;
@@ -165,7 +123,7 @@ float pix_coefi_fond;
 int S_seuil;
 int old_S_seuil = 0;
 int S_count;
-int a;
+//int a;
 float str_blind_ws = 1;
 float str_blind_l = 1;
 
