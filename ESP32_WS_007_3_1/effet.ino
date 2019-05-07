@@ -3,25 +3,35 @@ void effet() {
     //    do_effet_0();
     do_effet();
   else if (_Fx_type == 1)
-    do_effet_1();
+//        do_effet_1();
+    do_effet();
   else if (_Fx_type == 2)
-    do_effet_2();
+//    do_effet_2();
+    do_effet();
   else if (_Fx_type == 3)
-    do_effet_3();
+//    do_effet_3();
+    do_effet();
   else if (_Fx_type == 4)
-    do_effet_4();
+//    do_effet_4();
+    do_effet();
   else if (_Fx_type == 5)
-    do_effet_5();
+//    do_effet_5();
+    do_effet();
   else if (_Fx_type == 6)
-    do_effet_6();
+//    do_effet_6();
+    do_effet();
   else if (_Fx_type == 7)
-    do_effet_7();
+//    do_effet_7();
+    do_effet();
   else if (_Fx_type == 8)
-    do_effet_8();
+//    do_effet_8();
+    do_effet();
   else if (_Fx_type == 9)
-    do_effet_9();
+//    do_effet_9();
+    do_effet();
   else if (_Fx_type == 10)
-    do_effet_10();
+//    do_effet_10();
+    do_effet();
   else if (_Fx_type == 11)
     do_effet_11();
   else if (_Fx_type == 12)
@@ -53,11 +63,12 @@ bool isActive(int strip, int i) {
 
   // check if strip is active for this "_Fx_type"
   if (_Fx_type <= 11 && !activeStrip[_Fx_type][strip]) return false;
+  if (_Fx_type <= 11 && activeStrip[_Fx_type][strip]) return true;
 
   // check if i is in range
   if (_Fx_type == 0) return true;
-  else if (_Fx_type <= 10) return (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos));
-  else if (_Fx_type == 11) return (i >= M_g[strip][0] && i <= M_g[strip][1]);
+//  else if (_Fx_type <= 10) return (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos));
+//  else if (_Fx_type == 11) return (i >= M_g[strip][0] && i <= M_g[strip][1]);
 
   return true;
 }
@@ -68,6 +79,7 @@ int ref_pix_pos;
 void do_effet() {
 
   if (_Pix_mod == 0) {
+      Serial.println("_Pix_mod == 0 do_effet  ");
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))
@@ -79,6 +91,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 1) {
+    Serial.println("_Pix_mod == 1 do_effet  ");
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))
