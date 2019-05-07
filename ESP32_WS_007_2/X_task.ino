@@ -16,9 +16,9 @@ void Map1code( void * pvParameters ) {
 
       }
     } else if (_Color_mode >= 11 && _Color_mode <= 20) {
-      if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
+      if (_Pix_mod == 1|| _Pix_mod >= 3 && _Pix_mod <= 5 || _Pix_mod >= 9 && _Pix_mod <= 11) {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
-      } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
+      } else if (_Pix_mod == 2 || _Pix_mod >= 6 && _Pix_mod <= 8 || _Pix_mod >= 12 && _Pix_mod <= 14) {
         _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
@@ -97,9 +97,9 @@ void Map1code( void * pvParameters ) {
 
 
     else if (_Color_mode >= 21 && _Color_mode <= 30) {
-      if (_Pix_mod >= 11 && _Pix_mod <= 20 || _Pix_mod >= 31 && _Pix_mod <= 60 || _Pix_mod >= 91 && _Pix_mod <= 120) {
+      if (_Pix_mod == 1|| _Pix_mod >= 3 && _Pix_mod <= 5 || _Pix_mod >= 9 && _Pix_mod <= 11) {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
-      } else if (_Pix_mod >= 21 && _Pix_mod <= 30 || _Pix_mod >= 61 && _Pix_mod <= 90 || _Pix_mod >= 121 && _Pix_mod <= 150) {
+      } else if (_Pix_mod == 2 || _Pix_mod >= 6 && _Pix_mod <= 8 || _Pix_mod >= 12 && _Pix_mod <= 14) {
         _Pix_pos = (((_Pix_start + numberOfLed + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
       } else {
         _Pix_pos = (((_Pix_start + N_L_P_S + _Pix_end) * _Pix_pos_v) / 255) - (_Pix_end + 1);
