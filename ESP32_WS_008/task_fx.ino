@@ -24,18 +24,18 @@ void fx_task( void * pvParameters ) {
 // for each "_Fx_type"
 //
 bool activeStrip[12][NUM_STRIPS] = {
-  {true, true, true, true},     // _Fx_type = 0
-  {true, false, false, false},  // _Fx_type = 1
-  {false, true, false, false},  // _Fx_type = 2
-  {false, false, true, false},  // _Fx_type = 3
-  {false, false, false, true},  // _Fx_type = 4
-  {true, true, false, false},   // _Fx_type = 5
-  {true, false, true, false},   // _Fx_type = 6
-  {true, false, false, true},   // _Fx_type = 7
-  {false, true, true, false},   // _Fx_type = 8
-  {false, true, false, true},   // _Fx_type = 9
-  {false, false, true, true},   // _Fx_type = 10
-  {true, true, true, true}      // _Fx_type = 11
+  {true, true, true, true},     // _Fx_type = 0  ru all
+  {true, false, false, false},  // _Fx_type = 1  ru 1
+  {false, true, false, false},  // _Fx_type = 2  ru 2
+  {false, false, true, false},  // _Fx_type = 3  ru 3
+  {false, false, false, true},  // _Fx_type = 4  ru 4
+  {true, true, false, false},   // _Fx_type = 5  ru 1 2
+  {true, false, true, false},   // _Fx_type = 6  ru 1 3
+  {true, false, false, true},   // _Fx_type = 7  ru 1 4
+  {false, true, true, false},   // _Fx_type = 8  ru 2 3
+  {false, true, false, true},   // _Fx_type = 9  ru 2 4
+  {false, false, true, true},   // _Fx_type = 10 ru 3 4
+  {true, true, true, true}      // _Fx_type = 11 ?????
 };
 
 // Decide if pixel is active or is background
@@ -372,7 +372,8 @@ Serial.println("/////////////////////////////////////////////_Pix_mod == 1 ");
 
   if (_Pix_mod == 14) {
 
-    ref_pix_pos = (_Pix_start + _Pix_pos); int s, p = 0;
+    ref_pix_pos = (_Pix_start + _Pix_pos);
+    int s, p = 0;
 
     for (int i = 0 ; i < NUM_LEDS_TOTAL ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
