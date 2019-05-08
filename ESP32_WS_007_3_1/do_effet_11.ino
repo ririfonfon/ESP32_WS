@@ -26,7 +26,7 @@ void do_effet_11() {
 
   if (_Pix_mod == 1) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (i >= M_g[0][0] && i <= M_g[0][1]) {
           pix_buffer[0][i] = pix_colorA[0][i];
         } else {
@@ -59,7 +59,7 @@ void do_effet_11() {
   if (_Pix_mod == 2) {
     for (int i = 0 ; i < numberOfLed ; i++) {
       if (i <= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
             pix_buffer[0][i] = pix_colorA[0][i];
           } else {
@@ -70,7 +70,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][i - N_L_P_S];
           } else {
@@ -81,7 +81,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
             pix_buffer[2][i - N_L_P_S * 2] = pix_colorA[2][i - N_L_P_S * 2];
           } else {
@@ -92,7 +92,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
             pix_buffer[3][i - N_L_P_S * 3] = pix_colorA[3][i - N_L_P_S * 3];
           } else {
@@ -107,7 +107,7 @@ void do_effet_11() {
 
   if (_Pix_mod == 3) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -147,7 +147,7 @@ void do_effet_11() {
   if (_Pix_mod == 4) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -189,7 +189,7 @@ void do_effet_11() {
   if (_Pix_mod == 5) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -245,7 +245,7 @@ void do_effet_11() {
       pix_coef = pix_coefi * pix_coefi;
 
       if (i <= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
             pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
           } else {
@@ -256,7 +256,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
           } else {
@@ -267,7 +267,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
             pix_buffer[2][i - N_L_P_S * 2] = pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
@@ -278,7 +278,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
             pix_buffer[3][i - N_L_P_S * 3] = pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
@@ -304,7 +304,7 @@ void do_effet_11() {
       ref_Pix_pos--;
 
       if (i <= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
             pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
           } else {
@@ -315,7 +315,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
           } else {
@@ -326,7 +326,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
             pix_buffer[2][i - N_L_P_S * 2] = pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
@@ -337,7 +337,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
             pix_buffer[3][i - N_L_P_S * 3] = pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
@@ -370,7 +370,7 @@ void do_effet_11() {
       if (pix_coef > 1) pix_coef = 1;
 
       if (i <= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i >= M_g[0][0] && i <= M_g[0][1]) {
             pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
           } else {
@@ -381,7 +381,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
             pix_buffer[1][i - N_L_P_S] = pix_colorA[1][ - N_L_P_S] * pix_coef;
           } else {
@@ -392,7 +392,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
             pix_buffer[2][i - N_L_P_S * 2] = pix_colorA[2][ - N_L_P_S * 2] * pix_coef;
           } else {
@@ -403,7 +403,7 @@ void do_effet_11() {
         }
       }
       if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
           if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
             pix_buffer[3][i - N_L_P_S * 3] = pix_colorA[3][ i - N_L_P_S * 3] * pix_coef;
           } else {
@@ -418,7 +418,7 @@ void do_effet_11() {
 
   if (_Pix_mod == 9) {
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -461,7 +461,7 @@ void do_effet_11() {
   if (_Pix_mod == 10) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -505,7 +505,7 @@ void do_effet_11() {
   if (_Pix_mod == 11) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -556,7 +556,7 @@ void do_effet_11() {
 
   if (_Pix_mod == 12) {
     for (int i = 0 ; i < numberOfLed ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -569,7 +569,7 @@ void do_effet_11() {
         pix_coef_fond = pix_coefi_fond / 100;
 
         if (i <= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
               pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
             } else {
@@ -580,7 +580,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
               pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
@@ -591,7 +591,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
               pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
@@ -602,7 +602,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
               pix_buffer[3][i - N_L_P_S * 3] = ( pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {
@@ -619,7 +619,7 @@ void do_effet_11() {
   if (_Pix_mod == 13) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -633,7 +633,7 @@ void do_effet_11() {
         pix_coef_fond = pix_coefi_fond / 100;
 
         if (i <= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
               pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
             } else {
@@ -644,7 +644,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
               pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
@@ -655,7 +655,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
               pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
@@ -666,7 +666,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
               pix_buffer[3][i - N_L_P_S * 3] = ( pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {
@@ -683,7 +683,7 @@ void do_effet_11() {
   if (_Pix_mod == 14) {
     ref_Pix_pos = (_Pix_start + _Pix_pos);
     for (int i = 0 ; i < numberOfLed ; i++) {
-      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+      if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
         if (_Pix_start <= 1) {
           _Pix_start_v = 1;
         } else {
@@ -704,7 +704,7 @@ void do_effet_11() {
         pix_coef_fond = pix_coefi_fond / 100;
 
         if (i <= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i >= M_g[0][0] && i <= M_g[0][1]) {
               pix_buffer[0][i] = ( pix_colorA[0][i] * pix_coef) + (pix_colorB[0][i] * pix_coef_fond);
             } else {
@@ -715,7 +715,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[1][0] + N_L_P_S && i <= M_g[1][1] + N_L_P_S) {
               pix_buffer[1][i - N_L_P_S] = ( pix_colorA[1][i - N_L_P_S] * pix_coef) + (pix_colorB[1][i - N_L_P_S] * pix_coef_fond);
             } else {
@@ -726,7 +726,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 3 & i >= N_L_P_S * 2) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[2][0] + (N_L_P_S * 2) && i <= M_g[2][1] + (N_L_P_S * 2)) {
               pix_buffer[2][i - N_L_P_S * 2] = ( pix_colorA[2][i - N_L_P_S * 2] * pix_coef) + (pix_colorB[2][i - N_L_P_S * 2] * pix_coef_fond);
             } else {
@@ -737,7 +737,7 @@ void do_effet_11() {
           }
         }
         if (i <= N_L_P_S * 4 & i >= N_L_P_S * 3) {
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos)) {
             if (i > M_g[3][0] + (N_L_P_S * 3) && i <= M_g[3][1] + (N_L_P_S * 3)) {
               pix_buffer[3][i - N_L_P_S * 3] = ( pix_colorA[3][i - N_L_P_S * 3] * pix_coef) + (pix_colorB[3][i - N_L_P_S * 3] * pix_coef_fond);
             } else {

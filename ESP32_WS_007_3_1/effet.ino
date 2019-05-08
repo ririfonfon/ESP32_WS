@@ -3,34 +3,34 @@ void effet() {
     //    do_effet_0();
     do_effet();
   else if (_Fx_type == 1)
-//        do_effet_1();
+    //        do_effet_1();
     do_effet();
   else if (_Fx_type == 2)
-//    do_effet_2();
+    //    do_effet_2();
     do_effet();
   else if (_Fx_type == 3)
-//    do_effet_3();
+    //    do_effet_3();
     do_effet();
   else if (_Fx_type == 4)
-//    do_effet_4();
+    //    do_effet_4();
     do_effet();
   else if (_Fx_type == 5)
-//    do_effet_5();
+    //    do_effet_5();
     do_effet();
   else if (_Fx_type == 6)
-//    do_effet_6();
+    //    do_effet_6();
     do_effet();
   else if (_Fx_type == 7)
-//    do_effet_7();
+    //    do_effet_7();
     do_effet();
   else if (_Fx_type == 8)
-//    do_effet_8();
+    //    do_effet_8();
     do_effet();
   else if (_Fx_type == 9)
-//    do_effet_9();
+    //    do_effet_9();
     do_effet();
   else if (_Fx_type == 10)
-//    do_effet_10();
+    //    do_effet_10();
     do_effet();
   else if (_Fx_type == 11)
     do_effet_11();
@@ -67,8 +67,8 @@ bool isActive(int strip, int i) {
 
   // check if i is in range
   if (_Fx_type == 0) return true;
-//  else if (_Fx_type <= 10) return (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos));
-//  else if (_Fx_type == 11) return (i >= M_g[strip][0] && i <= M_g[strip][1]);
+  //  else if (_Fx_type <= 10) return (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos));
+  //  else if (_Fx_type == 11) return (i >= M_g[strip][0] && i <= M_g[strip][1]);
 
   return true;
 }
@@ -79,7 +79,7 @@ int ref_pix_pos;
 void do_effet() {
 
   if (_Pix_mod == 0) {
-      Serial.println("_Pix_mod == 0 do_effet  ");
+    Serial.println("_Pix_mod == 0 do_effet  ");
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))
@@ -95,7 +95,10 @@ void do_effet() {
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
         if (isActive(s, i))
-          pix_buffer[s][i] = pix_colorA[s][i];
+          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos))
+            pix_buffer[s][i] = pix_colorA[s][i];
+          else
+            pix_buffer[s][i] = pix_colorB[s][i];
         else
           pix_buffer[s][i] = pix_colorB[s][i];
 
@@ -105,17 +108,17 @@ void do_effet() {
   if (_Pix_mod == 2) {
 
     int s, p = 0;
-
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i))
-        pix_buffer[s][p] = pix_colorA[s][p];
-      else
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = pix_colorA[s][p];
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
+      }
     }
-
   }//_Pix_mod 20
 
 
@@ -123,16 +126,20 @@ void do_effet() {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
           pix_coefi = (((i - _Pix_pos) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-
-          pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
-        }
-        else {
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 30
 
 
@@ -142,17 +149,21 @@ void do_effet() {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
-          pix_coefi = (((_Pix_pos - ref_pix_pos) * 100) / _Pix_start_v) * 0.01;
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
+          pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref_pix_pos--;
-
-          pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
-        }
-        else {
+          ref_Pix_pos--;
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 40
 
 
@@ -162,24 +173,28 @@ void do_effet() {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
           if (i <= _Pix_center) {
             pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
             pix_coef = pix_coefi * pix_coefi;
           }
           else if (i >= _Pix_center) {
-            pix_coefi = ((((_Pix_pos - ref_pix_pos)) * 100) / _Pix_start_v) * 0.01;
+            pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
             pix_coef = pix_coefi * pix_coefi;
-            ref_pix_pos = ref_pix_pos - 2;
+            ref_Pix_pos = ref_Pix_pos - 2;
           }
           if (pix_coef > 1) pix_coef = 1;
-
-          pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
-        }
-        else  {
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          }
+        } else  {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 50
 
 
@@ -190,18 +205,22 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
         pix_coefi = (((i - _Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
 
-        pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
-      }
-      else {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
-
   }//_Pix_mod 60
 
 
@@ -213,19 +232,22 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
-        pix_coefi = (((_Pix_pos - ref_pix_pos) * 100) / _Pix_start_v) * 0.01;
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
-        ref_pix_pos--;
-
-        pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
-      }
-      else {
+        ref_Pix_pos--;
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
-
   }//_Pix_mod 70
 
 
@@ -236,45 +258,52 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
         if (i <= _Pix_center) {
           pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref_pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref_pix_pos = ref_pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
-
-        pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
-      }
-      else {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
-
   }//_Pix_mod 80
 
 
-  if (_Pix_mod == 8) {
+  if (_Pix_mod == 9) {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
           pix_coefi = (((i - _Pix_pos) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
           pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
           pix_coef_fond = pix_coefi_fond / 100;
-
-          pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
-        }
-        else {
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 90
 
 
@@ -284,19 +313,23 @@ void do_effet() {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
-          pix_coefi = (((_Pix_pos - ref_pix_pos) * 100) / _Pix_start_v) * 0.01;
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
+          pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
           pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
           pix_coef_fond = pix_coefi_fond / 100;
-          ref_pix_pos--;
-
-          pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
-        }
-        else {
+          ref_Pix_pos--;
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 100
 
 
@@ -306,27 +339,31 @@ void do_effet() {
 
     for (int s = 0 ; s < NUM_STRIPS ; s++)
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i)) {
+        if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+          if (_Pix_start <= 1) {
+            _Pix_start_v = 1;
+          } else {
+            _Pix_start_v = _Pix_start;
+          }
           if (i <= _Pix_center) {
             pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
             pix_coef = pix_coefi * pix_coefi;
           }
           else if (i >= _Pix_center) {
-            pix_coefi = ((((_Pix_pos - ref_pix_pos)) * 100) / _Pix_start_v) * 0.01;
+            pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
             pix_coef = pix_coefi * pix_coefi;
-            ref_pix_pos = ref_pix_pos - 2;
+            ref_Pix_pos = ref_Pix_pos - 2;
           }
           if (pix_coef > 1) pix_coef = 1;
 
           pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
           pix_coef_fond = pix_coefi_fond / 100;
-
-          pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
-        }
-        else {
+          if (isActive(s, i)) {
+            pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-
   }//_Pix_mod 110
 
 
@@ -337,21 +374,24 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
         pix_coefi = (((i - _Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
 
         pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
         pix_coef_fond = pix_coefi_fond / 100;
-
-        pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
-      }
-      else {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
-
   }//_Pix_mod 120
 
 
@@ -363,22 +403,25 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
-        pix_coefi = (((_Pix_pos - ref_pix_pos) * 100) / _Pix_start_v) * 0.01;
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
+        pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
-        ref_pix_pos--;
+        ref_Pix_pos--;
 
         pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
         pix_coef_fond = pix_coefi_fond / 100;
-
-        pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
-      }
-      else {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
-
   }//_Pix_mod 130
 
 
@@ -390,25 +433,29 @@ void do_effet() {
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
       p = i % NUM_LEDS_PER_STRIP;
-
-      if (isActive(s, i)) {
+      if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
+        if (_Pix_start <= 1) {
+          _Pix_start_v = 1;
+        } else {
+          _Pix_start_v = _Pix_start;
+        }
         if (i <= _Pix_center) {
           pix_coefi = ((((i - _Pix_pos + 1)) * 200) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
         }
         else if (i >= _Pix_center) {
-          pix_coefi = ((((_Pix_pos - ref_pix_pos)) * 100) / _Pix_start_v) * 0.01;
+          pix_coefi = ((((_Pix_pos - ref_Pix_pos)) * 100) / _Pix_start_v) * 0.01;
           pix_coef = pix_coefi * pix_coefi;
-          ref_pix_pos = ref_pix_pos - 2;
+          ref_Pix_pos = ref_Pix_pos - 2;
         }
         if (pix_coef > 1) pix_coef = 1;
 
         pix_coefi_fond = map ((pix_coef * 100), 0, 100, 100, 0);
         pix_coef_fond = pix_coefi_fond / 100;
-
-        pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
-      }
-      else {
+        if (isActive(s, i)) {
+          pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        }
+      } else {
         pix_buffer[s][p] = pix_colorB[s][p];
       }
     }//for i
