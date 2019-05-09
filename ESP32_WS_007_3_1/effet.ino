@@ -64,41 +64,50 @@ bool activeStrip[12][NUM_STRIPS] = {
 bool isActive(int strip, int i) {
 
   // check if strip is active for this "_Fx_type"
-  if (_Fx_type <= 11 && !activeStrip[_Fx_type][strip]) return false;
-  if (_Fx_type <= 11 && activeStrip[_Fx_type][strip]) return true;
+  if (_Fx_type <= 11 && !activeStrip[_Fx_type][strip]) {
+    return false;
+  }
+  if (_Fx_type <= 11 && activeStrip[_Fx_type][strip]) {
+    return true;
+  }
 
   // check if i is in range
-  if (_Fx_type == 0) return true;
+  //  if (_Fx_type == 0) return true;
   //  else if (_Fx_type <= 10) return (i >= (_Pix_pos) && i <= (_Pix_start + _Pix_pos));
   //  else if (_Fx_type == 11) return (i >= M_g[strip][0] && i <= M_g[strip][1]);
 
-  return true;
+  //  return true;
 }
 
 void do_effet() {
 
   if (_Pix_mod == 0) {
-    for (int s = 0 ; s < NUM_STRIPS ; s++)
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i))
+    for (int s = 0 ; s < NUM_STRIPS ; s++) {
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+        if (isActive(s, i)) {
           pix_buffer[s][i] = pix_colorA[s][i];
-        else
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
-
+        }
+      }// for i
+    }// for s
   }//_Pix_mod 0
 
 
-  if (_Pix_mod == 1) {
-    for (int s = 0 ; s < NUM_STRIPS ; s++)
-      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++)
-        if (isActive(s, i))
-          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos))
+if (_Pix_mod == 1) {
+    for (int s = 0 ; s < NUM_STRIPS ; s++) {
+      for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+        if (isActive(s, i)) {
+          if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
             pix_buffer[s][i] = pix_colorA[s][i];
-          else
+          } else {
             pix_buffer[s][i] = pix_colorB[s][i];
-        else
+          }
+        } else {
           pix_buffer[s][i] = pix_colorB[s][i];
-
+        }
+      }// for i
+    }// for s
   }//_Pix_mod 10
 
 
@@ -110,6 +119,9 @@ void do_effet() {
       if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
         if (isActive(s, i)) {
           pix_buffer[s][p] = pix_colorA[s][p];
+        }
+        else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -131,6 +143,8 @@ void do_effet() {
           pix_coef = pix_coefi * pix_coefi;
           if (isActive(s, i)) {
             pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          } else {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else {
           pix_buffer[s][i] = pix_colorB[s][i];
@@ -152,6 +166,8 @@ void do_effet() {
           ref_Pix_pos--;
           if (isActive(s, i)) {
             pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          } else {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else {
           pix_buffer[s][i] = pix_colorB[s][i];
@@ -182,12 +198,14 @@ void do_effet() {
           if (pix_coef > 1) pix_coef = 1;
           if (isActive(s, i)) {
             pix_buffer[s][i] = pix_colorA[s][i] * pix_coef;
+          } else  {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else  {
           pix_buffer[s][i] = pix_colorB[s][i];
         }
-      }
-    }
+      }//for i
+    }//for s
   }//_Pix_mod 50
 
 
@@ -207,6 +225,8 @@ void do_effet() {
 
         if (isActive(s, i)) {
           pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -233,6 +253,8 @@ void do_effet() {
 
         if (isActive(s, i)) {
           pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -265,6 +287,8 @@ void do_effet() {
         if (pix_coef > 1) pix_coef = 1;
         if (isActive(s, i)) {
           pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -288,6 +312,8 @@ void do_effet() {
           pix_coef_fond = pix_coefi_fond / 100;
           if (isActive(s, i)) {
             pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          } else {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else {
           pix_buffer[s][i] = pix_colorB[s][i];
@@ -312,6 +338,8 @@ void do_effet() {
           ref_Pix_pos--;
           if (isActive(s, i)) {
             pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          } else {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else {
           pix_buffer[s][i] = pix_colorB[s][i];
@@ -346,6 +374,8 @@ void do_effet() {
           pix_coef_fond = pix_coefi_fond / 100;
           if (isActive(s, i)) {
             pix_buffer[s][i] = (pix_colorA[s][i] * pix_coef) + (pix_colorB[s][i] * pix_coef_fond);
+          } else {
+            pix_buffer[s][i] = pix_colorB[s][i];
           }
         } else {
           pix_buffer[s][i] = pix_colorB[s][i];
@@ -373,6 +403,8 @@ void do_effet() {
         pix_coef_fond = pix_coefi_fond / 100;
         if (isActive(s, i)) {
           pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -401,6 +433,8 @@ void do_effet() {
         pix_coef_fond = pix_coefi_fond / 100;
         if (isActive(s, i)) {
           pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
@@ -436,6 +470,8 @@ void do_effet() {
         pix_coef_fond = pix_coefi_fond / 100;
         if (isActive(s, i)) {
           pix_buffer[s][p] = (pix_colorA[s][p] * pix_coef) + (pix_colorB[s][p] * pix_coef_fond);
+        } else {
+          pix_buffer[s][p] = pix_colorB[s][p];
         }
       } else {
         pix_buffer[s][p] = pix_colorB[s][p];
