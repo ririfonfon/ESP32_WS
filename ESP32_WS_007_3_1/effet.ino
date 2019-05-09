@@ -1,4 +1,6 @@
 void effet() {
+  //  Serial.print("_Pix_mod =  ");
+  //  Serial.println(_Pix_mod);
   if (_Fx_type == 0)
     //    do_effet_0();
     do_effet();
@@ -21,7 +23,7 @@ void effet() {
     //    do_effet_6();
     do_effet();
   else if (_Fx_type == 7)
-    //    do_effet_7();
+    //        do_effet_7();
     do_effet();
   else if (_Fx_type == 8)
     //    do_effet_8();
@@ -72,9 +74,6 @@ bool isActive(int strip, int i) {
 
   return true;
 }
-
-
-int ref_pix_pos;
 
 void do_effet() {
 
@@ -163,7 +162,7 @@ void do_effet() {
 
   if (_Pix_mod == 5) {
     for (int s = 0 ; s < NUM_STRIPS ; s++) {
-      ref_pix_pos = (_Pix_start + _Pix_pos);
+      ref_Pix_pos = (_Pix_start + _Pix_pos);
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (_Pix_start <= 1) {
@@ -217,7 +216,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 7) {
-    ref_pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);;
     int s, p = 0;
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
@@ -231,6 +230,7 @@ void do_effet() {
         pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         ref_Pix_pos--;
+
         if (isActive(s, i)) {
           pix_buffer[s][p] = pix_colorA[s][p] * pix_coef;
         }
@@ -242,7 +242,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 8) {
-    ref_pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     int s, p = 0;
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
@@ -297,7 +297,7 @@ void do_effet() {
 
   if (_Pix_mod == 10) {
     for (int s = 0 ; s < NUM_STRIPS ; s++) {
-      ref_pix_pos = (_Pix_start + _Pix_pos);
+      ref_Pix_pos = (_Pix_start + _Pix_pos);
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (_Pix_start <= 1) {
@@ -323,7 +323,7 @@ void do_effet() {
 
   if (_Pix_mod == 11) {
     for (int s = 0 ; s < NUM_STRIPS ; s++) {
-      ref_pix_pos = (_Pix_start + _Pix_pos);
+      ref_Pix_pos = (_Pix_start + _Pix_pos);
       for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
         if (i >= (_Pix_pos) && i <= _Pix_start + (_Pix_pos)) {
           if (_Pix_start <= 1) {
@@ -382,7 +382,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 13) {
-    ref_pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     int s, p = 0;
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;
@@ -410,7 +410,7 @@ void do_effet() {
 
 
   if (_Pix_mod == 14) {
-    ref_pix_pos = (_Pix_start + _Pix_pos);
+    ref_Pix_pos = (_Pix_start + _Pix_pos);
     int s, p = 0;
     for (int i = 0 ; i < numberOfLed ; i++) {
       s = i / NUM_LEDS_PER_STRIP;

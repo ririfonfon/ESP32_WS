@@ -184,7 +184,22 @@ void do_effet_0() {
         pix_coefi = (((_Pix_pos - ref_Pix_pos) * 100) / _Pix_start_v) * 0.01;
         pix_coef = pix_coefi * pix_coefi;
         ref_Pix_pos--;
-
+        Serial.print("_Pix_mod =  ");
+        Serial.println(_Pix_mod);
+        Serial.print("i =  ");
+        Serial.println(i);
+        //          Serial.print("s =  ");
+        //          Serial.println(s);
+        //          Serial.print("p =  ");
+        //          Serial.println(p);
+        Serial.print("pix_coef =  ");
+        Serial.println(pix_coef);
+        Serial.print("ref_Pix_pos =  ");
+        Serial.println(ref_Pix_pos);
+        Serial.print("_Pix_pos =  ");
+        Serial.println(_Pix_pos);
+        Serial.print("_Pix_start_v =  ");
+        Serial.println(_Pix_start_v);
         if (i <= N_L_P_S) {
           pix_buffer[0][i] = pix_colorA[0][i] * pix_coef;
         } else if (i <= N_L_P_S * 2 & i >= N_L_P_S) {
